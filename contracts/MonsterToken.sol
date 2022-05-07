@@ -7,12 +7,14 @@ import "./MonsterLib.sol";
 
 contract MonsterToken is  ERC721URIStorage {
 
+    event LevelUp(MonsterLib.Statistics, MonsterLib.Statistics);
+
     string constant imagePath = "../public/images/";
 
     event ReceiveEth(address from, uint256 amount);
 
     // Mapping owner address to ETH balance
-    mapping(address => uint256) private _deposit;
+    mapping(address => uint) private _deposit;
 
     // Mapping from token ID to approved address
     mapping(uint256 => address) private _tokenApprovals;
@@ -47,6 +49,11 @@ contract MonsterToken is  ERC721URIStorage {
 
     }
 
+    modifier _tokenExist(uint256 _tokenId){
+        require(_exists(_tokenId));
+        _;
+    }
+
     function depositOf(address owner) public view returns (uint256){
         require(owner == msg.sender);
         require(owner != address(0), "deposit query for the zero address");
@@ -60,8 +67,7 @@ contract MonsterToken is  ERC721URIStorage {
      *@dev Pay ETH to get a default monster from contract
      */
     function getInitialMonster(MonsterLib.Race race) public{
-        MonsterLib.Statistics memory initStatc = MonsterLib._calculateStatac(initialIV, 1);
-        createNewMonster(msg.sender, 0, 0, initStatc, initialIV, race);
+        _createNewMonster(msg.sender, 0, 0,initialIV, race);
 
     }
 
@@ -69,15 +75,16 @@ contract MonsterToken is  ERC721URIStorage {
      *@dev create a new monster from contract, this monter can be default monster or come from breeding
      */
 
-    function createNewMonster(address to, uint256 mumId, uint256 dadId, MonsterLib.Statistics memory statc,MonsterLib.IndividualValue memory iv, MonsterLib.Race race) internal {
+    function _createNewMonster(address to, uint256 mumId, uint256 dadId, MonsterLib.IndividualValue memory iv, MonsterLib.Race race) internal {
         uint256 _depo = depositOf(to);
         require(msg.value + _depo >= createFee);
         while(isPushing){
 
         }
         isPushing = true;
-         uint256 _monsterIndex = totalSupply() - 1;
+        uint256 _monsterIndex = totalSupply() - 1;
         uint256 _monsterId = IdCount;
+        MonsterLib.Statistics memory statc = MonsterLib._calculateStatc(iv, 1);
         MonsterLib.Monster memory monster = MonsterLib.Monster(_monsterId, mumId, dadId, statc, iv, 1, 1*10, race);
         require(MonsterLib._checkMonsterValid(monster));
         _allMonsters.push(monster);
@@ -85,7 +92,7 @@ contract MonsterToken is  ERC721URIStorage {
         isPushing = false;
         _allTokensIndex[_monsterId] = _monsterIndex;
         _safeMint(to, _monsterId);
-        string memory _monsterURI = monsterURIByRace(monster.race);
+        string memory _monsterURI = _monsterURIByRace(monster.race);
         require (bytes(_monsterURI).length != 0);
         _setTokenURI(_monsterId, _monsterURI);
     }
@@ -189,7 +196,7 @@ contract MonsterToken is  ERC721URIStorage {
         _allMonsters.pop();
     }
 
-    function monsterURIByRace(MonsterLib.Race _race) private pure returns(string memory){
+    function _monsterURIByRace(MonsterLib.Race _race) internal pure returns(string memory){
         string memory _monsterURI;
         if(_race == MonsterLib.Race.DRAGON) _monsterURI ="../public/images/dragon.png" ;
         else if(_race == MonsterLib.Race.GARGOYLE) _monsterURI ="../public/images/gargoyle.png";
@@ -203,6 +210,50 @@ contract MonsterToken is  ERC721URIStorage {
 
     }
 
+    /**
+     * Used for buyer want to check more detailed information in the market
+     */
+     function getStatics(uint256 _tokenId) public view _tokenExist(_tokenId) returns(MonsterLib.Statistics memory){
+         uint256 _tokenIndex = _allTokensIndex[_tokenId];
+        return _allMonsters[_tokenIndex].statc;
+
+     }
+
+     /**
+      * 
+      */
+    function getProductInfo(uint256 _tokenId) public view _tokenExist(_tokenId) returns(address, uint8, MonsterLib.Statistics memory, MonsterLib.Race){
+        uint256 _tokenIndex = _allTokensIndex[_tokenId];
+        MonsterLib.Monster memory monster = _allMonsters[_tokenIndex];
+        address owner = ownerOf(_tokenId);
+        return (owner, monster.level, monster.statc,monster.race);
+    }
+
+    function monsterById(uint256 _tokenId) public view _tokenExist(_tokenId) returns (MonsterLib.Monster memory){
+        uint256 _tokenIndex = _allTokensIndex[_tokenId];
+        return _allMonsters[_tokenIndex];
+    }
+
+    function _monsterByIndex(uint256 _tokenIndex) internal view returns (MonsterLib.Monster memory){
+        require(_tokenIndex < totalSupply() - 1);
+        return _allMonsters[_tokenIndex];
+    }
+
+    function _updateExp(uint256 _tokenId, uint8 exp) internal _tokenExist(_tokenId){
+        uint256 _tokenIndex = _allTokensIndex[_tokenId];
+        MonsterLib.Monster storage monster = _allMonsters[_tokenIndex];
+        if(monster.expNeedToNext > exp) monster.expNeedToNext -= exp;
+        else{
+            if(monster.level < 10){
+                monster.level += 1;
+                monster.expNeedToNext = monster.level * 10 - (exp -  monster.expNeedToNext);
+                MonsterLib.Statistics memory _oldStatc = monster.statc;
+                MonsterLib.Statistics memory _newStatc = MonsterLib._calculateStatc(monster.iv, monster.level);
+                emit LevelUp(_oldStatc, _newStatc);
+            }
+        }
+
+    }
 
 
 

@@ -30,7 +30,7 @@ library MonsterLib{
 
     enum Race {DRAGON, GHOST, GARGOYLE}
 
-    function _calculateStatac (IndividualValue memory iv, uint8 level) internal pure returns (Statistics memory ){
+    function _calculateStatc (IndividualValue memory iv, uint8 level) internal pure returns (Statistics memory ){
         Statistics memory statc;
         statc.HP = _calculateFormula(iv.HP,level) + 5 + level;
         statc.speed = _calculateFormula(iv.speed,level);
@@ -49,11 +49,11 @@ library MonsterLib{
                 && monster.statc.strength >0
                 && monster.statc.defensive > 0
                 && monster.statc.speed > 0
-                && monster.iv.HP >0
-                && monster.iv.strength >0
-                && monster.iv.defensive > 0
-                && monster.iv.speed > 0
-                && monster.level > 0
+                && monster.iv.HP  <= 31
+                && monster.iv.strength <= 31
+                && monster.iv.defensive <= 31
+                && monster.iv.speed <= 31
+                && monster.level <= 31
                 && monster.expNeedToNext != 0);
         return true; 
     
