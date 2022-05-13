@@ -21,11 +21,19 @@ contract MonsterFactory is MonsterToken{
         uint damage;
         uint speed;
     }
+
+    MonsterLib.Statistics[] private _defaultMonsters;
   
     modifier onlyOwner(uint256 _tokenId1, uint256 _tokenId2){
     require(msg.sender == ownerOf(_tokenId1));
     require(msg.sender == ownerOf(_tokenId1));
     _;
+    }
+
+    constructor() MonsterToken() {
+        _defaultMonsters.push(MonsterLib.Statistics(11,5,5,5));
+        _defaultMonsters.push(MonsterLib.Statistics(17,7,7,7));
+        _defaultMonsters.push(MonsterLib.Statistics(25,15,15,15));
     }
 
     function getChild(uint256 _mumId, uint256 _dadId) public onlyOwner(_mumId, _dadId){
@@ -69,7 +77,8 @@ contract MonsterFactory is MonsterToken{
         }
         else{
             childValue.speed = _getNewValueRandomly();
-        }        
+        }
+        return childValue;        
 
     }
     /**
@@ -112,7 +121,7 @@ contract MonsterFactory is MonsterToken{
         if( _monsterCount - ERC721.balanceOf(msg.sender) <= 5){
             uint _pickedCount = 0;
             for(uint i = 0; i < _monsterCount; i++){
-                _currentMonster = monsterByIndex(_monsterCount);
+                _currentMonster = _monsterByIndex(_monsterCount);
                 if(ownerOf(_currentMonster.tokenId) != msg.sender){
                     competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
                     _pickedCount ++;
@@ -126,7 +135,7 @@ contract MonsterFactory is MonsterToken{
             uint _foundCount = 0;
             while(_foundIndex.length < _monsterCount && competitors.length < 5){
                 _pickedIndex = _random() % _monsterCount;
-                _currentMonster = monsterByIndex(_pickedIndex);
+                _currentMonster = _monsterByIndex(_pickedIndex);
                 if(!_contain(_foundIndex, _pickedIndex)){
                     if(ownerOf(_currentMonster.tokenId) != msg.sender ){
                         competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
@@ -149,13 +158,26 @@ contract MonsterFactory is MonsterToken{
     } 
 
     function battleWithPlayer(uint256 _tokenId1, uint256 _tokenId2) public  returns(bool){
-        MonsterLib.Monster memory player1 = monsterById(_tokenId1);
-        MonsterLib.Monster memory player2 = monsterById(_tokenId2);
-        uint damage1 = (player1.statc.strength/player2.statc.defensive) + 1;
-        uint damage2 = (player2.statc.strength/player1.statc.defensive) + 1;
-        Fighter memory fighter1 = Fighter(player1.statc.HP, damage1, player1.statc.speed);
-        Fighter memory fighter2 = Fighter(player2.statc.HP, damage2, player2.statc.speed);
-        bool isFighter1Win = _simulateBattle(fighter1, fighter2);
+        MonsterLib.Monster memory _player1 = monsterById(_tokenId1);
+        MonsterLib.Monster memory _player2 = monsterById(_tokenId2);
+        uint _damage1 = (_player1.statc.strength/_player2.statc.defensive) + 1;
+        uint _damage2 = (_player2.statc.strength/_player1.statc.defensive) + 1;
+        Fighter memory _fighter1 = Fighter(_player1.statc.HP, _damage1, _player1.statc.speed);
+        Fighter memory _fighter2 = Fighter(_player2.statc.HP, _damage2, _player2.statc.speed);
+        bool isFighter1Win = _simulateBattle(_fighter1, _fighter2);
+        emit Fighter1Win(isFighter1Win);
+        return isFighter1Win;
+    }
+
+    function battleWithDefaultMonster(uint256 _tokenId, uint256 _defaultMonsterId) public returns(bool){
+        require(_defaultMonsterId < _defaultMonsters.length);
+        MonsterLib.Monster memory _player1 = monsterById(_tokenId);
+        MonsterLib.Statistics memory _default = _defaultMonsters[_defaultMonsterId];
+        uint _damage1 = (_player1.statc.strength/_default.defensive) + 1;
+        uint _damage2 = (_default.strength/_player1.statc.defensive) + 1;
+        Fighter memory _fighter1 = Fighter(_player1.statc.HP, _damage1, _player1.statc.speed);
+        Fighter memory _fighter2 = Fighter(_default.HP, _damage2, _default.speed);
+        bool isFighter1Win = _simulateBattle(_fighter1, _fighter2);
         emit Fighter1Win(isFighter1Win);
         return isFighter1Win;
     }

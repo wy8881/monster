@@ -8,11 +8,14 @@ import "./MonsterLib.sol";
 contract MonsterToken is  ERC721URIStorage {
 
     event LevelUp(MonsterLib.Statistics, MonsterLib.Statistics);
+    event TransferMoney(address, address, uint);
 
     string constant imagePath = "../public/images/";
 
     event ReceiveEth(address from, uint256 amount);
 
+    //Mapping monster Id to a boolean 
+    mapping(uint => bool) private _readyToSell;
     // Mapping owner address to ETH balance
     mapping(address => uint) private _deposit;
 
@@ -43,7 +46,7 @@ contract MonsterToken is  ERC721URIStorage {
 
     MonsterLib.IndividualValue initialIV = MonsterLib.IndividualValue(5,5,5,5);
 
-    constructor() ERC721("Monster Token", "MONSTER") public{
+    constructor() ERC721("Monster Token", "MONSTER") {
         IdCount = 1;
         isPushing = false;
 
@@ -55,7 +58,7 @@ contract MonsterToken is  ERC721URIStorage {
     }
 
     function depositOf(address owner) public view returns (uint256){
-        require(owner == msg.sender);
+        require(owner == tx.origin);
         require(owner != address(0), "deposit query for the zero address");
         return _deposit[owner];
     }
@@ -255,6 +258,24 @@ contract MonsterToken is  ERC721URIStorage {
 
     }
 
+    function transferMoney(address _from, address _to, uint _value) external {
+        require(tx.origin == _from);
+        require(_to != address(0) && _from != address(0));
+        _deposit[_from] -= _value;
+        _deposit[_to] += _value;
+        emit TransferMoney(_from, _to, _value);
+    }
+
+    function transferFrom(address _from, address _to,uint _tokenId) public override{
+        require(ownerOf(_tokenId) == _from);
+        require (_readyToSell[_tokenId] && tx.origin == _to);
+        _transfer(_from, _to, _tokenId);
+    }
+
+    function setReadyToSell(uint _tokenId, bool _ready) public {
+        require(tx.origin == ownerOf(_tokenId));
+        _readyToSell[_tokenId] = _ready;
+    }
 
 
 
