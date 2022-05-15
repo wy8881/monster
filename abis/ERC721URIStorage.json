@@ -346,6 +346,7 @@
     "absolutePath": "project:/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
     "exportedSymbols": {
       "Address": [
+<<<<<<< Updated upstream
         4289
       ],
       "Context": [
@@ -377,11 +378,48 @@
       ]
     },
     "id": 3937,
+=======
+        4090
+      ],
+      "Context": [
+        4112
+      ],
+      "ERC165": [
+        4339
+      ],
+      "ERC721": [
+        3137
+      ],
+      "ERC721URIStorage": [
+        3737
+      ],
+      "IERC165": [
+        4351
+      ],
+      "IERC721": [
+        3253
+      ],
+      "IERC721Metadata": [
+        3795
+      ],
+      "IERC721Receiver": [
+        3271
+      ],
+      "Strings": [
+        4315
+      ]
+    },
+    "id": 3738,
+>>>>>>> Stashed changes
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
+<<<<<<< Updated upstream
         "id": 3810,
+=======
+        "id": 3611,
+>>>>>>> Stashed changes
         "literals": [
           "solidity",
           "^",
@@ -389,17 +427,26 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "113:23:10"
+        "src": "113:23:22"
       },
       {
         "absolutePath": "project:/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol",
         "file": "../ERC721.sol",
+<<<<<<< Updated upstream
         "id": 3811,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3937,
         "sourceUnit": 3337,
         "src": "138:23:10",
+=======
+        "id": 3612,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 3738,
+        "sourceUnit": 3138,
+        "src": "138:23:22",
+>>>>>>> Stashed changes
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -408,6 +455,7 @@
         "baseContracts": [
           {
             "baseName": {
+<<<<<<< Updated upstream
               "id": 3813,
               "name": "ERC721",
               "nodeType": "IdentifierPath",
@@ -415,20 +463,34 @@
               "src": "271:6:10"
             },
             "id": 3814,
+=======
+              "id": 3614,
+              "name": "ERC721",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3137,
+              "src": "271:6:22"
+            },
+            "id": 3615,
+>>>>>>> Stashed changes
             "nodeType": "InheritanceSpecifier",
-            "src": "271:6:10"
+            "src": "271:6:22"
           }
         ],
         "canonicalName": "ERC721URIStorage",
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
+<<<<<<< Updated upstream
           "id": 3812,
+=======
+          "id": 3613,
+>>>>>>> Stashed changes
           "nodeType": "StructuredDocumentation",
-          "src": "163:69:10",
+          "src": "163:69:22",
           "text": " @dev ERC721 token with storage based token URI management."
         },
         "fullyImplemented": false,
+<<<<<<< Updated upstream
         "id": 3936,
         "linearizedBaseContracts": [
           3936,
@@ -438,12 +500,24 @@
           4538,
           4550,
           4311
+=======
+        "id": 3737,
+        "linearizedBaseContracts": [
+          3737,
+          3137,
+          3795,
+          3253,
+          4339,
+          4351,
+          4112
+>>>>>>> Stashed changes
         ],
         "name": "ERC721URIStorage",
-        "nameLocation": "251:16:10",
+        "nameLocation": "251:16:22",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+<<<<<<< Updated upstream
             "id": 3817,
             "libraryName": {
               "id": 3815,
@@ -451,14 +525,27 @@
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 4514,
               "src": "290:7:10"
+=======
+            "id": 3618,
+            "libraryName": {
+              "id": 3616,
+              "name": "Strings",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4315,
+              "src": "290:7:22"
+>>>>>>> Stashed changes
             },
             "nodeType": "UsingForDirective",
-            "src": "284:26:10",
+            "src": "284:26:22",
             "typeName": {
+<<<<<<< Updated upstream
               "id": 3816,
+=======
+              "id": 3617,
+>>>>>>> Stashed changes
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "302:7:10",
+              "src": "302:7:22",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -467,13 +554,22 @@
           },
           {
             "constant": false,
+<<<<<<< Updated upstream
             "id": 3821,
+=======
+            "id": 3622,
+>>>>>>> Stashed changes
             "mutability": "mutable",
             "name": "_tokenURIs",
-            "nameLocation": "390:10:10",
+            "nameLocation": "390:10:22",
             "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
             "scope": 3936,
             "src": "355:45:10",
+=======
+            "scope": 3737,
+            "src": "355:45:22",
+>>>>>>> Stashed changes
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -481,28 +577,38 @@
               "typeString": "mapping(uint256 => string)"
             },
             "typeName": {
+<<<<<<< Updated upstream
               "id": 3820,
               "keyType": {
                 "id": 3818,
+=======
+              "id": 3621,
+              "keyType": {
+                "id": 3619,
+>>>>>>> Stashed changes
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "363:7:10",
+                "src": "363:7:22",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "355:26:10",
+              "src": "355:26:22",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
                 "typeString": "mapping(uint256 => string)"
               },
               "valueType": {
+<<<<<<< Updated upstream
                 "id": 3819,
+=======
+                "id": 3620,
+>>>>>>> Stashed changes
                 "name": "string",
                 "nodeType": "ElementaryTypeName",
-                "src": "374:6:10",
+                "src": "374:6:22",
                 "typeDescriptions": {
                   "typeIdentifier": "t_string_storage_ptr",
                   "typeString": "string"
@@ -513,12 +619,19 @@
           },
           {
             "baseFunctions": [
+<<<<<<< Updated upstream
               2678
             ],
             "body": {
               "id": 3882,
+=======
+              2479
+            ],
+            "body": {
+              "id": 3683,
+>>>>>>> Stashed changes
               "nodeType": "Block",
-              "src": "555:575:10",
+              "src": "555:575:22",
               "statements": [
                 {
                   "expression": {
@@ -526,12 +639,21 @@
                       {
                         "arguments": [
                           {
+<<<<<<< Updated upstream
                             "id": 3832,
                             "name": "tokenId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 3824,
                             "src": "581:7:10",
+=======
+                            "id": 3633,
+                            "name": "tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3625,
+                            "src": "581:7:22",
+>>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -545,18 +667,31 @@
                               "typeString": "uint256"
                             }
                           ],
+<<<<<<< Updated upstream
                           "id": 3831,
                           "name": "_exists",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 2909,
                           "src": "573:7:10",
+=======
+                          "id": 3632,
+                          "name": "_exists",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2710,
+                          "src": "573:7:22",
+>>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_bool_$",
                             "typeString": "function (uint256) view returns (bool)"
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3833,
+=======
+                        "id": 3634,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -564,7 +699,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "573:16:10",
+                        "src": "573:16:22",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -573,14 +708,18 @@
                       },
                       {
                         "hexValue": "45524337323155524953746f726167653a2055524920717565727920666f72206e6f6e6578697374656e7420746f6b656e",
+<<<<<<< Updated upstream
                         "id": 3834,
+=======
+                        "id": 3635,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "591:51:10",
+                        "src": "591:51:22",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_8e9ed1638ba7e2d59e03d0957c9339381732ac84d73f65c86c45db1467eafa2a",
                           "typeString": "literal_string \"ERC721URIStorage: URI query for nonexistent token\""
@@ -599,7 +738,11 @@
                           "typeString": "literal_string \"ERC721URIStorage: URI query for nonexistent token\""
                         }
                       ],
+<<<<<<< Updated upstream
                       "id": 3830,
+=======
+                      "id": 3631,
+>>>>>>> Stashed changes
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -607,13 +750,17 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "565:7:10",
+                      "src": "565:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3835,
+=======
+                    "id": 3636,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -621,31 +768,48 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "565:78:10",
+                    "src": "565:78:22",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3836,
+=======
+                  "id": 3637,
+>>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
-                  "src": "565:78:10"
+                  "src": "565:78:22"
                 },
                 {
                   "assignments": [
+<<<<<<< Updated upstream
                     3838
+=======
+                    3639
+>>>>>>> Stashed changes
                   ],
                   "declarations": [
                     {
                       "constant": false,
+<<<<<<< Updated upstream
                       "id": 3838,
+=======
+                      "id": 3639,
+>>>>>>> Stashed changes
                       "mutability": "mutable",
                       "name": "_tokenURI",
-                      "nameLocation": "668:9:10",
+                      "nameLocation": "668:9:22",
                       "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                       "scope": 3882,
                       "src": "654:23:10",
+=======
+                      "scope": 3683,
+                      "src": "654:23:22",
+>>>>>>> Stashed changes
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
@@ -653,10 +817,14 @@
                         "typeString": "string"
                       },
                       "typeName": {
+<<<<<<< Updated upstream
                         "id": 3837,
+=======
+                        "id": 3638,
+>>>>>>> Stashed changes
                         "name": "string",
                         "nodeType": "ElementaryTypeName",
-                        "src": "654:6:10",
+                        "src": "654:6:22",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage_ptr",
                           "typeString": "string"
@@ -665,6 +833,7 @@
                       "visibility": "internal"
                     }
                   ],
+<<<<<<< Updated upstream
                   "id": 3842,
                   "initialValue": {
                     "baseExpression": {
@@ -674,11 +843,23 @@
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3821,
                       "src": "680:10:10",
+=======
+                  "id": 3643,
+                  "initialValue": {
+                    "baseExpression": {
+                      "id": 3640,
+                      "name": "_tokenURIs",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3622,
+                      "src": "680:10:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
                         "typeString": "mapping(uint256 => string storage ref)"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3841,
                     "indexExpression": {
                       "id": 3840,
@@ -687,6 +868,16 @@
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3824,
                       "src": "691:7:10",
+=======
+                    "id": 3642,
+                    "indexExpression": {
+                      "id": 3641,
+                      "name": "tokenId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3625,
+                      "src": "691:7:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -697,29 +888,42 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "680:19:10",
+                    "src": "680:19:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "654:45:10"
+                  "src": "654:45:22"
                 },
                 {
                   "assignments": [
+<<<<<<< Updated upstream
                     3844
+=======
+                    3645
+>>>>>>> Stashed changes
                   ],
                   "declarations": [
                     {
                       "constant": false,
+<<<<<<< Updated upstream
                       "id": 3844,
+=======
+                      "id": 3645,
+>>>>>>> Stashed changes
                       "mutability": "mutable",
                       "name": "base",
-                      "nameLocation": "723:4:10",
+                      "nameLocation": "723:4:22",
                       "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                       "scope": 3882,
                       "src": "709:18:10",
+=======
+                      "scope": 3683,
+                      "src": "709:18:22",
+>>>>>>> Stashed changes
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
@@ -727,10 +931,14 @@
                         "typeString": "string"
                       },
                       "typeName": {
+<<<<<<< Updated upstream
                         "id": 3843,
+=======
+                        "id": 3644,
+>>>>>>> Stashed changes
                         "name": "string",
                         "nodeType": "ElementaryTypeName",
-                        "src": "709:6:10",
+                        "src": "709:6:22",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage_ptr",
                           "typeString": "string"
@@ -739,23 +947,40 @@
                       "visibility": "internal"
                     }
                   ],
+<<<<<<< Updated upstream
                   "id": 3847,
+=======
+                  "id": 3648,
+>>>>>>> Stashed changes
                   "initialValue": {
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
+<<<<<<< Updated upstream
                       "id": 3845,
                       "name": "_baseURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 2687,
                       "src": "730:8:10",
+=======
+                      "id": 3646,
+                      "name": "_baseURI",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2488,
+                      "src": "730:8:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$__$returns$_t_string_memory_ptr_$",
                         "typeString": "function () view returns (string memory)"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3846,
+=======
+                    "id": 3647,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -763,7 +988,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "730:10:10",
+                    "src": "730:10:22",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -771,7 +996,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "709:31:10"
+                  "src": "709:31:22"
                 },
                 {
                   "condition": {
@@ -779,7 +1004,11 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
+<<<<<<< Updated upstream
                     "id": 3854,
+=======
+                    "id": 3655,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -788,12 +1017,21 @@
                       "expression": {
                         "arguments": [
                           {
+<<<<<<< Updated upstream
                             "id": 3850,
                             "name": "base",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 3844,
                             "src": "819:4:10",
+=======
+                            "id": 3651,
+                            "name": "base",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3645,
+                            "src": "819:4:22",
+>>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -807,26 +1045,38 @@
                               "typeString": "string memory"
                             }
                           ],
+<<<<<<< Updated upstream
                           "id": 3849,
+=======
+                          "id": 3650,
+>>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "813:5:10",
+                          "src": "813:5:22",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
                             "typeString": "type(bytes storage pointer)"
                           },
                           "typeName": {
+<<<<<<< Updated upstream
                             "id": 3848,
+=======
+                            "id": 3649,
+>>>>>>> Stashed changes
                             "name": "bytes",
                             "nodeType": "ElementaryTypeName",
-                            "src": "813:5:10",
+                            "src": "813:5:22",
                             "typeDescriptions": {}
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3851,
+=======
+                        "id": 3652,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -834,21 +1084,25 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "813:11:10",
+                        "src": "813:11:22",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
                         }
                       },
+<<<<<<< Updated upstream
                       "id": 3852,
+=======
+                      "id": 3653,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "813:18:10",
+                      "src": "813:18:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -858,51 +1112,77 @@
                     "operator": "==",
                     "rightExpression": {
                       "hexValue": "30",
+<<<<<<< Updated upstream
                       "id": 3853,
+=======
+                      "id": 3654,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "835:1:10",
+                      "src": "835:1:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "813:23:10",
+                    "src": "813:23:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3858,
+=======
+                  "id": 3659,
+>>>>>>> Stashed changes
                   "nodeType": "IfStatement",
-                  "src": "809:70:10",
+                  "src": "809:70:22",
                   "trueBody": {
+<<<<<<< Updated upstream
                     "id": 3857,
+=======
+                    "id": 3658,
+>>>>>>> Stashed changes
                     "nodeType": "Block",
-                    "src": "838:41:10",
+                    "src": "838:41:22",
                     "statements": [
                       {
                         "expression": {
+<<<<<<< Updated upstream
                           "id": 3855,
                           "name": "_tokenURI",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 3838,
                           "src": "859:9:10",
+=======
+                          "id": 3656,
+                          "name": "_tokenURI",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3639,
+                          "src": "859:9:22",
+>>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
                           }
                         },
+<<<<<<< Updated upstream
                         "functionReturnParameters": 3829,
                         "id": 3856,
+=======
+                        "functionReturnParameters": 3630,
+                        "id": 3657,
+>>>>>>> Stashed changes
                         "nodeType": "Return",
-                        "src": "852:16:10"
+                        "src": "852:16:22"
                       }
                     ]
                   }
@@ -913,7 +1193,11 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
+<<<<<<< Updated upstream
                     "id": 3865,
+=======
+                    "id": 3666,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -922,12 +1206,21 @@
                       "expression": {
                         "arguments": [
                           {
+<<<<<<< Updated upstream
                             "id": 3861,
                             "name": "_tokenURI",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 3838,
                             "src": "987:9:10",
+=======
+                            "id": 3662,
+                            "name": "_tokenURI",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3639,
+                            "src": "987:9:22",
+>>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
                               "typeString": "string memory"
@@ -941,26 +1234,38 @@
                               "typeString": "string memory"
                             }
                           ],
+<<<<<<< Updated upstream
                           "id": 3860,
+=======
+                          "id": 3661,
+>>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "981:5:10",
+                          "src": "981:5:22",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
                             "typeString": "type(bytes storage pointer)"
                           },
                           "typeName": {
+<<<<<<< Updated upstream
                             "id": 3859,
+=======
+                            "id": 3660,
+>>>>>>> Stashed changes
                             "name": "bytes",
                             "nodeType": "ElementaryTypeName",
-                            "src": "981:5:10",
+                            "src": "981:5:22",
                             "typeDescriptions": {}
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3862,
+=======
+                        "id": 3663,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -968,21 +1273,25 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "981:16:10",
+                        "src": "981:16:22",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
                         }
                       },
+<<<<<<< Updated upstream
                       "id": 3863,
+=======
+                      "id": 3664,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "981:23:10",
+                      "src": "981:23:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -992,33 +1301,45 @@
                     "operator": ">",
                     "rightExpression": {
                       "hexValue": "30",
+<<<<<<< Updated upstream
                       "id": 3864,
+=======
+                      "id": 3665,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1007:1:10",
+                      "src": "1007:1:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "981:27:10",
+                    "src": "981:27:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3876,
+=======
+                  "id": 3677,
+>>>>>>> Stashed changes
                   "nodeType": "IfStatement",
-                  "src": "977:106:10",
+                  "src": "977:106:22",
                   "trueBody": {
+<<<<<<< Updated upstream
                     "id": 3875,
+=======
+                    "id": 3676,
+>>>>>>> Stashed changes
                     "nodeType": "Block",
-                    "src": "1010:73:10",
+                    "src": "1010:73:22",
                     "statements": [
                       {
                         "expression": {
@@ -1026,24 +1347,42 @@
                             {
                               "arguments": [
                                 {
+<<<<<<< Updated upstream
                                   "id": 3870,
                                   "name": "base",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 3844,
                                   "src": "1055:4:10",
+=======
+                                  "id": 3671,
+                                  "name": "base",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3645,
+                                  "src": "1055:4:22",
+>>>>>>> Stashed changes
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_string_memory_ptr",
                                     "typeString": "string memory"
                                   }
                                 },
                                 {
+<<<<<<< Updated upstream
                                   "id": 3871,
                                   "name": "_tokenURI",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 3838,
                                   "src": "1061:9:10",
+=======
+                                  "id": 3672,
+                                  "name": "_tokenURI",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3639,
+                                  "src": "1061:9:22",
+>>>>>>> Stashed changes
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_string_memory_ptr",
                                     "typeString": "string memory"
@@ -1062,31 +1401,43 @@
                                   }
                                 ],
                                 "expression": {
+<<<<<<< Updated upstream
                                   "id": 3868,
+=======
+                                  "id": 3669,
+>>>>>>> Stashed changes
                                   "name": "abi",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 4294967295,
-                                  "src": "1038:3:10",
+                                  "src": "1038:3:22",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_abi",
                                     "typeString": "abi"
                                   }
                                 },
+<<<<<<< Updated upstream
                                 "id": 3869,
+=======
+                                "id": 3670,
+>>>>>>> Stashed changes
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "lValueRequested": false,
                                 "memberName": "encodePacked",
                                 "nodeType": "MemberAccess",
-                                "src": "1038:16:10",
+                                "src": "1038:16:22",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                                   "typeString": "function () pure returns (bytes memory)"
                                 }
                               },
+<<<<<<< Updated upstream
                               "id": 3872,
+=======
+                              "id": 3673,
+>>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1094,7 +1445,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "1038:33:10",
+                              "src": "1038:33:22",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes_memory_ptr",
@@ -1109,26 +1460,38 @@
                                 "typeString": "bytes memory"
                               }
                             ],
+<<<<<<< Updated upstream
                             "id": 3867,
+=======
+                            "id": 3668,
+>>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1031:6:10",
+                            "src": "1031:6:22",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_string_storage_ptr_$",
                               "typeString": "type(string storage pointer)"
                             },
                             "typeName": {
+<<<<<<< Updated upstream
                               "id": 3866,
+=======
+                              "id": 3667,
+>>>>>>> Stashed changes
                               "name": "string",
                               "nodeType": "ElementaryTypeName",
-                              "src": "1031:6:10",
+                              "src": "1031:6:22",
                               "typeDescriptions": {}
                             }
                           },
+<<<<<<< Updated upstream
                           "id": 3873,
+=======
+                          "id": 3674,
+>>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1136,17 +1499,22 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1031:41:10",
+                          "src": "1031:41:22",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
                           }
                         },
+<<<<<<< Updated upstream
                         "functionReturnParameters": 3829,
                         "id": 3874,
+=======
+                        "functionReturnParameters": 3630,
+                        "id": 3675,
+>>>>>>> Stashed changes
                         "nodeType": "Return",
-                        "src": "1024:48:10"
+                        "src": "1024:48:22"
                       }
                     ]
                   }
@@ -1155,12 +1523,21 @@
                   "expression": {
                     "arguments": [
                       {
+<<<<<<< Updated upstream
                         "id": 3879,
                         "name": "tokenId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3824,
                         "src": "1115:7:10",
+=======
+                        "id": 3680,
+                        "name": "tokenId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3625,
+                        "src": "1115:7:22",
+>>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1175,32 +1552,53 @@
                         }
                       ],
                       "expression": {
+<<<<<<< Updated upstream
                         "id": 3877,
+=======
+                        "id": 3678,
+>>>>>>> Stashed changes
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 4294967271,
-                        "src": "1100:5:10",
+                        "src": "1100:5:22",
                         "typeDescriptions": {
+<<<<<<< Updated upstream
                           "typeIdentifier": "t_type$_t_super$_ERC721URIStorage_$3936_$",
                           "typeString": "type(contract super ERC721URIStorage)"
                         }
                       },
                       "id": 3878,
+=======
+                          "typeIdentifier": "t_type$_t_super$_ERC721URIStorage_$3737_$",
+                          "typeString": "type(contract super ERC721URIStorage)"
+                        }
+                      },
+                      "id": 3679,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "tokenURI",
                       "nodeType": "MemberAccess",
+<<<<<<< Updated upstream
                       "referencedDeclaration": 2678,
                       "src": "1100:14:10",
+=======
+                      "referencedDeclaration": 2479,
+                      "src": "1100:14:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_string_memory_ptr_$",
                         "typeString": "function (uint256) view returns (string memory)"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3880,
+=======
+                    "id": 3681,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1208,53 +1606,83 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1100:23:10",
+                    "src": "1100:23:22",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
                       "typeString": "string memory"
                     }
                   },
+<<<<<<< Updated upstream
                   "functionReturnParameters": 3829,
                   "id": 3881,
+=======
+                  "functionReturnParameters": 3630,
+                  "id": 3682,
+>>>>>>> Stashed changes
                   "nodeType": "Return",
-                  "src": "1093:30:10"
+                  "src": "1093:30:22"
                 }
               ]
             },
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3822,
+=======
+              "id": 3623,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "407:55:10",
+              "src": "407:55:22",
               "text": " @dev See {IERC721Metadata-tokenURI}."
             },
             "functionSelector": "c87b56dd",
+<<<<<<< Updated upstream
             "id": 3883,
+=======
+            "id": 3684,
+>>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "tokenURI",
-            "nameLocation": "476:8:10",
+            "nameLocation": "476:8:22",
             "nodeType": "FunctionDefinition",
             "overrides": {
+<<<<<<< Updated upstream
               "id": 3826,
+=======
+              "id": 3627,
+>>>>>>> Stashed changes
               "nodeType": "OverrideSpecifier",
               "overrides": [],
-              "src": "522:8:10"
+              "src": "522:8:22"
             },
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3825,
+=======
+              "id": 3626,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3824,
+=======
+                  "id": 3625,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "493:7:10",
+                  "nameLocation": "493:7:22",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3883,
                   "src": "485:15:10",
+=======
+                  "scope": 3684,
+                  "src": "485:15:22",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1262,10 +1690,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3823,
+=======
+                    "id": 3624,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "485:7:10",
+                    "src": "485:7:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1274,21 +1706,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "484:17:10"
+              "src": "484:17:22"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3829,
+=======
+              "id": 3630,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3828,
+=======
+                  "id": 3629,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3883,
                   "src": "540:13:10",
+=======
+                  "scope": 3684,
+                  "src": "540:13:22",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1296,10 +1741,14 @@
                     "typeString": "string"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3827,
+=======
+                    "id": 3628,
+>>>>>>> Stashed changes
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "540:6:10",
+                    "src": "540:6:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1308,19 +1757,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "539:15:10"
+              "src": "539:15:22"
             },
+<<<<<<< Updated upstream
             "scope": 3936,
             "src": "467:663:10",
+=======
+            "scope": 3737,
+            "src": "467:663:22",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": true,
             "visibility": "public"
           },
           {
             "body": {
+<<<<<<< Updated upstream
               "id": 3904,
+=======
+              "id": 3705,
+>>>>>>> Stashed changes
               "nodeType": "Block",
-              "src": "1358:133:10",
+              "src": "1358:133:22",
               "statements": [
                 {
                   "expression": {
@@ -1328,12 +1786,21 @@
                       {
                         "arguments": [
                           {
+<<<<<<< Updated upstream
                             "id": 3893,
                             "name": "tokenId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 3886,
                             "src": "1384:7:10",
+=======
+                            "id": 3694,
+                            "name": "tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3687,
+                            "src": "1384:7:22",
+>>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -1347,18 +1814,31 @@
                               "typeString": "uint256"
                             }
                           ],
+<<<<<<< Updated upstream
                           "id": 3892,
                           "name": "_exists",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 2909,
                           "src": "1376:7:10",
+=======
+                          "id": 3693,
+                          "name": "_exists",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2710,
+                          "src": "1376:7:22",
+>>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_bool_$",
                             "typeString": "function (uint256) view returns (bool)"
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3894,
+=======
+                        "id": 3695,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1366,7 +1846,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1376:16:10",
+                        "src": "1376:16:22",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -1375,14 +1855,18 @@
                       },
                       {
                         "hexValue": "45524337323155524953746f726167653a2055524920736574206f66206e6f6e6578697374656e7420746f6b656e",
+<<<<<<< Updated upstream
                         "id": 3895,
+=======
+                        "id": 3696,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1394:48:10",
+                        "src": "1394:48:22",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_7521de1f20ce4d7bb86b61090bad73a87315a1f4baff36cc352901c7777280c4",
                           "typeString": "literal_string \"ERC721URIStorage: URI set of nonexistent token\""
@@ -1401,7 +1885,11 @@
                           "typeString": "literal_string \"ERC721URIStorage: URI set of nonexistent token\""
                         }
                       ],
+<<<<<<< Updated upstream
                       "id": 3891,
+=======
+                      "id": 3692,
+>>>>>>> Stashed changes
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1409,13 +1897,17 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "1368:7:10",
+                      "src": "1368:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3896,
+=======
+                    "id": 3697,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1423,37 +1915,55 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1368:75:10",
+                    "src": "1368:75:22",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3897,
+=======
+                  "id": 3698,
+>>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
-                  "src": "1368:75:10"
+                  "src": "1368:75:22"
                 },
                 {
                   "expression": {
+<<<<<<< Updated upstream
                     "id": 3902,
+=======
+                    "id": 3703,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
+<<<<<<< Updated upstream
                         "id": 3898,
                         "name": "_tokenURIs",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3821,
                         "src": "1453:10:10",
+=======
+                        "id": 3699,
+                        "name": "_tokenURIs",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3622,
+                        "src": "1453:10:22",
+>>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
                           "typeString": "mapping(uint256 => string storage ref)"
                         }
                       },
+<<<<<<< Updated upstream
                       "id": 3900,
                       "indexExpression": {
                         "id": 3899,
@@ -1462,6 +1972,16 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3886,
                         "src": "1464:7:10",
+=======
+                      "id": 3701,
+                      "indexExpression": {
+                        "id": 3700,
+                        "name": "tokenId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3687,
+                        "src": "1464:7:22",
+>>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1472,7 +1992,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "1453:19:10",
+                      "src": "1453:19:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -1481,55 +2001,89 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
+<<<<<<< Updated upstream
                       "id": 3901,
                       "name": "_tokenURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3888,
                       "src": "1475:9:10",
+=======
+                      "id": 3702,
+                      "name": "_tokenURI",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3689,
+                      "src": "1475:9:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "1453:31:10",
+                    "src": "1453:31:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3903,
+=======
+                  "id": 3704,
+>>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
-                  "src": "1453:31:10"
+                  "src": "1453:31:22"
                 }
               ]
             },
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3884,
+=======
+              "id": 3685,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "1136:136:10",
+              "src": "1136:136:22",
               "text": " @dev Sets `_tokenURI` as the tokenURI of `tokenId`.\n Requirements:\n - `tokenId` must exist."
             },
+<<<<<<< Updated upstream
             "id": 3905,
+=======
+            "id": 3706,
+>>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_setTokenURI",
-            "nameLocation": "1286:12:10",
+            "nameLocation": "1286:12:22",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3889,
+=======
+              "id": 3690,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3886,
+=======
+                  "id": 3687,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1307:7:10",
+                  "nameLocation": "1307:7:22",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3905,
                   "src": "1299:15:10",
+=======
+                  "scope": 3706,
+                  "src": "1299:15:22",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1537,10 +2091,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3885,
+=======
+                    "id": 3686,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1299:7:10",
+                    "src": "1299:7:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1550,13 +2108,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3888,
+=======
+                  "id": 3689,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "_tokenURI",
-                  "nameLocation": "1330:9:10",
+                  "nameLocation": "1330:9:22",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3905,
                   "src": "1316:23:10",
+=======
+                  "scope": 3706,
+                  "src": "1316:23:22",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1564,10 +2131,14 @@
                     "typeString": "string"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3887,
+=======
+                    "id": 3688,
+>>>>>>> Stashed changes
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1316:6:10",
+                    "src": "1316:6:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1576,39 +2147,64 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1298:42:10"
+              "src": "1298:42:22"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3890,
+=======
+              "id": 3691,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1358:0:10"
+              "src": "1358:0:22"
             },
+<<<<<<< Updated upstream
             "scope": 3936,
             "src": "1277:214:10",
+=======
+            "scope": 3737,
+            "src": "1277:214:22",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "internal"
           },
           {
             "baseFunctions": [
+<<<<<<< Updated upstream
               3120
             ],
             "body": {
               "id": 3934,
+=======
+              2921
+            ],
+            "body": {
+              "id": 3735,
+>>>>>>> Stashed changes
               "nodeType": "Block",
-              "src": "1766:142:10",
+              "src": "1766:142:22",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
+<<<<<<< Updated upstream
                         "id": 3915,
                         "name": "tokenId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 3908,
                         "src": "1788:7:10",
+=======
+                        "id": 3716,
+                        "name": "tokenId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3709,
+                        "src": "1788:7:22",
+>>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1623,32 +2219,53 @@
                         }
                       ],
                       "expression": {
+<<<<<<< Updated upstream
                         "id": 3912,
+=======
+                        "id": 3713,
+>>>>>>> Stashed changes
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 4294967271,
-                        "src": "1776:5:10",
+                        "src": "1776:5:22",
                         "typeDescriptions": {
+<<<<<<< Updated upstream
                           "typeIdentifier": "t_type$_t_super$_ERC721URIStorage_$3936_$",
                           "typeString": "type(contract super ERC721URIStorage)"
                         }
                       },
                       "id": 3914,
+=======
+                          "typeIdentifier": "t_type$_t_super$_ERC721URIStorage_$3737_$",
+                          "typeString": "type(contract super ERC721URIStorage)"
+                        }
+                      },
+                      "id": 3715,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "_burn",
                       "nodeType": "MemberAccess",
+<<<<<<< Updated upstream
                       "referencedDeclaration": 3120,
                       "src": "1776:11:10",
+=======
+                      "referencedDeclaration": 2921,
+                      "src": "1776:11:22",
+>>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 3916,
+=======
+                    "id": 3717,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1656,16 +2273,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1776:20:10",
+                    "src": "1776:20:22",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3917,
+=======
+                  "id": 3718,
+>>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
-                  "src": "1776:20:10"
+                  "src": "1776:20:22"
                 },
                 {
                   "condition": {
@@ -1673,7 +2294,11 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
+<<<<<<< Updated upstream
                     "id": 3926,
+=======
+                    "id": 3727,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1683,17 +2308,27 @@
                         "arguments": [
                           {
                             "baseExpression": {
+<<<<<<< Updated upstream
                               "id": 3920,
                               "name": "_tokenURIs",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 3821,
                               "src": "1817:10:10",
+=======
+                              "id": 3721,
+                              "name": "_tokenURIs",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3622,
+                              "src": "1817:10:22",
+>>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
                                 "typeString": "mapping(uint256 => string storage ref)"
                               }
                             },
+<<<<<<< Updated upstream
                             "id": 3922,
                             "indexExpression": {
                               "id": 3921,
@@ -1702,6 +2337,16 @@
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 3908,
                               "src": "1828:7:10",
+=======
+                            "id": 3723,
+                            "indexExpression": {
+                              "id": 3722,
+                              "name": "tokenId",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3709,
+                              "src": "1828:7:22",
+>>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1712,7 +2357,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "1817:19:10",
+                            "src": "1817:19:22",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_storage",
                               "typeString": "string storage ref"
@@ -1726,26 +2371,38 @@
                               "typeString": "string storage ref"
                             }
                           ],
+<<<<<<< Updated upstream
                           "id": 3919,
+=======
+                          "id": 3720,
+>>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1811:5:10",
+                          "src": "1811:5:22",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
                             "typeString": "type(bytes storage pointer)"
                           },
                           "typeName": {
+<<<<<<< Updated upstream
                             "id": 3918,
+=======
+                            "id": 3719,
+>>>>>>> Stashed changes
                             "name": "bytes",
                             "nodeType": "ElementaryTypeName",
-                            "src": "1811:5:10",
+                            "src": "1811:5:22",
                             "typeDescriptions": {}
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3923,
+=======
+                        "id": 3724,
+>>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1753,21 +2410,25 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1811:26:10",
+                        "src": "1811:26:22",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_storage_ptr",
                           "typeString": "bytes storage pointer"
                         }
                       },
+<<<<<<< Updated upstream
                       "id": 3924,
+=======
+                      "id": 3725,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "1811:33:10",
+                      "src": "1811:33:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1777,37 +2438,53 @@
                     "operator": "!=",
                     "rightExpression": {
                       "hexValue": "30",
+<<<<<<< Updated upstream
                       "id": 3925,
+=======
+                      "id": 3726,
+>>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1848:1:10",
+                      "src": "1848:1:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "1811:38:10",
+                    "src": "1811:38:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
+<<<<<<< Updated upstream
                   "id": 3933,
+=======
+                  "id": 3734,
+>>>>>>> Stashed changes
                   "nodeType": "IfStatement",
-                  "src": "1807:95:10",
+                  "src": "1807:95:22",
                   "trueBody": {
+<<<<<<< Updated upstream
                     "id": 3932,
+=======
+                    "id": 3733,
+>>>>>>> Stashed changes
                     "nodeType": "Block",
-                    "src": "1851:51:10",
+                    "src": "1851:51:22",
                     "statements": [
                       {
                         "expression": {
+<<<<<<< Updated upstream
                           "id": 3930,
+=======
+                          "id": 3731,
+>>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1815,20 +2492,30 @@
                           "nodeType": "UnaryOperation",
                           "operator": "delete",
                           "prefix": true,
-                          "src": "1865:26:10",
+                          "src": "1865:26:22",
                           "subExpression": {
                             "baseExpression": {
+<<<<<<< Updated upstream
                               "id": 3927,
                               "name": "_tokenURIs",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 3821,
                               "src": "1872:10:10",
+=======
+                              "id": 3728,
+                              "name": "_tokenURIs",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3622,
+                              "src": "1872:10:22",
+>>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
                                 "typeString": "mapping(uint256 => string storage ref)"
                               }
                             },
+<<<<<<< Updated upstream
                             "id": 3929,
                             "indexExpression": {
                               "id": 3928,
@@ -1837,6 +2524,16 @@
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 3908,
                               "src": "1883:7:10",
+=======
+                            "id": 3730,
+                            "indexExpression": {
+                              "id": 3729,
+                              "name": "tokenId",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3709,
+                              "src": "1883:7:22",
+>>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1847,7 +2544,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "1872:19:10",
+                            "src": "1872:19:22",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_storage",
                               "typeString": "string storage ref"
@@ -1858,9 +2555,13 @@
                             "typeString": "tuple()"
                           }
                         },
+<<<<<<< Updated upstream
                         "id": 3931,
+=======
+                        "id": 3732,
+>>>>>>> Stashed changes
                         "nodeType": "ExpressionStatement",
-                        "src": "1865:26:10"
+                        "src": "1865:26:22"
                       }
                     ]
                   }
@@ -1868,37 +2569,62 @@
               ]
             },
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3906,
+=======
+              "id": 3707,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "1497:206:10",
+              "src": "1497:206:22",
               "text": " @dev Destroys `tokenId`.\n The approval is cleared when the token is burned.\n Requirements:\n - `tokenId` must exist.\n Emits a {Transfer} event."
             },
+<<<<<<< Updated upstream
             "id": 3935,
+=======
+            "id": 3736,
+>>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_burn",
-            "nameLocation": "1717:5:10",
+            "nameLocation": "1717:5:22",
             "nodeType": "FunctionDefinition",
             "overrides": {
+<<<<<<< Updated upstream
               "id": 3910,
+=======
+              "id": 3711,
+>>>>>>> Stashed changes
               "nodeType": "OverrideSpecifier",
               "overrides": [],
-              "src": "1757:8:10"
+              "src": "1757:8:22"
             },
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3909,
+=======
+              "id": 3710,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3908,
+=======
+                  "id": 3709,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1731:7:10",
+                  "nameLocation": "1731:7:22",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3935,
                   "src": "1723:15:10",
+=======
+                  "scope": 3736,
+                  "src": "1723:15:22",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1906,10 +2632,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3907,
+=======
+                    "id": 3708,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1723:7:10",
+                    "src": "1723:7:22",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1918,27 +2648,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1722:17:10"
+              "src": "1722:17:22"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3911,
+=======
+              "id": 3712,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1766:0:10"
+              "src": "1766:0:22"
             },
+<<<<<<< Updated upstream
             "scope": 3936,
             "src": "1708:200:10",
+=======
+            "scope": 3737,
+            "src": "1708:200:22",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "internal"
           }
         ],
+<<<<<<< Updated upstream
         "scope": 3937,
         "src": "233:1677:10",
+=======
+        "scope": 3738,
+        "src": "233:1677:22",
+>>>>>>> Stashed changes
         "usedErrors": []
       }
     ],
-    "src": "113:1798:10"
+    "src": "113:1798:22"
   },
   "compiler": {
     "name": "solc",
@@ -1946,7 +2690,11 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
+<<<<<<< Updated upstream
   "updatedAt": "2022-05-13T22:15:41.965Z",
+=======
+  "updatedAt": "2022-05-15T02:34:31.655Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "details": "ERC721 token with storage based token URI management.",
     "kind": "dev",

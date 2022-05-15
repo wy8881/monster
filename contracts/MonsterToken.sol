@@ -242,21 +242,21 @@ contract MonsterToken is  ERC721URIStorage {
         return _allMonsters[_tokenIndex];
     }
 
-    function _updateExp(uint256 _tokenId, uint8 exp) internal _tokenExist(_tokenId){
-        uint256 _tokenIndex = _allTokensIndex[_tokenId];
-        MonsterLib.Monster storage monster = _allMonsters[_tokenIndex];
-        if(monster.expNeedToNext > exp) monster.expNeedToNext -= exp;
-        else{
-            if(monster.level < 10){
-                monster.level += 1;
-                monster.expNeedToNext = monster.level * 10 - (exp -  monster.expNeedToNext);
-                MonsterLib.Statistics memory _oldStatc = monster.statc;
-                MonsterLib.Statistics memory _newStatc = MonsterLib._calculateStatc(monster.iv, monster.level);
-                emit LevelUp(_oldStatc, _newStatc);
-            }
-        }
+    // function _updateExp(uint256 _tokenId, uint8 exp) internal _tokenExist(_tokenId){
+    //     uint256 _tokenIndex = _allTokensIndex[_tokenId];
+    //     MonsterLib.Monster storage monster = _allMonsters[_tokenIndex];
+    //     if(monster.expNeedToNext > exp) monster.expNeedToNext -= exp;
+    //     else{
+    //         if(monster.level < 10){
+    //             monster.level += 1;
+    //             monster.expNeedToNext = monster.level * 10 - (exp -  monster.expNeedToNext);
+    //             MonsterLib.Statistics memory _oldStatc = monster.statc;
+    //             MonsterLib.Statistics memory _newStatc = MonsterLib._calculateStatc(monster.iv, monster.level);
+    //             emit LevelUp(_oldStatc, _newStatc);
+    //         }
+    //     }
 
-    }
+    // }
 
     function transferMoney(address _from, address _to, uint _value) external {
         require(tx.origin == _from);

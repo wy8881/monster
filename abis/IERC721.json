@@ -301,6 +301,7 @@
     "absolutePath": "project:/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol",
     "exportedSymbols": {
       "IERC165": [
+<<<<<<< Updated upstream
         4550
       ],
       "IERC721": [
@@ -308,11 +309,24 @@
       ]
     },
     "id": 3453,
+=======
+        4351
+      ],
+      "IERC721": [
+        3253
+      ]
+    },
+    "id": 3254,
+>>>>>>> Stashed changes
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
+<<<<<<< Updated upstream
         "id": 3338,
+=======
+        "id": 3139,
+>>>>>>> Stashed changes
         "literals": [
           "solidity",
           "^",
@@ -320,17 +334,26 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "108:23:7"
+        "src": "108:23:19"
       },
       {
         "absolutePath": "project:/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
         "file": "../../utils/introspection/IERC165.sol",
+<<<<<<< Updated upstream
         "id": 3339,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3453,
         "sourceUnit": 4551,
         "src": "133:47:7",
+=======
+        "id": 3140,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 3254,
+        "sourceUnit": 4352,
+        "src": "133:47:19",
+>>>>>>> Stashed changes
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -339,6 +362,7 @@
         "baseContracts": [
           {
             "baseName": {
+<<<<<<< Updated upstream
               "id": 3341,
               "name": "IERC165",
               "nodeType": "IdentifierPath",
@@ -346,55 +370,96 @@
               "src": "271:7:7"
             },
             "id": 3342,
+=======
+              "id": 3142,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4351,
+              "src": "271:7:19"
+            },
+            "id": 3143,
+>>>>>>> Stashed changes
             "nodeType": "InheritanceSpecifier",
-            "src": "271:7:7"
+            "src": "271:7:19"
           }
         ],
         "canonicalName": "IERC721",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
+<<<<<<< Updated upstream
           "id": 3340,
+=======
+          "id": 3141,
+>>>>>>> Stashed changes
           "nodeType": "StructuredDocumentation",
-          "src": "182:67:7",
+          "src": "182:67:19",
           "text": " @dev Required interface of an ERC721 compliant contract."
         },
         "fullyImplemented": false,
+<<<<<<< Updated upstream
         "id": 3452,
         "linearizedBaseContracts": [
           3452,
           4550
+=======
+        "id": 3253,
+        "linearizedBaseContracts": [
+          3253,
+          4351
+>>>>>>> Stashed changes
         ],
         "name": "IERC721",
-        "nameLocation": "260:7:7",
+        "nameLocation": "260:7:19",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3343,
+=======
+              "id": 3144,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "285:88:7",
+              "src": "285:88:19",
               "text": " @dev Emitted when `tokenId` token is transferred from `from` to `to`."
             },
+<<<<<<< Updated upstream
             "id": 3351,
+=======
+            "id": 3152,
+>>>>>>> Stashed changes
             "name": "Transfer",
-            "nameLocation": "384:8:7",
+            "nameLocation": "384:8:19",
             "nodeType": "EventDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3350,
+=======
+              "id": 3151,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3345,
+=======
+                  "id": 3146,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "409:4:7",
+                  "nameLocation": "409:4:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3351,
                   "src": "393:20:7",
+=======
+                  "scope": 3152,
+                  "src": "393:20:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -402,10 +467,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3344,
+=======
+                    "id": 3145,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "393:7:7",
+                    "src": "393:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -416,14 +485,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3347,
+=======
+                  "id": 3148,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "431:2:7",
+                  "nameLocation": "431:2:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3351,
                   "src": "415:18:7",
+=======
+                  "scope": 3152,
+                  "src": "415:18:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -431,10 +509,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3346,
+=======
+                    "id": 3147,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "415:7:7",
+                    "src": "415:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -445,14 +527,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3349,
+=======
+                  "id": 3150,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "451:7:7",
+                  "nameLocation": "451:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3351,
                   "src": "435:23:7",
+=======
+                  "scope": 3152,
+                  "src": "435:23:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -460,10 +551,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3348,
+=======
+                    "id": 3149,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "435:7:7",
+                    "src": "435:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -472,36 +567,57 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "392:67:7"
+              "src": "392:67:19"
             },
-            "src": "378:82:7"
+            "src": "378:82:19"
           },
           {
             "anonymous": false,
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3352,
+=======
+              "id": 3153,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "466:94:7",
+              "src": "466:94:19",
               "text": " @dev Emitted when `owner` enables `approved` to manage the `tokenId` token."
             },
+<<<<<<< Updated upstream
             "id": 3360,
+=======
+            "id": 3161,
+>>>>>>> Stashed changes
             "name": "Approval",
-            "nameLocation": "571:8:7",
+            "nameLocation": "571:8:19",
             "nodeType": "EventDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3359,
+=======
+              "id": 3160,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3354,
+=======
+                  "id": 3155,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "596:5:7",
+                  "nameLocation": "596:5:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3360,
                   "src": "580:21:7",
+=======
+                  "scope": 3161,
+                  "src": "580:21:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -509,10 +625,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3353,
+=======
+                    "id": 3154,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "580:7:7",
+                    "src": "580:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -523,14 +643,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3356,
+=======
+                  "id": 3157,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "approved",
-                  "nameLocation": "619:8:7",
+                  "nameLocation": "619:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3360,
                   "src": "603:24:7",
+=======
+                  "scope": 3161,
+                  "src": "603:24:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -538,10 +667,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3355,
+=======
+                    "id": 3156,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "603:7:7",
+                    "src": "603:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -552,14 +685,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3358,
+=======
+                  "id": 3159,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "645:7:7",
+                  "nameLocation": "645:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3360,
                   "src": "629:23:7",
+=======
+                  "scope": 3161,
+                  "src": "629:23:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -567,10 +709,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3357,
+=======
+                    "id": 3158,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "629:7:7",
+                    "src": "629:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -579,36 +725,57 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "579:74:7"
+              "src": "579:74:19"
             },
-            "src": "565:89:7"
+            "src": "565:89:19"
           },
           {
             "anonymous": false,
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3361,
+=======
+              "id": 3162,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "660:117:7",
+              "src": "660:117:19",
               "text": " @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets."
             },
+<<<<<<< Updated upstream
             "id": 3369,
+=======
+            "id": 3170,
+>>>>>>> Stashed changes
             "name": "ApprovalForAll",
-            "nameLocation": "788:14:7",
+            "nameLocation": "788:14:19",
             "nodeType": "EventDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3368,
+=======
+              "id": 3169,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3363,
+=======
+                  "id": 3164,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "819:5:7",
+                  "nameLocation": "819:5:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3369,
                   "src": "803:21:7",
+=======
+                  "scope": 3170,
+                  "src": "803:21:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -616,10 +783,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3362,
+=======
+                    "id": 3163,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "803:7:7",
+                    "src": "803:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -630,14 +801,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3365,
+=======
+                  "id": 3166,
+>>>>>>> Stashed changes
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "842:8:7",
+                  "nameLocation": "842:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3369,
                   "src": "826:24:7",
+=======
+                  "scope": 3170,
+                  "src": "826:24:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -645,10 +825,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3364,
+=======
+                    "id": 3165,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "826:7:7",
+                    "src": "826:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -659,14 +843,23 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3367,
+=======
+                  "id": 3168,
+>>>>>>> Stashed changes
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "approved",
-                  "nameLocation": "857:8:7",
+                  "nameLocation": "857:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3369,
                   "src": "852:13:7",
+=======
+                  "scope": 3170,
+                  "src": "852:13:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -674,10 +867,14 @@
                     "typeString": "bool"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3366,
+=======
+                    "id": 3167,
+>>>>>>> Stashed changes
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "852:4:7",
+                    "src": "852:4:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -686,38 +883,59 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "802:64:7"
+              "src": "802:64:19"
             },
-            "src": "782:85:7"
+            "src": "782:85:19"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3370,
+=======
+              "id": 3171,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "873:76:7",
+              "src": "873:76:19",
               "text": " @dev Returns the number of tokens in ``owner``'s account."
             },
             "functionSelector": "70a08231",
+<<<<<<< Updated upstream
             "id": 3377,
+=======
+            "id": 3178,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "balanceOf",
-            "nameLocation": "963:9:7",
+            "nameLocation": "963:9:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3373,
+=======
+              "id": 3174,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3372,
+=======
+                  "id": 3173,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "981:5:7",
+                  "nameLocation": "981:5:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3377,
                   "src": "973:13:7",
+=======
+                  "scope": 3178,
+                  "src": "973:13:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -725,10 +943,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3371,
+=======
+                    "id": 3172,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "973:7:7",
+                    "src": "973:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -738,21 +960,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "972:15:7"
+              "src": "972:15:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3376,
+=======
+              "id": 3177,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3375,
+=======
+                  "id": 3176,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "balance",
-                  "nameLocation": "1019:7:7",
+                  "nameLocation": "1019:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3377,
                   "src": "1011:15:7",
+=======
+                  "scope": 3178,
+                  "src": "1011:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -760,10 +995,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3374,
+=======
+                    "id": 3175,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1011:7:7",
+                    "src": "1011:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -772,42 +1011,68 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1010:17:7"
+              "src": "1010:17:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "954:74:7",
+=======
+            "scope": 3253,
+            "src": "954:74:19",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3378,
+=======
+              "id": 3179,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "1034:131:7",
+              "src": "1034:131:19",
               "text": " @dev Returns the owner of the `tokenId` token.\n Requirements:\n - `tokenId` must exist."
             },
             "functionSelector": "6352211e",
+<<<<<<< Updated upstream
             "id": 3385,
+=======
+            "id": 3186,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "ownerOf",
-            "nameLocation": "1179:7:7",
+            "nameLocation": "1179:7:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3381,
+=======
+              "id": 3182,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3380,
+=======
+                  "id": 3181,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1195:7:7",
+                  "nameLocation": "1195:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3385,
                   "src": "1187:15:7",
+=======
+                  "scope": 3186,
+                  "src": "1187:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -815,10 +1080,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3379,
+=======
+                    "id": 3180,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1187:7:7",
+                    "src": "1187:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -827,21 +1096,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1186:17:7"
+              "src": "1186:17:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3384,
+=======
+              "id": 3185,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3383,
+=======
+                  "id": 3184,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "1235:5:7",
+                  "nameLocation": "1235:5:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3385,
                   "src": "1227:13:7",
+=======
+                  "scope": 3186,
+                  "src": "1227:13:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -849,10 +1131,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3382,
+=======
+                    "id": 3183,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1227:7:7",
+                    "src": "1227:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -862,42 +1148,68 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1226:15:7"
+              "src": "1226:15:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "1170:72:7",
+=======
+            "scope": 3253,
+            "src": "1170:72:19",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3386,
+=======
+              "id": 3187,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "1248:556:7",
+              "src": "1248:556:19",
               "text": " @dev Safely transfers `tokenId` token from `from` to `to`.\n Requirements:\n - `from` cannot be the zero address.\n - `to` cannot be the zero address.\n - `tokenId` token must exist and be owned by `from`.\n - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\n - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\n Emits a {Transfer} event."
             },
             "functionSelector": "b88d4fde",
+<<<<<<< Updated upstream
             "id": 3397,
+=======
+            "id": 3198,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeTransferFrom",
-            "nameLocation": "1818:16:7",
+            "nameLocation": "1818:16:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3395,
+=======
+              "id": 3196,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3388,
+=======
+                  "id": 3189,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "1852:4:7",
+                  "nameLocation": "1852:4:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3397,
                   "src": "1844:12:7",
+=======
+                  "scope": 3198,
+                  "src": "1844:12:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -905,10 +1217,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3387,
+=======
+                    "id": 3188,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1844:7:7",
+                    "src": "1844:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -919,13 +1235,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3390,
+=======
+                  "id": 3191,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "1874:2:7",
+                  "nameLocation": "1874:2:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3397,
                   "src": "1866:10:7",
+=======
+                  "scope": 3198,
+                  "src": "1866:10:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -933,10 +1258,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3389,
+=======
+                    "id": 3190,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1866:7:7",
+                    "src": "1866:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -947,13 +1276,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3392,
+=======
+                  "id": 3193,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1894:7:7",
+                  "nameLocation": "1894:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3397,
                   "src": "1886:15:7",
+=======
+                  "scope": 3198,
+                  "src": "1886:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -961,10 +1299,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3391,
+=======
+                    "id": 3192,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1886:7:7",
+                    "src": "1886:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -974,13 +1316,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3394,
+=======
+                  "id": 3195,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "data",
-                  "nameLocation": "1926:4:7",
+                  "nameLocation": "1926:4:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3397,
                   "src": "1911:19:7",
+=======
+                  "scope": 3198,
+                  "src": "1911:19:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -988,10 +1339,14 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3393,
+=======
+                    "id": 3194,
+>>>>>>> Stashed changes
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1911:5:7",
+                    "src": "1911:5:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1000,48 +1355,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1834:102:7"
+              "src": "1834:102:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3396,
+=======
+              "id": 3197,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1945:0:7"
+              "src": "1945:0:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "1809:137:7",
+=======
+            "scope": 3253,
+            "src": "1809:137:19",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3398,
+=======
+              "id": 3199,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "1952:690:7",
+              "src": "1952:690:19",
               "text": " @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients\n are aware of the ERC721 protocol to prevent tokens from being forever locked.\n Requirements:\n - `from` cannot be the zero address.\n - `to` cannot be the zero address.\n - `tokenId` token must exist and be owned by `from`.\n - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}.\n - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\n Emits a {Transfer} event."
             },
             "functionSelector": "42842e0e",
+<<<<<<< Updated upstream
             "id": 3407,
+=======
+            "id": 3208,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "safeTransferFrom",
-            "nameLocation": "2656:16:7",
+            "nameLocation": "2656:16:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3405,
+=======
+              "id": 3206,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3400,
+=======
+                  "id": 3201,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "2690:4:7",
+                  "nameLocation": "2690:4:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3407,
                   "src": "2682:12:7",
+=======
+                  "scope": 3208,
+                  "src": "2682:12:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1049,10 +1434,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3399,
+=======
+                    "id": 3200,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2682:7:7",
+                    "src": "2682:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1063,13 +1452,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3402,
+=======
+                  "id": 3203,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "2712:2:7",
+                  "nameLocation": "2712:2:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3407,
                   "src": "2704:10:7",
+=======
+                  "scope": 3208,
+                  "src": "2704:10:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1077,10 +1475,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3401,
+=======
+                    "id": 3202,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2704:7:7",
+                    "src": "2704:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1091,13 +1493,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3404,
+=======
+                  "id": 3205,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "2732:7:7",
+                  "nameLocation": "2732:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3407,
                   "src": "2724:15:7",
+=======
+                  "scope": 3208,
+                  "src": "2724:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1105,10 +1516,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3403,
+=======
+                    "id": 3204,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2724:7:7",
+                    "src": "2724:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1117,48 +1532,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2672:73:7"
+              "src": "2672:73:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3406,
+=======
+              "id": 3207,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2754:0:7"
+              "src": "2754:0:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "2647:108:7",
+=======
+            "scope": 3253,
+            "src": "2647:108:19",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3408,
+=======
+              "id": 3209,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "2761:504:7",
+              "src": "2761:504:19",
               "text": " @dev Transfers `tokenId` token from `from` to `to`.\n WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible.\n Requirements:\n - `from` cannot be the zero address.\n - `to` cannot be the zero address.\n - `tokenId` token must be owned by `from`.\n - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\n Emits a {Transfer} event."
             },
             "functionSelector": "23b872dd",
+<<<<<<< Updated upstream
             "id": 3417,
+=======
+            "id": 3218,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferFrom",
-            "nameLocation": "3279:12:7",
+            "nameLocation": "3279:12:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3415,
+=======
+              "id": 3216,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3410,
+=======
+                  "id": 3211,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "from",
-                  "nameLocation": "3309:4:7",
+                  "nameLocation": "3309:4:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3417,
                   "src": "3301:12:7",
+=======
+                  "scope": 3218,
+                  "src": "3301:12:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1166,10 +1611,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3409,
+=======
+                    "id": 3210,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3301:7:7",
+                    "src": "3301:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1180,13 +1629,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3412,
+=======
+                  "id": 3213,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "3331:2:7",
+                  "nameLocation": "3331:2:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3417,
                   "src": "3323:10:7",
+=======
+                  "scope": 3218,
+                  "src": "3323:10:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1194,10 +1652,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3411,
+=======
+                    "id": 3212,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3323:7:7",
+                    "src": "3323:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1208,13 +1670,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3414,
+=======
+                  "id": 3215,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "3351:7:7",
+                  "nameLocation": "3351:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3417,
                   "src": "3343:15:7",
+=======
+                  "scope": 3218,
+                  "src": "3343:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1222,10 +1693,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3413,
+=======
+                    "id": 3214,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3343:7:7",
+                    "src": "3343:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1234,48 +1709,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3291:73:7"
+              "src": "3291:73:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3416,
+=======
+              "id": 3217,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3373:0:7"
+              "src": "3373:0:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "3270:104:7",
+=======
+            "scope": 3253,
+            "src": "3270:104:19",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3418,
+=======
+              "id": 3219,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "3380:452:7",
+              "src": "3380:452:19",
               "text": " @dev Gives permission to `to` to transfer `tokenId` token to another account.\n The approval is cleared when the token is transferred.\n Only a single account can be approved at a time, so approving the zero address clears previous approvals.\n Requirements:\n - The caller must own the token or be an approved operator.\n - `tokenId` must exist.\n Emits an {Approval} event."
             },
             "functionSelector": "095ea7b3",
+<<<<<<< Updated upstream
             "id": 3425,
+=======
+            "id": 3226,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "approve",
-            "nameLocation": "3846:7:7",
+            "nameLocation": "3846:7:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3423,
+=======
+              "id": 3224,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3420,
+=======
+                  "id": 3221,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "3862:2:7",
+                  "nameLocation": "3862:2:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3425,
                   "src": "3854:10:7",
+=======
+                  "scope": 3226,
+                  "src": "3854:10:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1283,10 +1788,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3419,
+=======
+                    "id": 3220,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3854:7:7",
+                    "src": "3854:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1297,13 +1806,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3422,
+=======
+                  "id": 3223,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "3874:7:7",
+                  "nameLocation": "3874:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3425,
                   "src": "3866:15:7",
+=======
+                  "scope": 3226,
+                  "src": "3866:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1311,10 +1829,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3421,
+=======
+                    "id": 3222,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3866:7:7",
+                    "src": "3866:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1323,48 +1845,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3853:29:7"
+              "src": "3853:29:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3424,
+=======
+              "id": 3225,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3891:0:7"
+              "src": "3891:0:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "3837:55:7",
+=======
+            "scope": 3253,
+            "src": "3837:55:19",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3426,
+=======
+              "id": 3227,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "3898:309:7",
+              "src": "3898:309:19",
               "text": " @dev Approve or remove `operator` as an operator for the caller.\n Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.\n Requirements:\n - The `operator` cannot be the caller.\n Emits an {ApprovalForAll} event."
             },
             "functionSelector": "a22cb465",
+<<<<<<< Updated upstream
             "id": 3433,
+=======
+            "id": 3234,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setApprovalForAll",
-            "nameLocation": "4221:17:7",
+            "nameLocation": "4221:17:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3431,
+=======
+              "id": 3232,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3428,
+=======
+                  "id": 3229,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "4247:8:7",
+                  "nameLocation": "4247:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3433,
                   "src": "4239:16:7",
+=======
+                  "scope": 3234,
+                  "src": "4239:16:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1372,10 +1924,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3427,
+=======
+                    "id": 3228,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4239:7:7",
+                    "src": "4239:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1386,13 +1942,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3430,
+=======
+                  "id": 3231,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "_approved",
-                  "nameLocation": "4262:9:7",
+                  "nameLocation": "4262:9:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3433,
                   "src": "4257:14:7",
+=======
+                  "scope": 3234,
+                  "src": "4257:14:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1400,10 +1965,14 @@
                     "typeString": "bool"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3429,
+=======
+                    "id": 3230,
+>>>>>>> Stashed changes
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4257:4:7",
+                    "src": "4257:4:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1412,48 +1981,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4238:34:7"
+              "src": "4238:34:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3432,
+=======
+              "id": 3233,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4281:0:7"
+              "src": "4281:0:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "4212:70:7",
+=======
+            "scope": 3253,
+            "src": "4212:70:19",
+>>>>>>> Stashed changes
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3434,
+=======
+              "id": 3235,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "4288:139:7",
+              "src": "4288:139:19",
               "text": " @dev Returns the account approved for `tokenId` token.\n Requirements:\n - `tokenId` must exist."
             },
             "functionSelector": "081812fc",
+<<<<<<< Updated upstream
             "id": 3441,
+=======
+            "id": 3242,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getApproved",
-            "nameLocation": "4441:11:7",
+            "nameLocation": "4441:11:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3437,
+=======
+              "id": 3238,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3436,
+=======
+                  "id": 3237,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "4461:7:7",
+                  "nameLocation": "4461:7:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3441,
                   "src": "4453:15:7",
+=======
+                  "scope": 3242,
+                  "src": "4453:15:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1461,10 +2060,14 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3435,
+=======
+                    "id": 3236,
+>>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4453:7:7",
+                    "src": "4453:7:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1473,21 +2076,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4452:17:7"
+              "src": "4452:17:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3440,
+=======
+              "id": 3241,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3439,
+=======
+                  "id": 3240,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "4501:8:7",
+                  "nameLocation": "4501:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3441,
                   "src": "4493:16:7",
+=======
+                  "scope": 3242,
+                  "src": "4493:16:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1495,10 +2111,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3438,
+=======
+                    "id": 3239,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4493:7:7",
+                    "src": "4493:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1508,42 +2128,68 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4492:18:7"
+              "src": "4492:18:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "4432:79:7",
+=======
+            "scope": 3253,
+            "src": "4432:79:19",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
+<<<<<<< Updated upstream
               "id": 3442,
+=======
+              "id": 3243,
+>>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "4517:138:7",
+              "src": "4517:138:19",
               "text": " @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.\n See {setApprovalForAll}"
             },
             "functionSelector": "e985e9c5",
+<<<<<<< Updated upstream
             "id": 3451,
+=======
+            "id": 3252,
+>>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isApprovedForAll",
-            "nameLocation": "4669:16:7",
+            "nameLocation": "4669:16:19",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 3447,
+=======
+              "id": 3248,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3444,
+=======
+                  "id": 3245,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "4694:5:7",
+                  "nameLocation": "4694:5:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3451,
                   "src": "4686:13:7",
+=======
+                  "scope": 3252,
+                  "src": "4686:13:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1551,10 +2197,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3443,
+=======
+                    "id": 3244,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4686:7:7",
+                    "src": "4686:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1565,13 +2215,22 @@
                 },
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3446,
+=======
+                  "id": 3247,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "4709:8:7",
+                  "nameLocation": "4709:8:19",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3451,
                   "src": "4701:16:7",
+=======
+                  "scope": 3252,
+                  "src": "4701:16:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1579,10 +2238,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3445,
+=======
+                    "id": 3246,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4701:7:7",
+                    "src": "4701:7:19",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1592,21 +2255,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4685:33:7"
+              "src": "4685:33:19"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 3450,
+=======
+              "id": 3251,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 3449,
+=======
+                  "id": 3250,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 3451,
                   "src": "4742:4:7",
+=======
+                  "scope": 3252,
+                  "src": "4742:4:19",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1614,10 +2290,14 @@
                     "typeString": "bool"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 3448,
+=======
+                    "id": 3249,
+>>>>>>> Stashed changes
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4742:4:7",
+                    "src": "4742:4:19",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1626,21 +2306,31 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4741:6:7"
+              "src": "4741:6:19"
             },
+<<<<<<< Updated upstream
             "scope": 3452,
             "src": "4660:88:7",
+=======
+            "scope": 3253,
+            "src": "4660:88:19",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
+<<<<<<< Updated upstream
         "scope": 3453,
         "src": "250:4500:7",
+=======
+        "scope": 3254,
+        "src": "250:4500:19",
+>>>>>>> Stashed changes
         "usedErrors": []
       }
     ],
-    "src": "108:4643:7"
+    "src": "108:4643:19"
   },
   "compiler": {
     "name": "solc",
@@ -1648,7 +2338,11 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
+<<<<<<< Updated upstream
   "updatedAt": "2022-05-13T22:15:41.958Z",
+=======
+  "updatedAt": "2022-05-15T02:34:31.648Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "details": "Required interface of an ERC721 compliant contract.",
     "events": {

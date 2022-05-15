@@ -39,7 +39,11 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 7545,
+<<<<<<< Updated upstream
       network_id: "*" // Match any network id
+=======
+      network_id: "*", // Match any network id
+>>>>>>> Stashed changes
     },
   },
   contracts_directory: './contracts/',

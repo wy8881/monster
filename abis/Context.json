@@ -15,15 +15,26 @@
     "absolutePath": "project:/node_modules/@openzeppelin/contracts/utils/Context.sol",
     "exportedSymbols": {
       "Context": [
+<<<<<<< Updated upstream
         4311
       ]
     },
     "id": 4312,
+=======
+        4112
+      ]
+    },
+    "id": 4113,
+>>>>>>> Stashed changes
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
+<<<<<<< Updated upstream
         "id": 4291,
+=======
+        "id": 4092,
+>>>>>>> Stashed changes
         "literals": [
           "solidity",
           "^",
@@ -31,7 +42,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "86:23:14"
+        "src": "86:23:26"
       },
       {
         "abstract": true,
@@ -40,86 +51,134 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
+<<<<<<< Updated upstream
           "id": 4292,
+=======
+          "id": 4093,
+>>>>>>> Stashed changes
           "nodeType": "StructuredDocumentation",
-          "src": "111:496:14",
+          "src": "111:496:26",
           "text": " @dev Provides information about the current execution context, including the\n sender of the transaction and its data. While these are generally available\n via msg.sender and msg.data, they should not be accessed in such a direct\n manner, since when dealing with meta-transactions the account sending and\n paying for execution may not be the actual sender (as far as an application\n is concerned).\n This contract is only required for intermediate, library-like contracts."
         },
         "fullyImplemented": true,
+<<<<<<< Updated upstream
         "id": 4311,
         "linearizedBaseContracts": [
           4311
+=======
+        "id": 4112,
+        "linearizedBaseContracts": [
+          4112
+>>>>>>> Stashed changes
         ],
         "name": "Context",
-        "nameLocation": "626:7:14",
+        "nameLocation": "626:7:26",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
+<<<<<<< Updated upstream
               "id": 4300,
+=======
+              "id": 4101,
+>>>>>>> Stashed changes
               "nodeType": "Block",
-              "src": "702:34:14",
+              "src": "702:34:26",
               "statements": [
                 {
                   "expression": {
                     "expression": {
+<<<<<<< Updated upstream
                       "id": 4297,
+=======
+                      "id": 4098,
+>>>>>>> Stashed changes
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 4294967281,
-                      "src": "719:3:14",
+                      "src": "719:3:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 4298,
+=======
+                    "id": 4099,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "sender",
                     "nodeType": "MemberAccess",
-                    "src": "719:10:14",
+                    "src": "719:10:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
+<<<<<<< Updated upstream
                   "functionReturnParameters": 4296,
                   "id": 4299,
+=======
+                  "functionReturnParameters": 4097,
+                  "id": 4100,
+>>>>>>> Stashed changes
                   "nodeType": "Return",
-                  "src": "712:17:14"
+                  "src": "712:17:26"
                 }
               ]
             },
+<<<<<<< Updated upstream
             "id": 4301,
+=======
+            "id": 4102,
+>>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgSender",
-            "nameLocation": "649:10:14",
+            "nameLocation": "649:10:26",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 4293,
+=======
+              "id": 4094,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "659:2:14"
+              "src": "659:2:26"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 4296,
+=======
+              "id": 4097,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 4295,
+=======
+                  "id": 4096,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 4301,
                   "src": "693:7:14",
+=======
+                  "scope": 4102,
+                  "src": "693:7:26",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -127,10 +186,14 @@
                     "typeString": "address"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 4294,
+=======
+                    "id": 4095,
+>>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "693:7:14",
+                    "src": "693:7:26",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -140,80 +203,123 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "692:9:14"
+              "src": "692:9:26"
             },
+<<<<<<< Updated upstream
             "scope": 4311,
             "src": "640:96:14",
+=======
+            "scope": 4112,
+            "src": "640:96:26",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           },
           {
             "body": {
+<<<<<<< Updated upstream
               "id": 4309,
+=======
+              "id": 4110,
+>>>>>>> Stashed changes
               "nodeType": "Block",
-              "src": "809:32:14",
+              "src": "809:32:26",
               "statements": [
                 {
                   "expression": {
                     "expression": {
+<<<<<<< Updated upstream
                       "id": 4306,
+=======
+                      "id": 4107,
+>>>>>>> Stashed changes
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 4294967281,
-                      "src": "826:3:14",
+                      "src": "826:3:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
+<<<<<<< Updated upstream
                     "id": 4307,
+=======
+                    "id": 4108,
+>>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "data",
                     "nodeType": "MemberAccess",
-                    "src": "826:8:14",
+                    "src": "826:8:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_calldata_ptr",
                       "typeString": "bytes calldata"
                     }
                   },
+<<<<<<< Updated upstream
                   "functionReturnParameters": 4305,
                   "id": 4308,
+=======
+                  "functionReturnParameters": 4106,
+                  "id": 4109,
+>>>>>>> Stashed changes
                   "nodeType": "Return",
-                  "src": "819:15:14"
+                  "src": "819:15:26"
                 }
               ]
             },
+<<<<<<< Updated upstream
             "id": 4310,
+=======
+            "id": 4111,
+>>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgData",
-            "nameLocation": "751:8:14",
+            "nameLocation": "751:8:26",
             "nodeType": "FunctionDefinition",
             "parameters": {
+<<<<<<< Updated upstream
               "id": 4302,
+=======
+              "id": 4103,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "759:2:14"
+              "src": "759:2:26"
             },
             "returnParameters": {
+<<<<<<< Updated upstream
               "id": 4305,
+=======
+              "id": 4106,
+>>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
+<<<<<<< Updated upstream
                   "id": 4304,
+=======
+                  "id": 4105,
+>>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
+<<<<<<< Updated upstream
                   "scope": 4310,
                   "src": "793:14:14",
+=======
+                  "scope": 4111,
+                  "src": "793:14:26",
+>>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -221,10 +327,14 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
+<<<<<<< Updated upstream
                     "id": 4303,
+=======
+                    "id": 4104,
+>>>>>>> Stashed changes
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "793:5:14",
+                    "src": "793:5:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -233,21 +343,31 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "792:16:14"
+              "src": "792:16:26"
             },
+<<<<<<< Updated upstream
             "scope": 4311,
             "src": "742:99:14",
+=======
+            "scope": 4112,
+            "src": "742:99:26",
+>>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           }
         ],
+<<<<<<< Updated upstream
         "scope": 4312,
         "src": "608:235:14",
+=======
+        "scope": 4113,
+        "src": "608:235:26",
+>>>>>>> Stashed changes
         "usedErrors": []
       }
     ],
-    "src": "86:758:14"
+    "src": "86:758:26"
   },
   "compiler": {
     "name": "solc",
@@ -255,7 +375,11 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
+<<<<<<< Updated upstream
   "updatedAt": "2022-05-13T22:15:41.976Z",
+=======
+  "updatedAt": "2022-05-15T02:34:31.661Z",
+>>>>>>> Stashed changes
   "devdoc": {
     "details": "Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate, library-like contracts.",
     "kind": "dev",
