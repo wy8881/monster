@@ -1911,21 +1911,12 @@
     "5777": {
       "events": {},
       "links": {},
-<<<<<<< Updated upstream
       "address": "0x920AC5A1ca550776a4AEaF5a5F607430785507CE",
       "transactionHash": "0xfd1edd99c1feb4f179de78adc2f4c8959d5c2d27a032cc353514793a4ecc4bdb"
     }
   },
   "schemaVersion": "3.4.7",
   "updatedAt": "2022-05-13T22:18:54.220Z",
-=======
-      "address": "0x86437a2f88F75d1eAD6587cc49d6862843075E1F",
-      "transactionHash": "0xf599812ca58702a299218eb244b81f7ba8c189764401f73b541e9f0fe00ef753"
-    }
-  },
-  "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-15T02:35:28.357Z",
->>>>>>> Stashed changes
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

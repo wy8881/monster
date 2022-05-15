@@ -357,7 +357,6 @@
     "absolutePath": "project:/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
     "exportedSymbols": {
       "IERC165": [
-<<<<<<< Updated upstream
         4550
       ],
       "IERC721": [
@@ -368,27 +367,11 @@
       ]
     },
     "id": 3968,
-=======
-        4351
-      ],
-      "IERC721": [
-        3253
-      ],
-      "IERC721Enumerable": [
-        3768
-      ]
-    },
-    "id": 3769,
->>>>>>> Stashed changes
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-<<<<<<< Updated upstream
         "id": 3938,
-=======
-        "id": 3739,
->>>>>>> Stashed changes
         "literals": [
           "solidity",
           "^",
@@ -396,26 +379,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "129:23:23"
+        "src": "129:23:11"
       },
       {
         "absolutePath": "project:/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol",
         "file": "../IERC721.sol",
-<<<<<<< Updated upstream
         "id": 3939,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3968,
         "sourceUnit": 3453,
         "src": "154:24:11",
-=======
-        "id": 3740,
-        "nameLocation": "-1:-1:-1",
-        "nodeType": "ImportDirective",
-        "scope": 3769,
-        "sourceUnit": 3254,
-        "src": "154:24:23",
->>>>>>> Stashed changes
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -424,7 +398,6 @@
         "baseContracts": [
           {
             "baseName": {
-<<<<<<< Updated upstream
               "id": 3941,
               "name": "IERC721",
               "nodeType": "IdentifierPath",
@@ -432,110 +405,64 @@
               "src": "348:7:11"
             },
             "id": 3942,
-=======
-              "id": 3742,
-              "name": "IERC721",
-              "nodeType": "IdentifierPath",
-              "referencedDeclaration": 3253,
-              "src": "348:7:23"
-            },
-            "id": 3743,
->>>>>>> Stashed changes
             "nodeType": "InheritanceSpecifier",
-            "src": "348:7:23"
+            "src": "348:7:11"
           }
         ],
         "canonicalName": "IERC721Enumerable",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-<<<<<<< Updated upstream
           "id": 3940,
-=======
-          "id": 3741,
->>>>>>> Stashed changes
           "nodeType": "StructuredDocumentation",
-          "src": "180:136:23",
+          "src": "180:136:11",
           "text": " @title ERC-721 Non-Fungible Token Standard, optional enumeration extension\n @dev See https://eips.ethereum.org/EIPS/eip-721"
         },
         "fullyImplemented": false,
-<<<<<<< Updated upstream
         "id": 3967,
         "linearizedBaseContracts": [
           3967,
           3452,
           4550
-=======
-        "id": 3768,
-        "linearizedBaseContracts": [
-          3768,
-          3253,
-          4351
->>>>>>> Stashed changes
         ],
         "name": "IERC721Enumerable",
-        "nameLocation": "327:17:23",
+        "nameLocation": "327:17:11",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-<<<<<<< Updated upstream
               "id": 3943,
-=======
-              "id": 3744,
->>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "362:82:23",
+              "src": "362:82:11",
               "text": " @dev Returns the total amount of tokens stored by the contract."
             },
             "functionSelector": "18160ddd",
-<<<<<<< Updated upstream
             "id": 3948,
-=======
-            "id": 3749,
->>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "totalSupply",
-            "nameLocation": "458:11:23",
+            "nameLocation": "458:11:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 3944,
-=======
-              "id": 3745,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "469:2:23"
+              "src": "469:2:11"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 3947,
-=======
-              "id": 3748,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3946,
-=======
-                  "id": 3747,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3948,
                   "src": "495:7:11",
-=======
-                  "scope": 3749,
-                  "src": "495:7:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -543,14 +470,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3945,
-=======
-                    "id": 3746,
->>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "495:7:23",
+                    "src": "495:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -559,68 +482,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "494:9:23"
+              "src": "494:9:11"
             },
-<<<<<<< Updated upstream
             "scope": 3967,
             "src": "449:55:11",
-=======
-            "scope": 3768,
-            "src": "449:55:23",
->>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-<<<<<<< Updated upstream
               "id": 3949,
-=======
-              "id": 3750,
->>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "510:171:23",
+              "src": "510:171:11",
               "text": " @dev Returns a token ID owned by `owner` at a given `index` of its token list.\n Use along with {balanceOf} to enumerate all of ``owner``'s tokens."
             },
             "functionSelector": "2f745c59",
-<<<<<<< Updated upstream
             "id": 3958,
-=======
-            "id": 3759,
->>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "tokenOfOwnerByIndex",
-            "nameLocation": "695:19:23",
+            "nameLocation": "695:19:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 3954,
-=======
-              "id": 3755,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3951,
-=======
-                  "id": 3752,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "723:5:23",
+                  "nameLocation": "723:5:11",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3958,
                   "src": "715:13:11",
-=======
-                  "scope": 3759,
-                  "src": "715:13:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -628,14 +525,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3950,
-=======
-                    "id": 3751,
->>>>>>> Stashed changes
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "715:7:23",
+                    "src": "715:7:11",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -646,22 +539,13 @@
                 },
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3953,
-=======
-                  "id": 3754,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "738:5:23",
+                  "nameLocation": "738:5:11",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3958,
                   "src": "730:13:11",
-=======
-                  "scope": 3759,
-                  "src": "730:13:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -669,14 +553,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3952,
-=======
-                    "id": 3753,
->>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "730:7:23",
+                    "src": "730:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -685,34 +565,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "714:30:23"
+              "src": "714:30:11"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 3957,
-=======
-              "id": 3758,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3956,
-=======
-                  "id": 3757,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3958,
                   "src": "768:7:11",
-=======
-                  "scope": 3759,
-                  "src": "768:7:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -720,14 +587,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3955,
-=======
-                    "id": 3756,
->>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "768:7:23",
+                    "src": "768:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -736,68 +599,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "767:9:23"
+              "src": "767:9:11"
             },
-<<<<<<< Updated upstream
             "scope": 3967,
             "src": "686:91:11",
-=======
-            "scope": 3768,
-            "src": "686:91:23",
->>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-<<<<<<< Updated upstream
               "id": 3959,
-=======
-              "id": 3760,
->>>>>>> Stashed changes
               "nodeType": "StructuredDocumentation",
-              "src": "783:164:23",
+              "src": "783:164:11",
               "text": " @dev Returns a token ID at a given `index` of all the tokens stored by the contract.\n Use along with {totalSupply} to enumerate all tokens."
             },
             "functionSelector": "4f6ccce7",
-<<<<<<< Updated upstream
             "id": 3966,
-=======
-            "id": 3767,
->>>>>>> Stashed changes
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "tokenByIndex",
-            "nameLocation": "961:12:23",
+            "nameLocation": "961:12:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 3962,
-=======
-              "id": 3763,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3961,
-=======
-                  "id": 3762,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "982:5:23",
+                  "nameLocation": "982:5:11",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3966,
                   "src": "974:13:11",
-=======
-                  "scope": 3767,
-                  "src": "974:13:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -805,14 +642,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3960,
-=======
-                    "id": 3761,
->>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "974:7:23",
+                    "src": "974:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -821,34 +654,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "973:15:23"
+              "src": "973:15:11"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 3965,
-=======
-              "id": 3766,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 3964,
-=======
-                  "id": 3765,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 3966,
                   "src": "1012:7:11",
-=======
-                  "scope": 3767,
-                  "src": "1012:7:23",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -856,14 +676,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 3963,
-=======
-                    "id": 3764,
->>>>>>> Stashed changes
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1012:7:23",
+                    "src": "1012:7:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -872,31 +688,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1011:9:23"
+              "src": "1011:9:11"
             },
-<<<<<<< Updated upstream
             "scope": 3967,
             "src": "952:69:11",
-=======
-            "scope": 3768,
-            "src": "952:69:23",
->>>>>>> Stashed changes
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-<<<<<<< Updated upstream
         "scope": 3968,
         "src": "317:706:11",
-=======
-        "scope": 3769,
-        "src": "317:706:23",
->>>>>>> Stashed changes
         "usedErrors": []
       }
     ],
-    "src": "129:895:23"
+    "src": "129:895:11"
   },
   "compiler": {
     "name": "solc",
@@ -904,11 +710,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-<<<<<<< Updated upstream
   "updatedAt": "2022-05-13T22:15:41.968Z",
-=======
-  "updatedAt": "2022-05-15T02:34:31.656Z",
->>>>>>> Stashed changes
   "devdoc": {
     "details": "See https://eips.ethereum.org/EIPS/eip-721",
     "kind": "dev",

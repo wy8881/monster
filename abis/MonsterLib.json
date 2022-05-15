@@ -15,7 +15,6 @@
     "absolutePath": "project:/contracts/MonsterLib.sol",
     "exportedSymbols": {
       "MonsterLib": [
-<<<<<<< Updated upstream
         1161
       ]
     },
@@ -24,16 +23,6 @@
     "nodes": [
       {
         "id": 961,
-=======
-        641
-      ]
-    },
-    "id": 642,
-    "nodeType": "SourceUnit",
-    "nodes": [
-      {
-        "id": 439,
->>>>>>> Stashed changes
         "literals": [
           "solidity",
           "^",
@@ -50,15 +39,9 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-<<<<<<< Updated upstream
         "id": 1161,
         "linearizedBaseContracts": [
           1161
-=======
-        "id": 641,
-        "linearizedBaseContracts": [
-          641
->>>>>>> Stashed changes
         ],
         "name": "MonsterLib",
         "nameLocation": "35:10:2",
@@ -66,28 +49,16 @@
         "nodes": [
           {
             "canonicalName": "MonsterLib.Monster",
-<<<<<<< Updated upstream
             "id": 981,
             "members": [
               {
                 "constant": false,
                 "id": 963,
-=======
-            "id": 461,
-            "members": [
-              {
-                "constant": false,
-                "id": 441,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "tokenId",
                 "nameLocation": "85:7:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "77:15:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -96,11 +67,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 962,
-=======
-                  "id": 440,
->>>>>>> Stashed changes
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "77:7:2",
@@ -113,20 +80,12 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 965,
-=======
-                "id": 443,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "mumId",
                 "nameLocation": "111:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "103:13:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -135,11 +94,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 964,
-=======
-                  "id": 442,
->>>>>>> Stashed changes
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "103:7:2",
@@ -152,20 +107,12 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 967,
-=======
-                "id": 445,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "dadId",
                 "nameLocation": "135:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "127:13:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -174,11 +121,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 966,
-=======
-                  "id": 444,
->>>>>>> Stashed changes
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "127:7:2",
@@ -191,25 +134,16 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 970,
-=======
-                "id": 448,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "statc",
                 "nameLocation": "162:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "151:16:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-<<<<<<< Updated upstream
                   "typeIdentifier": "t_struct$_Statistics_$990_storage_ptr",
                   "typeString": "struct MonsterLib.Statistics"
                 },
@@ -227,25 +161,6 @@
                   "src": "151:10:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_struct$_Statistics_$990_storage_ptr",
-=======
-                  "typeIdentifier": "t_struct$_Statistics_$470_storage_ptr",
-                  "typeString": "struct MonsterLib.Statistics"
-                },
-                "typeName": {
-                  "id": 447,
-                  "nodeType": "UserDefinedTypeName",
-                  "pathNode": {
-                    "id": 446,
-                    "name": "Statistics",
-                    "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 470,
-                    "src": "151:10:2"
-                  },
-                  "referencedDeclaration": 470,
-                  "src": "151:10:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Statistics_$470_storage_ptr",
->>>>>>> Stashed changes
                     "typeString": "struct MonsterLib.Statistics"
                   }
                 },
@@ -253,25 +168,16 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 973,
-=======
-                "id": 451,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "iv",
                 "nameLocation": "194:2:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "178:18:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-<<<<<<< Updated upstream
                   "typeIdentifier": "t_struct$_IndividualValue_$999_storage_ptr",
                   "typeString": "struct MonsterLib.IndividualValue"
                 },
@@ -289,25 +195,6 @@
                   "src": "178:15:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_struct$_IndividualValue_$999_storage_ptr",
-=======
-                  "typeIdentifier": "t_struct$_IndividualValue_$479_storage_ptr",
-                  "typeString": "struct MonsterLib.IndividualValue"
-                },
-                "typeName": {
-                  "id": 450,
-                  "nodeType": "UserDefinedTypeName",
-                  "pathNode": {
-                    "id": 449,
-                    "name": "IndividualValue",
-                    "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 479,
-                    "src": "178:15:2"
-                  },
-                  "referencedDeclaration": 479,
-                  "src": "178:15:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IndividualValue_$479_storage_ptr",
->>>>>>> Stashed changes
                     "typeString": "struct MonsterLib.IndividualValue"
                   }
                 },
@@ -315,20 +202,12 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 975,
-=======
-                "id": 453,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "level",
                 "nameLocation": "213:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "207:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -337,11 +216,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 974,
-=======
-                  "id": 452,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "207:5:2",
@@ -354,20 +229,12 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 977,
-=======
-                "id": 455,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "expNeedToNext",
                 "nameLocation": "235:13:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "229:19:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -376,11 +243,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 976,
-=======
-                  "id": 454,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "229:5:2",
@@ -393,25 +256,16 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 980,
-=======
-                "id": 458,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "race",
                 "nameLocation": "264:4:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 981,
-=======
-                "scope": 461,
->>>>>>> Stashed changes
                 "src": "259:9:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-<<<<<<< Updated upstream
                   "typeIdentifier": "t_enum$_Race_$1003",
                   "typeString": "enum MonsterLib.Race"
                 },
@@ -429,99 +283,32 @@
                   "src": "259:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_enum$_Race_$1003",
-=======
-                  "typeIdentifier": "t_enum$_Race_$483",
-                  "typeString": "enum MonsterLib.Race"
-                },
-                "typeName": {
-                  "id": 457,
-                  "nodeType": "UserDefinedTypeName",
-                  "pathNode": {
-                    "id": 456,
-                    "name": "Race",
-                    "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 483,
-                    "src": "259:4:2"
-                  },
-                  "referencedDeclaration": 483,
-                  "src": "259:4:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Race_$483",
->>>>>>> Stashed changes
                     "typeString": "enum MonsterLib.Race"
                   }
                 },
                 "visibility": "internal"
-<<<<<<< Updated upstream
-=======
-              },
-              {
-                "constant": false,
-                "id": 460,
-                "mutability": "mutable",
-                "name": "isLocked",
-                "nameLocation": "284:8:2",
-                "nodeType": "VariableDeclaration",
-                "scope": 461,
-                "src": "279:13:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bool",
-                  "typeString": "bool"
-                },
-                "typeName": {
-                  "id": 459,
-                  "name": "bool",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "279:4:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  }
-                },
-                "visibility": "internal"
->>>>>>> Stashed changes
               }
             ],
             "name": "Monster",
             "nameLocation": "59:7:2",
             "nodeType": "StructDefinition",
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "52:226:2",
-=======
-            "scope": 641,
-            "src": "52:250:2",
->>>>>>> Stashed changes
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.Statistics",
-<<<<<<< Updated upstream
             "id": 990,
             "members": [
               {
                 "constant": false,
                 "id": 983,
-=======
-            "id": 470,
-            "members": [
-              {
-                "constant": false,
-                "id": 463,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "HP",
                 "nameLocation": "320:2:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 990,
                 "src": "314:8:2",
-=======
-                "scope": 470,
-                "src": "338:8:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -529,11 +316,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 982,
-=======
-                  "id": 462,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "314:5:2",
@@ -546,22 +329,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 985,
-=======
-                "id": 465,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "strength",
                 "nameLocation": "339:8:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 990,
                 "src": "333:14:2",
-=======
-                "scope": 470,
-                "src": "357:14:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -569,11 +343,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 984,
-=======
-                  "id": 464,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "333:5:2",
@@ -586,22 +356,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 987,
-=======
-                "id": 467,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "defensive",
                 "nameLocation": "364:9:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 990,
                 "src": "358:15:2",
-=======
-                "scope": 470,
-                "src": "382:15:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -609,11 +370,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 986,
-=======
-                  "id": 466,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "358:5:2",
@@ -626,22 +383,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 989,
-=======
-                "id": 469,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "speed",
                 "nameLocation": "390:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 990,
                 "src": "384:11:2",
-=======
-                "scope": 470,
-                "src": "408:11:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -649,11 +397,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 988,
-=======
-                  "id": 468,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "384:5:2",
@@ -668,41 +412,23 @@
             "name": "Statistics",
             "nameLocation": "293:10:2",
             "nodeType": "StructDefinition",
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "286:117:2",
-=======
-            "scope": 641,
-            "src": "310:117:2",
->>>>>>> Stashed changes
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.IndividualValue",
-<<<<<<< Updated upstream
             "id": 999,
             "members": [
               {
                 "constant": false,
                 "id": 992,
-=======
-            "id": 479,
-            "members": [
-              {
-                "constant": false,
-                "id": 472,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "HP",
                 "nameLocation": "450:2:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 999,
                 "src": "444:8:2",
-=======
-                "scope": 479,
-                "src": "468:8:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -710,11 +436,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 991,
-=======
-                  "id": 471,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "444:5:2",
@@ -727,22 +449,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 994,
-=======
-                "id": 474,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "strength",
                 "nameLocation": "469:8:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 999,
                 "src": "463:14:2",
-=======
-                "scope": 479,
-                "src": "487:14:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -750,11 +463,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 993,
-=======
-                  "id": 473,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "463:5:2",
@@ -767,22 +476,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 996,
-=======
-                "id": 476,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "defensive",
                 "nameLocation": "494:9:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 999,
                 "src": "488:15:2",
-=======
-                "scope": 479,
-                "src": "512:15:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -790,11 +490,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 995,
-=======
-                  "id": 475,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "488:5:2",
@@ -807,22 +503,13 @@
               },
               {
                 "constant": false,
-<<<<<<< Updated upstream
                 "id": 998,
-=======
-                "id": 478,
->>>>>>> Stashed changes
                 "mutability": "mutable",
                 "name": "speed",
                 "nameLocation": "520:5:2",
                 "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                 "scope": 999,
                 "src": "514:11:2",
-=======
-                "scope": 479,
-                "src": "538:11:2",
->>>>>>> Stashed changes
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -830,11 +517,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-<<<<<<< Updated upstream
                   "id": 997,
-=======
-                  "id": 477,
->>>>>>> Stashed changes
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "514:5:2",
@@ -849,50 +532,30 @@
             "name": "IndividualValue",
             "nameLocation": "418:15:2",
             "nodeType": "StructDefinition",
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "411:122:2",
-=======
-            "scope": 641,
-            "src": "435:122:2",
->>>>>>> Stashed changes
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.Race",
-<<<<<<< Updated upstream
             "id": 1003,
             "members": [
               {
                 "id": 1000,
-=======
-            "id": 483,
-            "members": [
-              {
-                "id": 480,
->>>>>>> Stashed changes
                 "name": "DRAGON",
                 "nameLocation": "554:6:2",
                 "nodeType": "EnumValue",
                 "src": "554:6:2"
               },
               {
-<<<<<<< Updated upstream
                 "id": 1001,
-=======
-                "id": 481,
->>>>>>> Stashed changes
                 "name": "GHOST",
                 "nameLocation": "562:5:2",
                 "nodeType": "EnumValue",
                 "src": "562:5:2"
               },
               {
-<<<<<<< Updated upstream
                 "id": 1002,
-=======
-                "id": 482,
->>>>>>> Stashed changes
                 "name": "GARGOYLE",
                 "nameLocation": "569:8:2",
                 "nodeType": "EnumValue",
@@ -906,35 +569,22 @@
           },
           {
             "body": {
-<<<<<<< Updated upstream
               "id": 1064,
-=======
-              "id": 544,
->>>>>>> Stashed changes
               "nodeType": "Block",
               "src": "694:319:2",
               "statements": [
                 {
                   "assignments": [
-<<<<<<< Updated upstream
                     1016
-=======
-                    496
->>>>>>> Stashed changes
                   ],
                   "declarations": [
                     {
                       "constant": false,
-<<<<<<< Updated upstream
                       "id": 1016,
-=======
-                      "id": 496,
->>>>>>> Stashed changes
                       "mutability": "mutable",
                       "name": "statc",
                       "nameLocation": "723:5:2",
                       "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                       "scope": 1064,
                       "src": "705:23:2",
                       "stateVariable": false,
@@ -957,58 +607,25 @@
                         "src": "705:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Statistics_$990_storage_ptr",
-=======
-                      "scope": 544,
-                      "src": "729:23:2",
-                      "stateVariable": false,
-                      "storageLocation": "memory",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                        "typeString": "struct MonsterLib.Statistics"
-                      },
-                      "typeName": {
-                        "id": 495,
-                        "nodeType": "UserDefinedTypeName",
-                        "pathNode": {
-                          "id": 494,
-                          "name": "Statistics",
-                          "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 470,
-                          "src": "729:10:2"
-                        },
-                        "referencedDeclaration": 470,
-                        "src": "729:10:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$470_storage_ptr",
->>>>>>> Stashed changes
                           "typeString": "struct MonsterLib.Statistics"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-<<<<<<< Updated upstream
                   "id": 1017,
-=======
-                  "id": 497,
->>>>>>> Stashed changes
                   "nodeType": "VariableDeclarationStatement",
                   "src": "705:23:2"
                 },
                 {
                   "expression": {
-<<<<<<< Updated upstream
                     "id": 1030,
-=======
-                    "id": 510,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-<<<<<<< Updated upstream
                         "id": 1018,
                         "name": "statc",
                         "nodeType": "Identifier",
@@ -1021,33 +638,14 @@
                         }
                       },
                       "id": 1020,
-=======
-                        "id": 498,
-                        "name": "statc",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
-                        "src": "763:5:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                          "typeString": "struct MonsterLib.Statistics memory"
-                        }
-                      },
-                      "id": 500,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "HP",
                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                       "referencedDeclaration": 983,
                       "src": "739:8:2",
-=======
-                      "referencedDeclaration": 463,
-                      "src": "763:8:2",
->>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1060,11 +658,7 @@
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       },
-<<<<<<< Updated upstream
                       "id": 1029,
-=======
-                      "id": 509,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1074,11 +668,7 @@
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
                         },
-<<<<<<< Updated upstream
                         "id": 1027,
-=======
-                        "id": 507,
->>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1087,7 +677,6 @@
                           "arguments": [
                             {
                               "expression": {
-<<<<<<< Updated upstream
                                 "id": 1022,
                                 "name": "iv",
                                 "nodeType": "Identifier",
@@ -1100,54 +689,26 @@
                                 }
                               },
                               "id": 1023,
-=======
-                                "id": 502,
-                                "name": "iv",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 486,
-                                "src": "792:2:2",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                                  "typeString": "struct MonsterLib.IndividualValue memory"
-                                }
-                              },
-                              "id": 503,
->>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "HP",
                               "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                               "referencedDeclaration": 992,
                               "src": "768:5:2",
-=======
-                              "referencedDeclaration": 472,
-                              "src": "792:5:2",
->>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
                               }
                             },
                             {
-<<<<<<< Updated upstream
                               "id": 1024,
                               "name": "level",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1008,
                               "src": "774:5:2",
-=======
-                              "id": 504,
-                              "name": "level",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 488,
-                              "src": "798:5:2",
->>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -1165,31 +726,18 @@
                                 "typeString": "uint8"
                               }
                             ],
-<<<<<<< Updated upstream
                             "id": 1021,
                             "name": "_calculateFormula",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1084,
                             "src": "750:17:2",
-=======
-                            "id": 501,
-                            "name": "_calculateFormula",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 564,
-                            "src": "774:17:2",
->>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                               "typeString": "function (uint8,uint8) pure returns (uint8)"
                             }
                           },
-<<<<<<< Updated upstream
                           "id": 1025,
-=======
-                          "id": 505,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1208,11 +756,7 @@
                         "operator": "+",
                         "rightExpression": {
                           "hexValue": "35",
-<<<<<<< Updated upstream
                           "id": 1026,
-=======
-                          "id": 506,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1235,21 +779,12 @@
                       "nodeType": "BinaryOperation",
                       "operator": "+",
                       "rightExpression": {
-<<<<<<< Updated upstream
                         "id": 1028,
                         "name": "level",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1008,
                         "src": "787:5:2",
-=======
-                        "id": 508,
-                        "name": "level",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 488,
-                        "src": "811:5:2",
->>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -1267,28 +802,19 @@
                       "typeString": "uint8"
                     }
                   },
-<<<<<<< Updated upstream
                   "id": 1031,
-=======
-                  "id": 511,
->>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
                   "src": "739:53:2"
                 },
                 {
                   "expression": {
-<<<<<<< Updated upstream
                     "id": 1040,
-=======
-                    "id": 520,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-<<<<<<< Updated upstream
                         "id": 1032,
                         "name": "statc",
                         "nodeType": "Identifier",
@@ -1301,33 +827,14 @@
                         }
                       },
                       "id": 1034,
-=======
-                        "id": 512,
-                        "name": "statc",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
-                        "src": "827:5:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                          "typeString": "struct MonsterLib.Statistics memory"
-                        }
-                      },
-                      "id": 514,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "speed",
                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                       "referencedDeclaration": 989,
                       "src": "803:11:2",
-=======
-                      "referencedDeclaration": 469,
-                      "src": "827:11:2",
->>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1339,7 +846,6 @@
                       "arguments": [
                         {
                           "expression": {
-<<<<<<< Updated upstream
                             "id": 1036,
                             "name": "iv",
                             "nodeType": "Identifier",
@@ -1352,54 +858,26 @@
                             }
                           },
                           "id": 1037,
-=======
-                            "id": 516,
-                            "name": "iv",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 486,
-                            "src": "859:2:2",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                              "typeString": "struct MonsterLib.IndividualValue memory"
-                            }
-                          },
-                          "id": 517,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "speed",
                           "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                           "referencedDeclaration": 998,
                           "src": "835:8:2",
-=======
-                          "referencedDeclaration": 478,
-                          "src": "859:8:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-<<<<<<< Updated upstream
                           "id": 1038,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1008,
                           "src": "844:5:2",
-=======
-                          "id": 518,
-                          "name": "level",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 488,
-                          "src": "868:5:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -1417,31 +895,18 @@
                             "typeString": "uint8"
                           }
                         ],
-<<<<<<< Updated upstream
                         "id": 1035,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1084,
                         "src": "817:17:2",
-=======
-                        "id": 515,
-                        "name": "_calculateFormula",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 564,
-                        "src": "841:17:2",
->>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-<<<<<<< Updated upstream
                       "id": 1039,
-=======
-                      "id": 519,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1462,28 +927,19 @@
                       "typeString": "uint8"
                     }
                   },
-<<<<<<< Updated upstream
                   "id": 1041,
-=======
-                  "id": 521,
->>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
                   "src": "803:47:2"
                 },
                 {
                   "expression": {
-<<<<<<< Updated upstream
                     "id": 1050,
-=======
-                    "id": 530,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-<<<<<<< Updated upstream
                         "id": 1042,
                         "name": "statc",
                         "nodeType": "Identifier",
@@ -1496,33 +952,14 @@
                         }
                       },
                       "id": 1044,
-=======
-                        "id": 522,
-                        "name": "statc",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
-                        "src": "885:5:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                          "typeString": "struct MonsterLib.Statistics memory"
-                        }
-                      },
-                      "id": 524,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "defensive",
                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                       "referencedDeclaration": 987,
                       "src": "861:15:2",
-=======
-                      "referencedDeclaration": 467,
-                      "src": "885:15:2",
->>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1534,7 +971,6 @@
                       "arguments": [
                         {
                           "expression": {
-<<<<<<< Updated upstream
                             "id": 1046,
                             "name": "iv",
                             "nodeType": "Identifier",
@@ -1547,54 +983,26 @@
                             }
                           },
                           "id": 1047,
-=======
-                            "id": 526,
-                            "name": "iv",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 486,
-                            "src": "921:2:2",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                              "typeString": "struct MonsterLib.IndividualValue memory"
-                            }
-                          },
-                          "id": 527,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "defensive",
                           "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                           "referencedDeclaration": 996,
                           "src": "897:12:2",
-=======
-                          "referencedDeclaration": 476,
-                          "src": "921:12:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-<<<<<<< Updated upstream
                           "id": 1048,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1008,
                           "src": "910:5:2",
-=======
-                          "id": 528,
-                          "name": "level",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 488,
-                          "src": "934:5:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -1612,31 +1020,18 @@
                             "typeString": "uint8"
                           }
                         ],
-<<<<<<< Updated upstream
                         "id": 1045,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1084,
                         "src": "879:17:2",
-=======
-                        "id": 525,
-                        "name": "_calculateFormula",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 564,
-                        "src": "903:17:2",
->>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-<<<<<<< Updated upstream
                       "id": 1049,
-=======
-                      "id": 529,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1657,28 +1052,19 @@
                       "typeString": "uint8"
                     }
                   },
-<<<<<<< Updated upstream
                   "id": 1051,
-=======
-                  "id": 531,
->>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
                   "src": "861:55:2"
                 },
                 {
                   "expression": {
-<<<<<<< Updated upstream
                     "id": 1060,
-=======
-                    "id": 540,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-<<<<<<< Updated upstream
                         "id": 1052,
                         "name": "statc",
                         "nodeType": "Identifier",
@@ -1691,33 +1077,14 @@
                         }
                       },
                       "id": 1054,
-=======
-                        "id": 532,
-                        "name": "statc",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
-                        "src": "952:5:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                          "typeString": "struct MonsterLib.Statistics memory"
-                        }
-                      },
-                      "id": 534,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "strength",
                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                       "referencedDeclaration": 985,
                       "src": "928:14:2",
-=======
-                      "referencedDeclaration": 465,
-                      "src": "952:14:2",
->>>>>>> Stashed changes
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1729,7 +1096,6 @@
                       "arguments": [
                         {
                           "expression": {
-<<<<<<< Updated upstream
                             "id": 1056,
                             "name": "iv",
                             "nodeType": "Identifier",
@@ -1742,54 +1108,26 @@
                             }
                           },
                           "id": 1057,
-=======
-                            "id": 536,
-                            "name": "iv",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 486,
-                            "src": "987:2:2",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                              "typeString": "struct MonsterLib.IndividualValue memory"
-                            }
-                          },
-                          "id": 537,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "strength",
                           "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                           "referencedDeclaration": 994,
                           "src": "963:11:2",
-=======
-                          "referencedDeclaration": 474,
-                          "src": "987:11:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-<<<<<<< Updated upstream
                           "id": 1058,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1008,
                           "src": "975:5:2",
-=======
-                          "id": 538,
-                          "name": "level",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 488,
-                          "src": "999:5:2",
->>>>>>> Stashed changes
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -1807,31 +1145,18 @@
                             "typeString": "uint8"
                           }
                         ],
-<<<<<<< Updated upstream
                         "id": 1055,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1084,
                         "src": "945:17:2",
-=======
-                        "id": 535,
-                        "name": "_calculateFormula",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 564,
-                        "src": "969:17:2",
->>>>>>> Stashed changes
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-<<<<<<< Updated upstream
                       "id": 1059,
-=======
-                      "id": 539,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1852,17 +1177,12 @@
                       "typeString": "uint8"
                     }
                   },
-<<<<<<< Updated upstream
                   "id": 1061,
-=======
-                  "id": 541,
->>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
                   "src": "928:53:2"
                 },
                 {
                   "expression": {
-<<<<<<< Updated upstream
                     "id": 1062,
                     "name": "statc",
                     "nodeType": "Identifier",
@@ -1876,31 +1196,12 @@
                   },
                   "functionReturnParameters": 1013,
                   "id": 1063,
-=======
-                    "id": 542,
-                    "name": "statc",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 496,
-                    "src": "1024:5:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                      "typeString": "struct MonsterLib.Statistics memory"
-                    }
-                  },
-                  "functionReturnParameters": 493,
-                  "id": 543,
->>>>>>> Stashed changes
                   "nodeType": "Return",
                   "src": "993:12:2"
                 }
               ]
             },
-<<<<<<< Updated upstream
             "id": 1065,
-=======
-            "id": 545,
->>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1908,25 +1209,16 @@
             "nameLocation": "595:15:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 1009,
-=======
-              "id": 489,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1006,
-=======
-                  "id": 486,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "iv",
                   "nameLocation": "635:2:2",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1065,
                   "src": "612:25:2",
                   "stateVariable": false,
@@ -1949,30 +1241,6 @@
                     "src": "612:15:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_IndividualValue_$999_storage_ptr",
-=======
-                  "scope": 545,
-                  "src": "636:25:2",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                    "typeString": "struct MonsterLib.IndividualValue"
-                  },
-                  "typeName": {
-                    "id": 485,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 484,
-                      "name": "IndividualValue",
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 479,
-                      "src": "636:15:2"
-                    },
-                    "referencedDeclaration": 479,
-                    "src": "636:15:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IndividualValue_$479_storage_ptr",
->>>>>>> Stashed changes
                       "typeString": "struct MonsterLib.IndividualValue"
                     }
                   },
@@ -1980,22 +1248,13 @@
                 },
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1008,
-=======
-                  "id": 488,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "level",
                   "nameLocation": "645:5:2",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1065,
                   "src": "639:11:2",
-=======
-                  "scope": 545,
-                  "src": "663:11:2",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2003,11 +1262,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 1007,
-=======
-                    "id": 487,
->>>>>>> Stashed changes
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:5:2",
@@ -2022,25 +1277,16 @@
               "src": "611:40:2"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 1013,
-=======
-              "id": 493,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1012,
-=======
-                  "id": 492,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1065,
                   "src": "675:17:2",
                   "stateVariable": false,
@@ -2063,30 +1309,6 @@
                     "src": "675:10:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Statistics_$990_storage_ptr",
-=======
-                  "scope": 545,
-                  "src": "699:17:2",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                    "typeString": "struct MonsterLib.Statistics"
-                  },
-                  "typeName": {
-                    "id": 491,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 490,
-                      "name": "Statistics",
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 470,
-                      "src": "699:10:2"
-                    },
-                    "referencedDeclaration": 470,
-                    "src": "699:10:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Statistics_$470_storage_ptr",
->>>>>>> Stashed changes
                       "typeString": "struct MonsterLib.Statistics"
                     }
                   },
@@ -2095,24 +1317,15 @@
               ],
               "src": "674:20:2"
             },
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "586:427:2",
-=======
-            "scope": 641,
-            "src": "610:427:2",
->>>>>>> Stashed changes
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-<<<<<<< Updated upstream
               "id": 1083,
-=======
-              "id": 563,
->>>>>>> Stashed changes
               "nodeType": "Block",
               "src": "1103:49:2",
               "statements": [
@@ -2122,11 +1335,7 @@
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     },
-<<<<<<< Updated upstream
                     "id": 1081,
-=======
-                    "id": 561,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2136,11 +1345,7 @@
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       },
-<<<<<<< Updated upstream
                       "id": 1079,
-=======
-                      "id": 559,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2152,31 +1357,18 @@
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
                             },
-<<<<<<< Updated upstream
                             "id": 1076,
-=======
-                            "id": 556,
->>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
-<<<<<<< Updated upstream
                               "id": 1074,
                               "name": "input",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1067,
                               "src": "1123:5:2",
-=======
-                              "id": 554,
-                              "name": "input",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 547,
-                              "src": "1147:5:2",
->>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -2185,21 +1377,12 @@
                             "nodeType": "BinaryOperation",
                             "operator": "*",
                             "rightExpression": {
-<<<<<<< Updated upstream
                               "id": 1075,
                               "name": "level",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1069,
                               "src": "1131:5:2",
-=======
-                              "id": 555,
-                              "name": "level",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 549,
-                              "src": "1155:5:2",
->>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -2212,11 +1395,7 @@
                             }
                           }
                         ],
-<<<<<<< Updated upstream
                         "id": 1077,
-=======
-                        "id": 557,
->>>>>>> Stashed changes
                         "isConstant": false,
                         "isInlineArray": false,
                         "isLValue": false,
@@ -2233,11 +1412,7 @@
                       "operator": "/",
                       "rightExpression": {
                         "hexValue": "3130",
-<<<<<<< Updated upstream
                         "id": 1078,
-=======
-                        "id": 558,
->>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2261,11 +1436,7 @@
                     "operator": "+",
                     "rightExpression": {
                       "hexValue": "35",
-<<<<<<< Updated upstream
                       "id": 1080,
-=======
-                      "id": 560,
->>>>>>> Stashed changes
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2285,23 +1456,14 @@
                       "typeString": "uint8"
                     }
                   },
-<<<<<<< Updated upstream
                   "functionReturnParameters": 1073,
                   "id": 1082,
-=======
-                  "functionReturnParameters": 553,
-                  "id": 562,
->>>>>>> Stashed changes
                   "nodeType": "Return",
                   "src": "1114:30:2"
                 }
               ]
             },
-<<<<<<< Updated upstream
             "id": 1084,
-=======
-            "id": 564,
->>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2309,31 +1471,18 @@
             "nameLocation": "1030:17:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 1070,
-=======
-              "id": 550,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1067,
-=======
-                  "id": 547,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "input",
                   "nameLocation": "1055:5:2",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1084,
                   "src": "1049:11:2",
-=======
-                  "scope": 564,
-                  "src": "1073:11:2",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2341,11 +1490,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 1066,
-=======
-                    "id": 546,
->>>>>>> Stashed changes
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "1049:5:2",
@@ -2358,22 +1503,13 @@
                 },
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1069,
-=======
-                  "id": 549,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "level",
                   "nameLocation": "1068:5:2",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1084,
                   "src": "1062:11:2",
-=======
-                  "scope": 564,
-                  "src": "1086:11:2",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2381,11 +1517,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 1068,
-=======
-                    "id": 548,
->>>>>>> Stashed changes
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "1062:5:2",
@@ -2400,31 +1532,18 @@
               "src": "1048:26:2"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 1073,
-=======
-              "id": 553,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1072,
-=======
-                  "id": 552,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1084,
                   "src": "1097:5:2",
-=======
-                  "scope": 564,
-                  "src": "1121:5:2",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2432,11 +1551,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 1071,
-=======
-                    "id": 551,
->>>>>>> Stashed changes
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "1097:5:2",
@@ -2450,24 +1565,15 @@
               ],
               "src": "1096:7:2"
             },
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "1021:131:2",
-=======
-            "scope": 641,
-            "src": "1045:131:2",
->>>>>>> Stashed changes
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "private"
           },
           {
             "body": {
-<<<<<<< Updated upstream
               "id": 1159,
-=======
-              "id": 639,
->>>>>>> Stashed changes
               "nodeType": "Block",
               "src": "1240:518:2",
               "statements": [
@@ -2479,11 +1585,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-<<<<<<< Updated upstream
                         "id": 1154,
-=======
-                        "id": 634,
->>>>>>> Stashed changes
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2493,11 +1595,7 @@
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
-<<<<<<< Updated upstream
                           "id": 1149,
-=======
-                          "id": 629,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2507,11 +1605,7 @@
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
-<<<<<<< Updated upstream
                             "id": 1144,
-=======
-                            "id": 624,
->>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -2521,11 +1615,7 @@
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
                               },
-<<<<<<< Updated upstream
                               "id": 1138,
-=======
-                              "id": 618,
->>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -2535,11 +1625,7 @@
                                   "typeIdentifier": "t_bool",
                                   "typeString": "bool"
                                 },
-<<<<<<< Updated upstream
                                 "id": 1132,
-=======
-                                "id": 612,
->>>>>>> Stashed changes
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -2549,11 +1635,7 @@
                                     "typeIdentifier": "t_bool",
                                     "typeString": "bool"
                                   },
-<<<<<<< Updated upstream
                                   "id": 1126,
-=======
-                                  "id": 606,
->>>>>>> Stashed changes
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -2563,11 +1645,7 @@
                                       "typeIdentifier": "t_bool",
                                       "typeString": "bool"
                                     },
-<<<<<<< Updated upstream
                                     "id": 1120,
-=======
-                                    "id": 600,
->>>>>>> Stashed changes
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": false,
@@ -2577,11 +1655,7 @@
                                         "typeIdentifier": "t_bool",
                                         "typeString": "bool"
                                       },
-<<<<<<< Updated upstream
                                       "id": 1114,
-=======
-                                      "id": 594,
->>>>>>> Stashed changes
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -2591,11 +1665,7 @@
                                           "typeIdentifier": "t_bool",
                                           "typeString": "bool"
                                         },
-<<<<<<< Updated upstream
                                         "id": 1108,
-=======
-                                        "id": 588,
->>>>>>> Stashed changes
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -2605,11 +1675,7 @@
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
                                           },
-<<<<<<< Updated upstream
                                           "id": 1102,
-=======
-                                          "id": 582,
->>>>>>> Stashed changes
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": false,
@@ -2619,18 +1685,13 @@
                                               "typeIdentifier": "t_uint256",
                                               "typeString": "uint256"
                                             },
-<<<<<<< Updated upstream
                                             "id": 1096,
-=======
-                                            "id": 576,
->>>>>>> Stashed changes
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "leftExpression": {
                                               "expression": {
-<<<<<<< Updated upstream
                                                 "id": 1093,
                                                 "name": "monster",
                                                 "nodeType": "Identifier",
@@ -2643,33 +1704,14 @@
                                                 }
                                               },
                                               "id": 1094,
-=======
-                                                "id": 573,
-                                                "name": "monster",
-                                                "nodeType": "Identifier",
-                                                "overloadedDeclarations": [],
-                                                "referencedDeclaration": 567,
-                                                "src": "1283:7:2",
-                                                "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                                  "typeString": "struct MonsterLib.Monster memory"
-                                                }
-                                              },
-                                              "id": 574,
->>>>>>> Stashed changes
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "tokenId",
                                               "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                               "referencedDeclaration": 963,
                                               "src": "1259:15:2",
-=======
-                                              "referencedDeclaration": 441,
-                                              "src": "1283:15:2",
->>>>>>> Stashed changes
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_uint256",
                                                 "typeString": "uint256"
@@ -2679,11 +1721,7 @@
                                             "operator": ">",
                                             "rightExpression": {
                                               "hexValue": "30",
-<<<<<<< Updated upstream
                                               "id": 1095,
-=======
-                                              "id": 575,
->>>>>>> Stashed changes
                                               "isConstant": false,
                                               "isLValue": false,
                                               "isPure": true,
@@ -2710,11 +1748,7 @@
                                               "typeIdentifier": "t_uint8",
                                               "typeString": "uint8"
                                             },
-<<<<<<< Updated upstream
                                             "id": 1101,
-=======
-                                            "id": 581,
->>>>>>> Stashed changes
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": false,
@@ -2722,7 +1756,6 @@
                                             "leftExpression": {
                                               "expression": {
                                                 "expression": {
-<<<<<<< Updated upstream
                                                   "id": 1097,
                                                   "name": "monster",
                                                   "nodeType": "Identifier",
@@ -2735,27 +1768,12 @@
                                                   }
                                                 },
                                                 "id": 1098,
-=======
-                                                  "id": 577,
-                                                  "name": "monster",
-                                                  "nodeType": "Identifier",
-                                                  "overloadedDeclarations": [],
-                                                  "referencedDeclaration": 567,
-                                                  "src": "1323:7:2",
-                                                  "typeDescriptions": {
-                                                    "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                                    "typeString": "struct MonsterLib.Monster memory"
-                                                  }
-                                                },
-                                                "id": 578,
->>>>>>> Stashed changes
                                                 "isConstant": false,
                                                 "isLValue": true,
                                                 "isPure": false,
                                                 "lValueRequested": false,
                                                 "memberName": "statc",
                                                 "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                                 "referencedDeclaration": 970,
                                                 "src": "1299:13:2",
                                                 "typeDescriptions": {
@@ -2764,29 +1782,14 @@
                                                 }
                                               },
                                               "id": 1099,
-=======
-                                                "referencedDeclaration": 448,
-                                                "src": "1323:13:2",
-                                                "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                                                  "typeString": "struct MonsterLib.Statistics memory"
-                                                }
-                                              },
-                                              "id": 579,
->>>>>>> Stashed changes
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "HP",
                                               "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                               "referencedDeclaration": 983,
                                               "src": "1299:16:2",
-=======
-                                              "referencedDeclaration": 463,
-                                              "src": "1323:16:2",
->>>>>>> Stashed changes
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_uint8",
                                                 "typeString": "uint8"
@@ -2796,11 +1799,7 @@
                                             "operator": ">",
                                             "rightExpression": {
                                               "hexValue": "30",
-<<<<<<< Updated upstream
                                               "id": 1100,
-=======
-                                              "id": 580,
->>>>>>> Stashed changes
                                               "isConstant": false,
                                               "isLValue": false,
                                               "isPure": true,
@@ -2833,11 +1832,7 @@
                                             "typeIdentifier": "t_uint8",
                                             "typeString": "uint8"
                                           },
-<<<<<<< Updated upstream
                                           "id": 1107,
-=======
-                                          "id": 587,
->>>>>>> Stashed changes
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": false,
@@ -2845,7 +1840,6 @@
                                           "leftExpression": {
                                             "expression": {
                                               "expression": {
-<<<<<<< Updated upstream
                                                 "id": 1103,
                                                 "name": "monster",
                                                 "nodeType": "Identifier",
@@ -2858,27 +1852,12 @@
                                                 }
                                               },
                                               "id": 1104,
-=======
-                                                "id": 583,
-                                                "name": "monster",
-                                                "nodeType": "Identifier",
-                                                "overloadedDeclarations": [],
-                                                "referencedDeclaration": 567,
-                                                "src": "1363:7:2",
-                                                "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                                  "typeString": "struct MonsterLib.Monster memory"
-                                                }
-                                              },
-                                              "id": 584,
->>>>>>> Stashed changes
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "statc",
                                               "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                               "referencedDeclaration": 970,
                                               "src": "1339:13:2",
                                               "typeDescriptions": {
@@ -2887,29 +1866,14 @@
                                               }
                                             },
                                             "id": 1105,
-=======
-                                              "referencedDeclaration": 448,
-                                              "src": "1363:13:2",
-                                              "typeDescriptions": {
-                                                "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                                                "typeString": "struct MonsterLib.Statistics memory"
-                                              }
-                                            },
-                                            "id": 585,
->>>>>>> Stashed changes
                                             "isConstant": false,
                                             "isLValue": true,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "memberName": "strength",
                                             "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                             "referencedDeclaration": 985,
                                             "src": "1339:22:2",
-=======
-                                            "referencedDeclaration": 465,
-                                            "src": "1363:22:2",
->>>>>>> Stashed changes
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_uint8",
                                               "typeString": "uint8"
@@ -2919,11 +1883,7 @@
                                           "operator": ">",
                                           "rightExpression": {
                                             "hexValue": "30",
-<<<<<<< Updated upstream
                                             "id": 1106,
-=======
-                                            "id": 586,
->>>>>>> Stashed changes
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": true,
@@ -2956,11 +1916,7 @@
                                           "typeIdentifier": "t_uint8",
                                           "typeString": "uint8"
                                         },
-<<<<<<< Updated upstream
                                         "id": 1113,
-=======
-                                        "id": 593,
->>>>>>> Stashed changes
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -2968,7 +1924,6 @@
                                         "leftExpression": {
                                           "expression": {
                                             "expression": {
-<<<<<<< Updated upstream
                                               "id": 1109,
                                               "name": "monster",
                                               "nodeType": "Identifier",
@@ -2981,27 +1936,12 @@
                                               }
                                             },
                                             "id": 1110,
-=======
-                                              "id": 589,
-                                              "name": "monster",
-                                              "nodeType": "Identifier",
-                                              "overloadedDeclarations": [],
-                                              "referencedDeclaration": 567,
-                                              "src": "1409:7:2",
-                                              "typeDescriptions": {
-                                                "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                                "typeString": "struct MonsterLib.Monster memory"
-                                              }
-                                            },
-                                            "id": 590,
->>>>>>> Stashed changes
                                             "isConstant": false,
                                             "isLValue": true,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "memberName": "statc",
                                             "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                             "referencedDeclaration": 970,
                                             "src": "1385:13:2",
                                             "typeDescriptions": {
@@ -3010,29 +1950,14 @@
                                             }
                                           },
                                           "id": 1111,
-=======
-                                            "referencedDeclaration": 448,
-                                            "src": "1409:13:2",
-                                            "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                                              "typeString": "struct MonsterLib.Statistics memory"
-                                            }
-                                          },
-                                          "id": 591,
->>>>>>> Stashed changes
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "defensive",
                                           "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                           "referencedDeclaration": 987,
                                           "src": "1385:23:2",
-=======
-                                          "referencedDeclaration": 467,
-                                          "src": "1409:23:2",
->>>>>>> Stashed changes
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_uint8",
                                             "typeString": "uint8"
@@ -3042,11 +1967,7 @@
                                         "operator": ">",
                                         "rightExpression": {
                                           "hexValue": "30",
-<<<<<<< Updated upstream
                                           "id": 1112,
-=======
-                                          "id": 592,
->>>>>>> Stashed changes
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": true,
@@ -3079,11 +2000,7 @@
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
                                       },
-<<<<<<< Updated upstream
                                       "id": 1119,
-=======
-                                      "id": 599,
->>>>>>> Stashed changes
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -3091,7 +2008,6 @@
                                       "leftExpression": {
                                         "expression": {
                                           "expression": {
-<<<<<<< Updated upstream
                                             "id": 1115,
                                             "name": "monster",
                                             "nodeType": "Identifier",
@@ -3104,27 +2020,12 @@
                                             }
                                           },
                                           "id": 1116,
-=======
-                                            "id": 595,
-                                            "name": "monster",
-                                            "nodeType": "Identifier",
-                                            "overloadedDeclarations": [],
-                                            "referencedDeclaration": 567,
-                                            "src": "1457:7:2",
-                                            "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                              "typeString": "struct MonsterLib.Monster memory"
-                                            }
-                                          },
-                                          "id": 596,
->>>>>>> Stashed changes
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "statc",
                                           "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                           "referencedDeclaration": 970,
                                           "src": "1433:13:2",
                                           "typeDescriptions": {
@@ -3133,29 +2034,14 @@
                                           }
                                         },
                                         "id": 1117,
-=======
-                                          "referencedDeclaration": 448,
-                                          "src": "1457:13:2",
-                                          "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Statistics_$470_memory_ptr",
-                                            "typeString": "struct MonsterLib.Statistics memory"
-                                          }
-                                        },
-                                        "id": 597,
->>>>>>> Stashed changes
                                         "isConstant": false,
                                         "isLValue": true,
                                         "isPure": false,
                                         "lValueRequested": false,
                                         "memberName": "speed",
                                         "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                         "referencedDeclaration": 989,
                                         "src": "1433:19:2",
-=======
-                                        "referencedDeclaration": 469,
-                                        "src": "1457:19:2",
->>>>>>> Stashed changes
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint8",
                                           "typeString": "uint8"
@@ -3165,11 +2051,7 @@
                                       "operator": ">",
                                       "rightExpression": {
                                         "hexValue": "30",
-<<<<<<< Updated upstream
                                         "id": 1118,
-=======
-                                        "id": 598,
->>>>>>> Stashed changes
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -3202,11 +2084,7 @@
                                       "typeIdentifier": "t_uint8",
                                       "typeString": "uint8"
                                     },
-<<<<<<< Updated upstream
                                     "id": 1125,
-=======
-                                    "id": 605,
->>>>>>> Stashed changes
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": false,
@@ -3214,7 +2092,6 @@
                                     "leftExpression": {
                                       "expression": {
                                         "expression": {
-<<<<<<< Updated upstream
                                           "id": 1121,
                                           "name": "monster",
                                           "nodeType": "Identifier",
@@ -3227,27 +2104,12 @@
                                           }
                                         },
                                         "id": 1122,
-=======
-                                          "id": 601,
-                                          "name": "monster",
-                                          "nodeType": "Identifier",
-                                          "overloadedDeclarations": [],
-                                          "referencedDeclaration": 567,
-                                          "src": "1501:7:2",
-                                          "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                            "typeString": "struct MonsterLib.Monster memory"
-                                          }
-                                        },
-                                        "id": 602,
->>>>>>> Stashed changes
                                         "isConstant": false,
                                         "isLValue": true,
                                         "isPure": false,
                                         "lValueRequested": false,
                                         "memberName": "iv",
                                         "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                         "referencedDeclaration": 973,
                                         "src": "1477:10:2",
                                         "typeDescriptions": {
@@ -3256,29 +2118,14 @@
                                         }
                                       },
                                       "id": 1123,
-=======
-                                        "referencedDeclaration": 451,
-                                        "src": "1501:10:2",
-                                        "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                                          "typeString": "struct MonsterLib.IndividualValue memory"
-                                        }
-                                      },
-                                      "id": 603,
->>>>>>> Stashed changes
                                       "isConstant": false,
                                       "isLValue": true,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "memberName": "HP",
                                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                       "referencedDeclaration": 992,
                                       "src": "1477:13:2",
-=======
-                                      "referencedDeclaration": 472,
-                                      "src": "1501:13:2",
->>>>>>> Stashed changes
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -3288,11 +2135,7 @@
                                     "operator": "<=",
                                     "rightExpression": {
                                       "hexValue": "3331",
-<<<<<<< Updated upstream
                                       "id": 1124,
-=======
-                                      "id": 604,
->>>>>>> Stashed changes
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": true,
@@ -3325,11 +2168,7 @@
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
                                   },
-<<<<<<< Updated upstream
                                   "id": 1131,
-=======
-                                  "id": 611,
->>>>>>> Stashed changes
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -3337,7 +2176,6 @@
                                   "leftExpression": {
                                     "expression": {
                                       "expression": {
-<<<<<<< Updated upstream
                                         "id": 1127,
                                         "name": "monster",
                                         "nodeType": "Identifier",
@@ -3350,27 +2188,12 @@
                                         }
                                       },
                                       "id": 1128,
-=======
-                                        "id": 607,
-                                        "name": "monster",
-                                        "nodeType": "Identifier",
-                                        "overloadedDeclarations": [],
-                                        "referencedDeclaration": 567,
-                                        "src": "1542:7:2",
-                                        "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                          "typeString": "struct MonsterLib.Monster memory"
-                                        }
-                                      },
-                                      "id": 608,
->>>>>>> Stashed changes
                                       "isConstant": false,
                                       "isLValue": true,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "memberName": "iv",
                                       "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                       "referencedDeclaration": 973,
                                       "src": "1518:10:2",
                                       "typeDescriptions": {
@@ -3379,29 +2202,14 @@
                                       }
                                     },
                                     "id": 1129,
-=======
-                                      "referencedDeclaration": 451,
-                                      "src": "1542:10:2",
-                                      "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                                        "typeString": "struct MonsterLib.IndividualValue memory"
-                                      }
-                                    },
-                                    "id": 609,
->>>>>>> Stashed changes
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "strength",
                                     "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                     "referencedDeclaration": 994,
                                     "src": "1518:19:2",
-=======
-                                    "referencedDeclaration": 474,
-                                    "src": "1542:19:2",
->>>>>>> Stashed changes
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint8",
                                       "typeString": "uint8"
@@ -3411,11 +2219,7 @@
                                   "operator": "<=",
                                   "rightExpression": {
                                     "hexValue": "3331",
-<<<<<<< Updated upstream
                                     "id": 1130,
-=======
-                                    "id": 610,
->>>>>>> Stashed changes
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
@@ -3448,11 +2252,7 @@
                                   "typeIdentifier": "t_uint8",
                                   "typeString": "uint8"
                                 },
-<<<<<<< Updated upstream
                                 "id": 1137,
-=======
-                                "id": 617,
->>>>>>> Stashed changes
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3460,7 +2260,6 @@
                                 "leftExpression": {
                                   "expression": {
                                     "expression": {
-<<<<<<< Updated upstream
                                       "id": 1133,
                                       "name": "monster",
                                       "nodeType": "Identifier",
@@ -3473,27 +2272,12 @@
                                       }
                                     },
                                     "id": 1134,
-=======
-                                      "id": 613,
-                                      "name": "monster",
-                                      "nodeType": "Identifier",
-                                      "overloadedDeclarations": [],
-                                      "referencedDeclaration": 567,
-                                      "src": "1588:7:2",
-                                      "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                        "typeString": "struct MonsterLib.Monster memory"
-                                      }
-                                    },
-                                    "id": 614,
->>>>>>> Stashed changes
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "iv",
                                     "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                     "referencedDeclaration": 973,
                                     "src": "1564:10:2",
                                     "typeDescriptions": {
@@ -3502,29 +2286,14 @@
                                     }
                                   },
                                   "id": 1135,
-=======
-                                    "referencedDeclaration": 451,
-                                    "src": "1588:10:2",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                                      "typeString": "struct MonsterLib.IndividualValue memory"
-                                    }
-                                  },
-                                  "id": 615,
->>>>>>> Stashed changes
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "defensive",
                                   "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                   "referencedDeclaration": 996,
                                   "src": "1564:20:2",
-=======
-                                  "referencedDeclaration": 476,
-                                  "src": "1588:20:2",
->>>>>>> Stashed changes
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
@@ -3534,11 +2303,7 @@
                                 "operator": "<=",
                                 "rightExpression": {
                                   "hexValue": "3331",
-<<<<<<< Updated upstream
                                   "id": 1136,
-=======
-                                  "id": 616,
->>>>>>> Stashed changes
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3571,11 +2336,7 @@
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
                               },
-<<<<<<< Updated upstream
                               "id": 1143,
-=======
-                              "id": 623,
->>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -3583,7 +2344,6 @@
                               "leftExpression": {
                                 "expression": {
                                   "expression": {
-<<<<<<< Updated upstream
                                     "id": 1139,
                                     "name": "monster",
                                     "nodeType": "Identifier",
@@ -3596,27 +2356,12 @@
                                     }
                                   },
                                   "id": 1140,
-=======
-                                    "id": 619,
-                                    "name": "monster",
-                                    "nodeType": "Identifier",
-                                    "overloadedDeclarations": [],
-                                    "referencedDeclaration": 567,
-                                    "src": "1635:7:2",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                      "typeString": "struct MonsterLib.Monster memory"
-                                    }
-                                  },
-                                  "id": 620,
->>>>>>> Stashed changes
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "iv",
                                   "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                   "referencedDeclaration": 973,
                                   "src": "1611:10:2",
                                   "typeDescriptions": {
@@ -3625,29 +2370,14 @@
                                   }
                                 },
                                 "id": 1141,
-=======
-                                  "referencedDeclaration": 451,
-                                  "src": "1635:10:2",
-                                  "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_IndividualValue_$479_memory_ptr",
-                                    "typeString": "struct MonsterLib.IndividualValue memory"
-                                  }
-                                },
-                                "id": 621,
->>>>>>> Stashed changes
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "speed",
                                 "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                                 "referencedDeclaration": 998,
                                 "src": "1611:16:2",
-=======
-                                "referencedDeclaration": 478,
-                                "src": "1635:16:2",
->>>>>>> Stashed changes
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint8",
                                   "typeString": "uint8"
@@ -3657,11 +2387,7 @@
                               "operator": "<=",
                               "rightExpression": {
                                 "hexValue": "3331",
-<<<<<<< Updated upstream
                                 "id": 1142,
-=======
-                                "id": 622,
->>>>>>> Stashed changes
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -3694,18 +2420,13 @@
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
                             },
-<<<<<<< Updated upstream
                             "id": 1148,
-=======
-                            "id": 628,
->>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
                               "expression": {
-<<<<<<< Updated upstream
                                 "id": 1145,
                                 "name": "monster",
                                 "nodeType": "Identifier",
@@ -3718,33 +2439,14 @@
                                 }
                               },
                               "id": 1146,
-=======
-                                "id": 625,
-                                "name": "monster",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 567,
-                                "src": "1678:7:2",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                  "typeString": "struct MonsterLib.Monster memory"
-                                }
-                              },
-                              "id": 626,
->>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "level",
                               "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                               "referencedDeclaration": 975,
                               "src": "1654:13:2",
-=======
-                              "referencedDeclaration": 453,
-                              "src": "1678:13:2",
->>>>>>> Stashed changes
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -3754,11 +2456,7 @@
                             "operator": "<=",
                             "rightExpression": {
                               "hexValue": "3331",
-<<<<<<< Updated upstream
                               "id": 1147,
-=======
-                              "id": 627,
->>>>>>> Stashed changes
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -3791,18 +2489,13 @@
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           },
-<<<<<<< Updated upstream
                           "id": 1153,
-=======
-                          "id": 633,
->>>>>>> Stashed changes
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "expression": {
-<<<<<<< Updated upstream
                               "id": 1150,
                               "name": "monster",
                               "nodeType": "Identifier",
@@ -3815,33 +2508,14 @@
                               }
                             },
                             "id": 1151,
-=======
-                              "id": 630,
-                              "name": "monster",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 567,
-                              "src": "1718:7:2",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                                "typeString": "struct MonsterLib.Monster memory"
-                              }
-                            },
-                            "id": 631,
->>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "expNeedToNext",
                             "nodeType": "MemberAccess",
-<<<<<<< Updated upstream
                             "referencedDeclaration": 977,
                             "src": "1694:21:2",
-=======
-                            "referencedDeclaration": 455,
-                            "src": "1718:21:2",
->>>>>>> Stashed changes
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
@@ -3851,11 +2525,7 @@
                           "operator": "!=",
                           "rightExpression": {
                             "hexValue": "30",
-<<<<<<< Updated upstream
                             "id": 1152,
-=======
-                            "id": 632,
->>>>>>> Stashed changes
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3889,11 +2559,7 @@
                           "typeString": "bool"
                         }
                       ],
-<<<<<<< Updated upstream
                       "id": 1092,
-=======
-                      "id": 572,
->>>>>>> Stashed changes
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -3907,11 +2573,7 @@
                         "typeString": "function (bool) pure"
                       }
                     },
-<<<<<<< Updated upstream
                     "id": 1155,
-=======
-                    "id": 635,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3926,22 +2588,14 @@
                       "typeString": "tuple()"
                     }
                   },
-<<<<<<< Updated upstream
                   "id": 1156,
-=======
-                  "id": 636,
->>>>>>> Stashed changes
                   "nodeType": "ExpressionStatement",
                   "src": "1251:470:2"
                 },
                 {
                   "expression": {
                     "hexValue": "74727565",
-<<<<<<< Updated upstream
                     "id": 1157,
-=======
-                    "id": 637,
->>>>>>> Stashed changes
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -3955,23 +2609,14 @@
                     },
                     "value": "true"
                   },
-<<<<<<< Updated upstream
                   "functionReturnParameters": 1091,
                   "id": 1158,
-=======
-                  "functionReturnParameters": 571,
-                  "id": 638,
->>>>>>> Stashed changes
                   "nodeType": "Return",
                   "src": "1732:11:2"
                 }
               ]
             },
-<<<<<<< Updated upstream
             "id": 1160,
-=======
-            "id": 640,
->>>>>>> Stashed changes
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -3979,25 +2624,16 @@
             "nameLocation": "1169:18:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-<<<<<<< Updated upstream
               "id": 1088,
-=======
-              "id": 568,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1087,
-=======
-                  "id": 567,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "monster",
                   "nameLocation": "1204:7:2",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1160,
                   "src": "1189:22:2",
                   "stateVariable": false,
@@ -4020,30 +2656,6 @@
                     "src": "1189:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Monster_$981_storage_ptr",
-=======
-                  "scope": 640,
-                  "src": "1213:22:2",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Monster_$461_memory_ptr",
-                    "typeString": "struct MonsterLib.Monster"
-                  },
-                  "typeName": {
-                    "id": 566,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 565,
-                      "name": "Monster",
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 461,
-                      "src": "1213:7:2"
-                    },
-                    "referencedDeclaration": 461,
-                    "src": "1213:7:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Monster_$461_storage_ptr",
->>>>>>> Stashed changes
                       "typeString": "struct MonsterLib.Monster"
                     }
                   },
@@ -4053,31 +2665,18 @@
               "src": "1188:24:2"
             },
             "returnParameters": {
-<<<<<<< Updated upstream
               "id": 1091,
-=======
-              "id": 571,
->>>>>>> Stashed changes
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-<<<<<<< Updated upstream
                   "id": 1090,
-=======
-                  "id": 570,
->>>>>>> Stashed changes
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-<<<<<<< Updated upstream
                   "scope": 1160,
                   "src": "1235:4:2",
-=======
-                  "scope": 640,
-                  "src": "1259:4:2",
->>>>>>> Stashed changes
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4085,11 +2684,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-<<<<<<< Updated upstream
                     "id": 1089,
-=======
-                    "id": 569,
->>>>>>> Stashed changes
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1235:4:2",
@@ -4103,25 +2698,15 @@
               ],
               "src": "1234:6:2"
             },
-<<<<<<< Updated upstream
             "scope": 1161,
             "src": "1160:598:2",
-=======
-            "scope": 641,
-            "src": "1184:598:2",
->>>>>>> Stashed changes
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-<<<<<<< Updated upstream
         "scope": 1162,
         "src": "27:1736:2",
-=======
-        "scope": 642,
-        "src": "27:1760:2",
->>>>>>> Stashed changes
         "usedErrors": []
       }
     ],
@@ -4133,11 +2718,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-<<<<<<< Updated upstream
   "updatedAt": "2022-05-13T22:18:45.723Z",
-=======
-  "updatedAt": "2022-05-15T02:35:22.915Z",
->>>>>>> Stashed changes
   "devdoc": {
     "kind": "dev",
     "methods": {},
