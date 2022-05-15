@@ -1,7 +1,7 @@
 pragma solidity ^0.8.9;
 pragma experimental ABIEncoderV2;
 import "./MonsterLib.sol";
-import "./MonsterFactory.sol";
+import "./MonsterToken.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 contract MonsterMarket is Ownable{
 
@@ -9,7 +9,7 @@ contract MonsterMarket is Ownable{
 
     string private _name;
 
-    MonsterFactory internal _monsterFactory;
+    MonsterToken internal _monsterToken;
 
     struct Product{
         uint256 Id;
@@ -36,22 +36,17 @@ contract MonsterMarket is Ownable{
     //Mapping from product Id to its position in list of owned product Ids
     mapping(uint => uint) private _ownedProductsIndex;
 
-    constructor(address _monsterFactoryAddress) {
+    constructor(address _monsterTokenAddress) {
         _name = "Monster Market";
-        setMonsterFactory(_monsterFactoryAddress);
-    }
-    
-    modifier onlyMonsterOwner(uint256 _tokenId){
-        require(msg.sender == _monsterFactory.ownerOf(_tokenId));
-        _;
+        _setMonsterToken(_monsterTokenAddress);
     }
 
 
     /**
      * @dev Pass the address of monster factory to this contract
      */
-    function setMonsterFactory(address _monsterFactoryAddress) public onlyOwner{
-        _monsterFactory = MonsterFactory(payable(_monsterFactoryAddress));
+    function _setMonsterToken(address _monsterTokenAddress) public onlyOwner{
+        _monsterToken = MonsterToken(payable(_monsterTokenAddress));
     }
 
     function totalSupply() public view returns(uint256){
@@ -61,9 +56,10 @@ contract MonsterMarket is Ownable{
     /**
      * @dev Add a product which does not exist 
      */
-    function setProduct(uint256 _price, uint256 _tokenId) onlyMonsterOwner(_tokenId) public {
+    function setProduct(uint256 _price, uint256 _tokenId) public {
         require(_monsterIdToProduct[_tokenId].isAvaliable == false);
-        (address owner, uint8 level, MonsterLib.Statistics memory statc, MonsterLib.Race race) = _monsterFactory.getProductInfo(_tokenId);
+        (address owner, uint8 level, MonsterLib.Statistics memory statc, MonsterLib.Race race) = _monsterToken.getProductInfo(_tokenId);
+        require(msg.sender == owner);
         uint256 _productIndex = totalSupply() - 1;
         Product memory _newPro = Product(_tokenId, _productIndex, _price, owner, level, statc, race, true);
         _productsId.push(_tokenId);
@@ -71,15 +67,16 @@ contract MonsterMarket is Ownable{
         uint _num = _productNumOf[msg.sender];
         _ownedProducts[msg.sender][_num] = _newPro.Id;
         _ownedProductsIndex[_tokenId] = _num;
-        _monsterFactory.lockMonster(_tokenId, true);
+        _monsterToken.lockMonster(_tokenId, true);
         emit setProductComplete(_tokenId);
     }
 
     /**
      *@dev delete a product in the list
      */
-     function deleteProduct(uint256 _productId) onlyMonsterOwner(_productId) public{
+     function deleteProduct(uint256 _productId) public{
         require(_monsterIdToProduct[_productId].isAvaliable == true);
+        require(msg.sender == (_monsterIdToProduct[_productId]).owner);
         uint _lastIndex = totalSupply() - 1;
         uint _productIndex = _monsterIdToProduct[_productId].index;     
         if(_lastIndex != _productIndex){
@@ -101,16 +98,16 @@ contract MonsterMarket is Ownable{
         } 
         delete _ownedProducts[msg.sender][_amount - 1];
         _productNumOf[msg.sender] -= 1;
-        _monsterFactory.lockMonster(_productId, false);
+        _monsterToken.lockMonster(_productId, false);
         
    
     }
 
     function  buyMonsters(uint _productId) public {
         Product memory product = _monsterIdToProduct[_productId];
-        require(_monsterFactory.depositOf(msg.sender) >= product.price);
-        _monsterFactory.transferFrom(product.owner, msg.sender, _productId);
-        _monsterFactory.transferMoney(msg.sender, product.owner, product.price);
+        require(_monsterToken.depositOf(msg.sender) >= product.price);
+        _monsterToken.transferFrom(product.owner, msg.sender, _productId);
+        _monsterToken.transferMoney(msg.sender, product.owner, product.price);
 
     }
 

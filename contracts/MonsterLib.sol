@@ -59,5 +59,9 @@ library MonsterLib{
         return true; 
     
     }
+    
+    function _random() internal view returns(uint){
+        return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, address(0))));
+    }
 
 }

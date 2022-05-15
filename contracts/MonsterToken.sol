@@ -1,20 +1,45 @@
 pragma solidity ^0.8.9;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "../node_modules/@openzeppelin/contracts/utils/Address.sol";
+import "../node_modules/@openzeppelin/contracts/utils/Context.sol";
+import "../node_modules/@openzeppelin/contracts/utils/Strings.sol";
 import "./MonsterLib.sol";
+import "./MonsterFactory.sol";
+import "./MonsterBattle.sol";
 
-contract MonsterToken is  ERC721URIStorage {
+contract MonsterToken {
+
+    MonsterFactory _monsterFactory;
+    MonsterBattle _monsterBattle;
+     
+    using Address for address;
+    using Strings for uint256;
 
     event LevelUp(MonsterLib.Statistics, MonsterLib.Statistics);
     event TransferMoney(address, address, uint);
     event LockMonster(uint, bool);
     event MonsterInMarket(uint);
+    event DifferentRace(MonsterLib.Race, MonsterLib.Race);
+    event Transfer(address, address, uint256);
+
+    struct Competitor{
+        uint256 tokenId;
+        uint8 level;
+        MonsterLib.Race race;
+        MonsterLib.Statistics statc;
+    }
 
     string constant imagePath = "../public/images/";
 
     event ReceiveEth(address from, uint256 amount);
+
+    // Mapping from token ID to owner address
+    mapping(uint256 => address) private _owners;
+
+    // Mapping owner address to token count
+    mapping(address => uint256) private _balances;
+    
     
     // Mapping owner address to ETH balance
     mapping(address => uint) private _deposit;
@@ -37,6 +62,9 @@ contract MonsterToken is  ERC721URIStorage {
     // Mapping from token ID to index of the owner tokens list
     mapping(uint256 => uint256) private _ownedTokensIndex;
 
+    // Optional mapping for token URIs
+    mapping(uint256 => string) private _tokenURIs;
+
     //True when some one storing their new monsters
     bool isPushing;
 
@@ -46,16 +74,28 @@ contract MonsterToken is  ERC721URIStorage {
 
     MonsterLib.IndividualValue initialIV = MonsterLib.IndividualValue(5,5,5,5);
 
-    constructor() ERC721("Monster Token", "MONSTER") {
+    constructor(address _monsterFactoryAddress, address _monsterBattleAddress) {
         IdCount = 1;
         isPushing = false;
+        _setContract(_monsterFactoryAddress, _monsterBattleAddress);
 
     }
 
-    modifier _tokenExist(uint256 _tokenId){
-        require(_exists(_tokenId));
+    function _setContract(address _monsterFactoryAddress, address _monsterBattleAddress) internal {
+        _monsterFactory = MonsterFactory(_monsterFactoryAddress);
+        _monsterBattle = MonsterBattle(_monsterBattleAddress);
+    }
+
+    modifier tokenExist(uint256 _tokenId){
+        require(_owners[_tokenId] != address(0));
         _;
     }
+
+    modifier onlyOwnerOrThis(address _from){
+        require(msg.sender == _from || msg.sender == address(this));
+        _;
+    }
+
 
     function depositOf(address owner) public view returns (uint256){
         require(owner == tx.origin);
@@ -94,11 +134,39 @@ contract MonsterToken is  ERC721URIStorage {
         IdCount ++;
         isPushing = false;
         _allTokensIndex[_monsterId] = _monsterIndex;
-        _safeMint(to, _monsterId);
+        _mint(to, _monsterId);
         string memory _monsterURI = _monsterURIByRace(monster.race);
         require (bytes(_monsterURI).length != 0);
         _setTokenURI(_monsterId, _monsterURI);
     }
+
+    /**
+     * @dev Mints `tokenId` and transfers it to `to`.
+     *
+     * WARNING: Usage of this method is discouraged, use {_safeMint} whenever possible
+     *
+     * Requirements:
+     *
+     * - `tokenId` must not exist.
+     * - `to` cannot be the zero address.
+     *
+     * Emits a {Transfer} event.
+     */
+    function _mint(address to, uint256 tokenId) tokenExist(tokenId) internal virtual {
+        require(to != address(0), "ERC721: mint to the zero address");
+
+        _beforeTokenTransfer(address(0), to, tokenId);
+
+        _balances[to] += 1;
+        _owners[tokenId] = to;
+
+        emit Transfer(address(0), to, tokenId);
+    }
+
+    function _setTokenURI(uint256 _monsterId, string memory _monsterURI) tokenExist(_monsterId) internal {
+        _tokenURIs[_monsterId] = _monsterURI;
+    }
+
 
 
         /**
@@ -120,8 +188,7 @@ contract MonsterToken is  ERC721URIStorage {
         address from,
         address to,
         uint256 tokenId
-    ) internal override {
-        super._beforeTokenTransfer(from, to, tokenId);
+    ) internal {
 
         if (from == address(0)) {
             //This monster has been added before
@@ -133,19 +200,7 @@ contract MonsterToken is  ERC721URIStorage {
         } else if (to != from) {
             _addMonsterToOwnerEnumeration(to, tokenId);
         }
-    }
-        /**
-     * @dev Private function to add a token to this extension's ownership-tracking data structures.
-     * @param to address representing the new owner of the given token ID
-     * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
-     */
-    function _addMonsterToOwnerEnumeration(address to, uint256 tokenId) private{
-        uint256 length = balanceOf(to);
-        _ownedTokens[to][length] = tokenId;
-        _ownedTokensIndex[tokenId] = length;
-    }
-
-
+    }    
     /**
      * @dev Private function to remove a token from this extension's ownership-tracking data structures. Note that
      * while the token is not assigned a new owner, the `_ownedTokensIndex` mapping is _not_ updated: this allows for
@@ -158,7 +213,7 @@ contract MonsterToken is  ERC721URIStorage {
         // To prevent a gap in from's tokens array, we store the last token in the index of the token to delete, and
         // then delete the last slot (swap and pop).
 
-        uint256 lastTokenIndex = ERC721.balanceOf(from) - 1;
+        uint256 lastTokenIndex = balanceOf(from) - 1;
         uint256 tokenIndex = _ownedTokensIndex[tokenId];
 
         // When the token to delete is the last token, the swap operation is unnecessary
@@ -199,6 +254,24 @@ contract MonsterToken is  ERC721URIStorage {
         _allMonsters.pop();
     }
 
+    /**
+     * @dev Private function to add a token to this extension's ownership-tracking data structures.
+     * @param to address representing the new owner of the given token ID
+     * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
+     */
+    function _addMonsterToOwnerEnumeration(address to, uint256 tokenId) private{
+        uint256 length = balanceOf(to);
+        _ownedTokens[to][length] = tokenId;
+        _ownedTokensIndex[tokenId] = length;
+    }
+
+    function balanceOf(address _owner) public onlyOwnerOrThis(_owner) view returns(uint256 balance){
+        balance = _balances[_owner];
+    }
+
+
+
+
     function _monsterURIByRace(MonsterLib.Race _race) internal pure returns(string memory){
         string memory _monsterURI;
         if(_race == MonsterLib.Race.DRAGON) _monsterURI ="../public/images/dragon.png" ;
@@ -216,7 +289,7 @@ contract MonsterToken is  ERC721URIStorage {
     /**
      * Used for buyer want to check more detailed information in the market
      */
-     function getStatics(uint256 _tokenId) public view _tokenExist(_tokenId) returns(MonsterLib.Statistics memory){
+     function getStatics(uint256 _tokenId) public view tokenExist(_tokenId) returns(MonsterLib.Statistics memory){
          uint256 _tokenIndex = _allTokensIndex[_tokenId];
         return _allMonsters[_tokenIndex].statc;
 
@@ -225,14 +298,18 @@ contract MonsterToken is  ERC721URIStorage {
      /**
       * 
       */
-    function getProductInfo(uint256 _tokenId) public view _tokenExist(_tokenId) returns(address, uint8, MonsterLib.Statistics memory, MonsterLib.Race){
+    function getProductInfo(uint256 _tokenId) public view tokenExist(_tokenId) returns(address, uint8, MonsterLib.Statistics memory, MonsterLib.Race){
         uint256 _tokenIndex = _allTokensIndex[_tokenId];
         MonsterLib.Monster memory monster = _allMonsters[_tokenIndex];
         address owner = ownerOf(_tokenId);
         return (owner, monster.level, monster.statc,monster.race);
     }
 
-    function monsterById(uint256 _tokenId) public view _tokenExist(_tokenId) returns (MonsterLib.Monster memory){
+    function ownerOf(uint256 _tokenId) internal tokenExist(_tokenId) view returns(address owner){
+        owner = _owners[_tokenId];
+    }
+
+    function monsterById(uint256 _tokenId) public view tokenExist(_tokenId) returns (MonsterLib.Monster memory){
         uint256 _tokenIndex = _allTokensIndex[_tokenId];
         return _allMonsters[_tokenIndex];
     }
@@ -242,7 +319,7 @@ contract MonsterToken is  ERC721URIStorage {
         return _allMonsters[_tokenIndex];
     }
 
-    function _updateExp(uint256 _tokenId, uint8 exp) internal _tokenExist(_tokenId){
+    function _updateExp(uint256 _tokenId, uint8 exp) internal tokenExist(_tokenId){
         uint256 _tokenIndex = _allTokensIndex[_tokenId];
         MonsterLib.Monster storage monster = _allMonsters[_tokenIndex];
         if(monster.expNeedToNext > exp) monster.expNeedToNext -= exp;
@@ -266,10 +343,38 @@ contract MonsterToken is  ERC721URIStorage {
         emit TransferMoney(_from, _to, _value);
     }
 
-    function transferFrom(address _from, address _to,uint _tokenId) public override{
+    function transferFrom(address _from, address _to,uint _tokenId) public{
         require(ownerOf(_tokenId) == _from);
         require (monsterById(_tokenId).isLocked && tx.origin == _to);
         _transfer(_from, _to, _tokenId);
+    }
+    
+    /**
+     * @dev Transfers `tokenId` from `from` to `to`.
+     *  As opposed to {transferFrom}, this imposes no restrictions on msg.sender.
+     *
+     * Requirements:
+     *
+     * - `to` cannot be the zero address.
+     * - `tokenId` token must be owned by `from`.
+     *
+     * Emits a {Transfer} event.
+     */
+    function _transfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal {
+        require(ownerOf(tokenId) == from, "ERC721: transfer from incorrect owner");
+        require(to != address(0), "ERC721: transfer to the zero address");
+
+        _beforeTokenTransfer(from, to, tokenId);
+
+        _balances[from] -= 1;
+        _balances[to] += 1;
+        _owners[tokenId] = to;
+
+        emit Transfer(from, to, tokenId);
     }
 
     function lockMonster(uint _tokenId, bool _locked) public {
@@ -300,6 +405,99 @@ contract MonsterToken is  ERC721URIStorage {
         }
     }
 
+        /**
+     * @dev Destroys `tokenId`.
+     * The approval is cleared when the token is burned.
+     *
+     * Requirements:
+     *
+     * - `tokenId` must exist.
+     *
+     * Emits a {Transfer} event.
+     */
+    function _burn(uint256 tokenId) internal {
+        address owner = ownerOf(tokenId);
+
+        _beforeTokenTransfer(owner, address(0), tokenId);
+
+        _balances[owner] -= 1;
+        delete _owners[tokenId];
+
+        emit Transfer(owner, address(0), tokenId);
+    }
+
+    function breed(uint _mumId, uint _dadId) public {
+        require(ownerOf(_mumId) == msg.sender && ownerOf(_dadId) == msg.sender);
+        MonsterLib.Monster memory _mum = monsterById(_mumId);
+        MonsterLib.Monster memory _dad = monsterById(_dadId);
+        if(_mum.race != _dad.race){
+            emit DifferentRace(_mum.race, _dad.race);
+        }
+        MonsterLib.IndividualValue memory _childIv = _monsterFactory.getChild(_mum.iv, _dad.iv);
+        _createNewMonster(msg.sender, _mumId, _dadId, _childIv, _dad.race);
+    }
+
+    /**
+     * @dev Pick five competitors randomly from existing monsters
+     * Cannot pick those monster whose owner is msg.sender
+     */
+    function pickCompetitionRandomly() public view returns (Competitor[] memory){
+        uint _monsterCount = totalSupply();
+        Competitor[] memory competitors;
+        MonsterLib.Monster memory _currentMonster;
+        if( _monsterCount - balanceOf(msg.sender) <= 5){
+            uint _pickedCount = 0;
+            for(uint i = 0; i < _monsterCount; i++){
+                _currentMonster = _monsterByIndex(_monsterCount);
+                if(ownerOf(_currentMonster.tokenId) != msg.sender){
+                    competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
+                    _pickedCount ++;
+                }
+            }
+        }
+        else{
+            uint256[] memory _foundIndex;
+            uint _pickedIndex;
+            uint _pickedCount = 0;
+            uint _foundCount = 0;
+            uint _loops = 0;
+            while(_foundIndex.length < _monsterCount && competitors.length < 5 && _loops < 10){
+                _loops ++;
+                _pickedIndex = MonsterLib._random() % _monsterCount;
+                _currentMonster = _monsterByIndex(_pickedIndex);
+                if(!_contain(_foundIndex, _pickedIndex)){
+                    if(ownerOf(_currentMonster.tokenId) != msg.sender ){
+                        competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
+                        _pickedCount++;
+                    }
+                    _foundIndex[_foundCount] = _pickedIndex;
+                    _foundCount ++;
+                }
+            }
+        }
+        return competitors;
+
+    }
+
+    function _contain(uint256[] memory list, uint256 elem) internal pure returns(bool){
+        for(uint i = 0; i < list.length; i++){
+            if(list[i] == elem) return true;
+        }
+        return false;
+    } 
+
+    function battleWithPlayer(uint _player1Id, uint _player2Id) public {
+        MonsterLib.Monster memory _player1 = monsterById(_player1Id);
+        MonsterLib.Monster memory _player2 = monsterById(_player2Id);
+        uint8 exp = _monsterBattle.battleWithPlayer(_player1.statc, _player2.statc, _player2.level);
+        _updateExp(_player1Id, exp);
+    }
+
+    function battleWithDefault(uint _playerId, uint _defaultId) public{
+        MonsterLib.Monster memory _player = monsterById(_playerId);
+        uint8 exp = _monsterBattle.battleWithDefaultMonster(_player.statc, _defaultId);
+        _updateExp(_playerId, exp);
+    }
 
 
 
