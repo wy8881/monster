@@ -10,6 +10,7 @@ library MonsterLib{
         uint8 level;
         uint8 expNeedToNext;
         Race race;
+        bool isLocked;
 
     }
 
@@ -57,6 +58,10 @@ library MonsterLib{
                 && monster.expNeedToNext != 0);
         return true; 
     
+    }
+    
+    function _random() internal view returns(uint){
+        return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, address(0))));
     }
 
 }
