@@ -9,13 +9,13 @@ contract MonsterToken is  ERC721URIStorage {
 
     event LevelUp(MonsterLib.Statistics, MonsterLib.Statistics);
     event TransferMoney(address, address, uint);
+    event LockMonster(uint, bool);
+    event MonsterInMarket(uint);
 
     string constant imagePath = "../public/images/";
 
     event ReceiveEth(address from, uint256 amount);
-
-    //Mapping monster Id to a boolean 
-    mapping(uint => bool) private _readyToSell;
+    
     // Mapping owner address to ETH balance
     mapping(address => uint) private _deposit;
 
@@ -88,7 +88,7 @@ contract MonsterToken is  ERC721URIStorage {
         uint256 _monsterIndex = totalSupply() - 1;
         uint256 _monsterId = IdCount;
         MonsterLib.Statistics memory statc = MonsterLib._calculateStatc(iv, 1);
-        MonsterLib.Monster memory monster = MonsterLib.Monster(_monsterId, mumId, dadId, statc, iv, 1, 1*10, race);
+        MonsterLib.Monster memory monster = MonsterLib.Monster(_monsterId, mumId, dadId, statc, iv, 1, 1*10, race,false);
         require(MonsterLib._checkMonsterValid(monster));
         _allMonsters.push(monster);
         IdCount ++;
@@ -140,7 +140,7 @@ contract MonsterToken is  ERC721URIStorage {
      * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
      */
     function _addMonsterToOwnerEnumeration(address to, uint256 tokenId) private{
-        uint256 length = ERC721.balanceOf(to);
+        uint256 length = balanceOf(to);
         _ownedTokens[to][length] = tokenId;
         _ownedTokensIndex[tokenId] = length;
     }
@@ -268,13 +268,36 @@ contract MonsterToken is  ERC721URIStorage {
 
     function transferFrom(address _from, address _to,uint _tokenId) public override{
         require(ownerOf(_tokenId) == _from);
-        require (_readyToSell[_tokenId] && tx.origin == _to);
+        require (monsterById(_tokenId).isLocked && tx.origin == _to);
         _transfer(_from, _to, _tokenId);
     }
 
-    function setReadyToSell(uint _tokenId, bool _ready) public {
+    function lockMonster(uint _tokenId, bool _locked) public {
         require(tx.origin == ownerOf(_tokenId));
-        _readyToSell[_tokenId] = _ready;
+        _allMonsters[_allTokensIndex[_tokenId]].isLocked = _locked;
+        emit LockMonster(_tokenId,_locked);
+    }
+
+    function getOwnedMonster() public view returns (MonsterLib.Monster[] memory monsters) {
+        uint _ownedCount = balanceOf(msg.sender);
+        if(_ownedCount != 0){
+            for(uint i = 0; i < _ownedCount; i++){
+                monsters[i] = monsterById(_ownedTokens[msg.sender][i]);
+            }
+        }
+        else monsters = new MonsterLib.Monster[](0);
+
+    }
+
+    function deleteMonster(uint _monsterId) public {
+        require(msg.sender == ownerOf(_monsterId));
+        if(monsterById(_monsterId).isLocked){
+            emit MonsterInMarket(_monsterId);
+            revert();
+        }
+        else{
+            _burn(_monsterId);
+        }
     }
 
 

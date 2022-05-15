@@ -10,6 +10,7 @@ library MonsterLib{
         uint8 level;
         uint8 expNeedToNext;
         Race race;
+        bool isLocked;
 
     }
 

@@ -1,5 +1,5 @@
 pragma solidity ^0.8.9;
-
+pragma experimental ABIEncoderV2;
 import "./MonsterToken.sol";
 /**
  * This contract is used to store all the tokens and function related to breed and battle
@@ -22,7 +22,15 @@ contract MonsterFactory is MonsterToken{
         uint speed;
     }
 
-    MonsterLib.Statistics[] private _defaultMonsters;
+    struct DefaultMonster{
+        uint HP;
+        uint strength;
+        uint speed;
+        uint defensive;
+        uint8 level;
+    }
+
+    DefaultMonster[] private _defaultMonsters;
   
     modifier onlyOwner(uint256 _tokenId1, uint256 _tokenId2){
     require(msg.sender == ownerOf(_tokenId1));
@@ -31,9 +39,9 @@ contract MonsterFactory is MonsterToken{
     }
 
     constructor() MonsterToken() {
-        _defaultMonsters.push(MonsterLib.Statistics(11,5,5,5));
-        _defaultMonsters.push(MonsterLib.Statistics(17,7,7,7));
-        _defaultMonsters.push(MonsterLib.Statistics(25,15,15,15));
+        _defaultMonsters.push(DefaultMonster(11,5,5,5,1));
+        _defaultMonsters.push(DefaultMonster(17,7,7,7,5));
+        _defaultMonsters.push(DefaultMonster(25,15,15,15,10));
     }
 
     function getChild(uint256 _mumId, uint256 _dadId) public onlyOwner(_mumId, _dadId){
@@ -133,7 +141,9 @@ contract MonsterFactory is MonsterToken{
             uint _pickedIndex;
             uint _pickedCount = 0;
             uint _foundCount = 0;
-            while(_foundIndex.length < _monsterCount && competitors.length < 5){
+            uint _loops = 0;
+            while(_foundIndex.length < _monsterCount && competitors.length < 5 && _loops < 10){
+                _loops ++;
                 _pickedIndex = _random() % _monsterCount;
                 _currentMonster = _monsterByIndex(_pickedIndex);
                 if(!_contain(_foundIndex, _pickedIndex)){
@@ -165,6 +175,9 @@ contract MonsterFactory is MonsterToken{
         Fighter memory _fighter1 = Fighter(_player1.statc.HP, _damage1, _player1.statc.speed);
         Fighter memory _fighter2 = Fighter(_player2.statc.HP, _damage2, _player2.statc.speed);
         bool isFighter1Win = _simulateBattle(_fighter1, _fighter2);
+        if(isFighter1Win){
+            _updateExp(_tokenId1, _player2.level * 10);
+        }
         emit Fighter1Win(isFighter1Win);
         return isFighter1Win;
     }
@@ -172,12 +185,15 @@ contract MonsterFactory is MonsterToken{
     function battleWithDefaultMonster(uint256 _tokenId, uint256 _defaultMonsterId) public returns(bool){
         require(_defaultMonsterId < _defaultMonsters.length);
         MonsterLib.Monster memory _player1 = monsterById(_tokenId);
-        MonsterLib.Statistics memory _default = _defaultMonsters[_defaultMonsterId];
+        DefaultMonster memory _default = _defaultMonsters[_defaultMonsterId];
         uint _damage1 = (_player1.statc.strength/_default.defensive) + 1;
         uint _damage2 = (_default.strength/_player1.statc.defensive) + 1;
         Fighter memory _fighter1 = Fighter(_player1.statc.HP, _damage1, _player1.statc.speed);
         Fighter memory _fighter2 = Fighter(_default.HP, _damage2, _default.speed);
         bool isFighter1Win = _simulateBattle(_fighter1, _fighter2);
+        if(isFighter1Win){
+            _updateExp(_tokenId, _default.level * 10);
+        }
         emit Fighter1Win(isFighter1Win);
         return isFighter1Win;
     }
