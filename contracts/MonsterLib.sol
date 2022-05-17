@@ -1,3 +1,5 @@
+//SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.9;
 
 library MonsterLib{
@@ -54,7 +56,7 @@ library MonsterLib{
                 && monster.iv.strength <= 31
                 && monster.iv.defensive <= 31
                 && monster.iv.speed <= 31
-                && monster.level <= 31
+                && monster.level <= 10
                 && monster.expNeedToNext != 0);
         return true; 
     

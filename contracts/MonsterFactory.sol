@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 pragma experimental ABIEncoderV2;
 import "./MonsterLib.sol";
@@ -16,9 +17,8 @@ contract MonsterFactory {
 
     }
 
-    function _getChildIv(MonsterLib.IndividualValue memory mumIv, MonsterLib.IndividualValue memory dadIv) internal view returns (MonsterLib.IndividualValue memory){
+    function _getChildIv(MonsterLib.IndividualValue memory mumIv, MonsterLib.IndividualValue memory dadIv) internal view returns (MonsterLib.IndividualValue memory childValue){
         uint8 inheritendCount = 3; //child can only inheritend at most 3 individual value from parents
-        MonsterLib.IndividualValue memory childValue;
         bool isInherited;
         if(inheritendCount != 0){
             (childValue.HP, isInherited) = _getNewIv(mumIv.HP, dadIv.HP);
@@ -48,7 +48,6 @@ contract MonsterFactory {
         else{
             childValue.speed = _getNewValueRandomly();
         }
-        return childValue;        
 
     }
     /**

@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
 import "../node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -22,6 +23,7 @@ contract MonsterToken {
     event MonsterInMarket(uint);
     event DifferentRace(MonsterLib.Race, MonsterLib.Race);
     event Transfer(address, address, uint256);
+    event ReadyToCreate(address);
 
     struct Competitor{
         uint256 tokenId;
@@ -75,9 +77,11 @@ contract MonsterToken {
     MonsterLib.IndividualValue initialIV = MonsterLib.IndividualValue(5,5,5,5);
 
     constructor(address _monsterFactoryAddress, address _monsterBattleAddress) {
+        require(_monsterBattleAddress != address(0) && _monsterFactoryAddress != address(0));
         IdCount = 1;
         isPushing = false;
         _setContract(_monsterFactoryAddress, _monsterBattleAddress);
+        createFee = 2 ether;
 
     }
 
@@ -87,14 +91,10 @@ contract MonsterToken {
     }
 
     modifier tokenExist(uint256 _tokenId){
-        require(_owners[_tokenId] != address(0));
+        require(_owners[_tokenId] != address(0),"token does not exist");
         _;
     }
 
-    modifier onlyOwnerOrThis(address _from){
-        require(msg.sender == _from || msg.sender == address(this));
-        _;
-    }
 
 
     function depositOf(address owner) public view returns (uint256){
@@ -109,8 +109,17 @@ contract MonsterToken {
     /**
      *@dev Pay ETH to get a default monster from contract
      */
-    function getInitialMonster(MonsterLib.Race race) public{
-        _createNewMonster(msg.sender, 0, 0,initialIV, race);
+    function getInitialMonster(string memory race) public payable{
+        _deposit[msg.sender] += msg.value;
+        require(_deposit[msg.sender] >= createFee, "should have enough money");
+        _deposit[msg.sender] -= createFee;
+        MonsterLib.Race _race;
+        if(keccak256(abi.encodePacked(race)) == keccak256(abi.encodePacked('dragon'))) _race = MonsterLib.Race.DRAGON;
+        else if(keccak256(abi.encodePacked(race)) == keccak256(abi.encodePacked('ghost'))) _race = MonsterLib.Race.GHOST;
+        else if(keccak256(abi.encodePacked(race)) == keccak256(abi.encodePacked('gargoyle'))) _race = MonsterLib.Race.GARGOYLE;
+        else {revert();}
+        emit ReadyToCreate(msg.sender);
+        _createNewMonster(msg.sender, 0, 0,initialIV, _race);
 
     }
 
@@ -119,20 +128,15 @@ contract MonsterToken {
      */
 
     function _createNewMonster(address to, uint256 mumId, uint256 dadId, MonsterLib.IndividualValue memory iv, MonsterLib.Race race) internal {
-        uint256 _depo = depositOf(to);
-        require(msg.value + _depo >= createFee);
-        while(isPushing){
-
-        }
-        isPushing = true;
-        uint256 _monsterIndex = totalSupply() - 1;
+        
+        
         uint256 _monsterId = IdCount;
+        IdCount ++;
         MonsterLib.Statistics memory statc = MonsterLib._calculateStatc(iv, 1);
         MonsterLib.Monster memory monster = MonsterLib.Monster(_monsterId, mumId, dadId, statc, iv, 1, 1*10, race,false);
         require(MonsterLib._checkMonsterValid(monster));
+        uint256 _monsterIndex = totalSupply() ;
         _allMonsters.push(monster);
-        IdCount ++;
-        isPushing = false;
         _allTokensIndex[_monsterId] = _monsterIndex;
         _mint(to, _monsterId);
         string memory _monsterURI = _monsterURIByRace(monster.race);
@@ -152,7 +156,7 @@ contract MonsterToken {
      *
      * Emits a {Transfer} event.
      */
-    function _mint(address to, uint256 tokenId) tokenExist(tokenId) internal virtual {
+    function _mint(address to, uint256 tokenId)  internal virtual {
         require(to != address(0), "ERC721: mint to the zero address");
 
         _beforeTokenTransfer(address(0), to, tokenId);
@@ -209,11 +213,11 @@ contract MonsterToken {
      * @param from address representing the previous owner of the given token ID
      * @param tokenId uint256 ID of the token to be removed from the tokens list of the given address
      */
-    function _removeMonsterFromOwnerEnumeration(address from, uint256 tokenId) private {
+    function _removeMonsterFromOwnerEnumeration(address from, uint256 tokenId) internal {
         // To prevent a gap in from's tokens array, we store the last token in the index of the token to delete, and
         // then delete the last slot (swap and pop).
 
-        uint256 lastTokenIndex = balanceOf(from) - 1;
+        uint256 lastTokenIndex = _balances[from] - 1;
         uint256 tokenIndex = _ownedTokensIndex[tokenId];
 
         // When the token to delete is the last token, the swap operation is unnecessary
@@ -234,7 +238,7 @@ contract MonsterToken {
      * This has O(1) time complexity, but alters the order of the _allTokens array.
      * @param tokenId uint256 ID of the token to be removed from the tokens list
      */
-    function _removeMonsterFromAllTokensEnumeration(uint256 tokenId) private  {
+    function _removeMonsterFromAllTokensEnumeration(uint256 tokenId) internal  {
         // To prevent a gap in the tokens array, we store the last token in the index of the token to delete, and
         // then delete the last slot (swap and pop).
 
@@ -259,13 +263,14 @@ contract MonsterToken {
      * @param to address representing the new owner of the given token ID
      * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
      */
-    function _addMonsterToOwnerEnumeration(address to, uint256 tokenId) private{
-        uint256 length = balanceOf(to);
+    function _addMonsterToOwnerEnumeration(address to, uint256 tokenId) internal{
+        uint256 length = _balances[to];
         _ownedTokens[to][length] = tokenId;
         _ownedTokensIndex[tokenId] = length;
     }
 
-    function balanceOf(address _owner) public onlyOwnerOrThis(_owner) view returns(uint256 balance){
+    function balanceOf(address _owner) public view returns(uint256 balance){
+        require(_owner == msg.sender, "only owner can check their balance");
         balance = _balances[_owner];
     }
 
@@ -315,7 +320,7 @@ contract MonsterToken {
     }
 
     function _monsterByIndex(uint256 _tokenIndex) internal view returns (MonsterLib.Monster memory){
-        require(_tokenIndex < totalSupply() - 1);
+        require(_tokenIndex < totalSupply() , "this index exceed");
         return _allMonsters[_tokenIndex];
     }
 
@@ -344,9 +349,12 @@ contract MonsterToken {
     }
 
     function transferFrom(address _from, address _to,uint _tokenId) public{
-        require(ownerOf(_tokenId) == _from);
-        require (monsterById(_tokenId).isLocked && tx.origin == _to);
+        require(ownerOf(_tokenId) == _from, "only when from is the owner of this monster");
+        require (monsterById(_tokenId).isLocked, "only transfer when this monster is on sale");
+        require( tx.origin == _to, "only transfer when buyer send a transaction");
         _transfer(_from, _to, _tokenId);
+        lockMonster(_tokenId, false);
+        emit Transfer(_from, _to, _tokenId);
     }
     
     /**
@@ -373,12 +381,12 @@ contract MonsterToken {
         _balances[from] -= 1;
         _balances[to] += 1;
         _owners[tokenId] = to;
-
+        lockMonster(tokenId, false);
         emit Transfer(from, to, tokenId);
     }
 
     function lockMonster(uint _tokenId, bool _locked) public {
-        require(tx.origin == ownerOf(_tokenId));
+        require(tx.origin == ownerOf(_tokenId), "only owner can lock or unlock");
         _allMonsters[_allTokensIndex[_tokenId]].isLocked = _locked;
         emit LockMonster(_tokenId,_locked);
     }
@@ -386,6 +394,7 @@ contract MonsterToken {
     function getOwnedMonster() public view returns (MonsterLib.Monster[] memory monsters) {
         uint _ownedCount = balanceOf(msg.sender);
         if(_ownedCount != 0){
+            monsters = new MonsterLib.Monster[](_ownedCount);
             for(uint i = 0; i < _ownedCount; i++){
                 monsters[i] = monsterById(_ownedTokens[msg.sender][i]);
             }
@@ -394,15 +403,11 @@ contract MonsterToken {
 
     }
 
+
     function deleteMonster(uint _monsterId) public {
-        require(msg.sender == ownerOf(_monsterId));
-        if(monsterById(_monsterId).isLocked){
-            emit MonsterInMarket(_monsterId);
-            revert();
-        }
-        else{
-            _burn(_monsterId);
-        }
+        require(msg.sender == ownerOf(_monsterId),"only owner can delete");
+        require(!monsterById(_monsterId).isLocked,"this monster is locked");
+        _burn(_monsterId);
     }
 
         /**
@@ -426,29 +431,34 @@ contract MonsterToken {
         emit Transfer(owner, address(0), tokenId);
     }
 
-    function breed(uint _mumId, uint _dadId) public {
-        require(ownerOf(_mumId) == msg.sender && ownerOf(_dadId) == msg.sender);
+    function breed(uint _mumId, uint _dadId) payable public {
+        require(ownerOf(_mumId) == msg.sender && ownerOf(_dadId) == msg.sender, "the owner of both parents should be the sender");
+        uint256 _depo = depositOf(msg.sender);         
+        require(msg.value + _depo >= createFee, "should have enough money");
         MonsterLib.Monster memory _mum = monsterById(_mumId);
         MonsterLib.Monster memory _dad = monsterById(_dadId);
-        if(_mum.race != _dad.race){
-            emit DifferentRace(_mum.race, _dad.race);
-        }
+        require(_mum.race == _dad.race,"should have the same race");
+        _deposit[msg.sender] += msg.value;
+        _deposit[msg.sender] -= createFee;
         MonsterLib.IndividualValue memory _childIv = _monsterFactory.getChild(_mum.iv, _dad.iv);
         _createNewMonster(msg.sender, _mumId, _dadId, _childIv, _dad.race);
+    
+
     }
 
     /**
      * @dev Pick five competitors randomly from existing monsters
      * Cannot pick those monster whose owner is msg.sender
      */
-    function pickCompetitionRandomly() public view returns (Competitor[] memory){
+    function pickCompetitionRandomly() public view returns (Competitor[] memory competitors){
         uint _monsterCount = totalSupply();
-        Competitor[] memory competitors;
         MonsterLib.Monster memory _currentMonster;
-        if( _monsterCount - balanceOf(msg.sender) <= 5){
+        uint _leftMonster = _monsterCount - balanceOf(msg.sender);
+        if( _leftMonster <= 5){
+            competitors = new Competitor[](_leftMonster);
             uint _pickedCount = 0;
             for(uint i = 0; i < _monsterCount; i++){
-                _currentMonster = _monsterByIndex(_monsterCount);
+                _currentMonster = _monsterByIndex(i);
                 if(ownerOf(_currentMonster.tokenId) != msg.sender){
                     competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
                     _pickedCount ++;
@@ -456,37 +466,32 @@ contract MonsterToken {
             }
         }
         else{
-            uint256[] memory _foundIndex;
-            uint _pickedIndex;
+            competitors = new Competitor[](5);
             uint _pickedCount = 0;
-            uint _foundCount = 0;
-            uint _loops = 0;
-            while(_foundIndex.length < _monsterCount && competitors.length < 5 && _loops < 10){
-                _loops ++;
-                _pickedIndex = MonsterLib._random() % _monsterCount;
-                _currentMonster = _monsterByIndex(_pickedIndex);
-                if(!_contain(_foundIndex, _pickedIndex)){
-                    if(ownerOf(_currentMonster.tokenId) != msg.sender ){
-                        competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
-                        _pickedCount++;
-                    }
-                    _foundIndex[_foundCount] = _pickedIndex;
-                    _foundCount ++;
+            uint _startIndex;
+            uint _leastStartIndex = _monsterCount;
+            while(_pickedCount < 5){
+                _startIndex = MonsterLib._random() % _leastStartIndex;
+                if(_startIndex < _leastStartIndex){
+                    for(uint i = _startIndex; i < _leastStartIndex; i++){
+                        _currentMonster = _monsterByIndex(i);
+                        if(ownerOf(_currentMonster.tokenId) != msg.sender){
+                            competitors[_pickedCount] = Competitor(_currentMonster.tokenId, _currentMonster.level, _currentMonster.race, _currentMonster.statc);
+                            _pickedCount ++;
+                        }
+                    }   
+                _leastStartIndex = _startIndex;
                 }
+
             }
         }
         return competitors;
 
     }
 
-    function _contain(uint256[] memory list, uint256 elem) internal pure returns(bool){
-        for(uint i = 0; i < list.length; i++){
-            if(list[i] == elem) return true;
-        }
-        return false;
-    } 
-
     function battleWithPlayer(uint _player1Id, uint _player2Id) public {
+        require(ownerOf(_player1Id) == msg.sender, "only owner can start a fight");
+        require(ownerOf(_player1Id) != ownerOf(_player2Id), "two players should have different owners");
         MonsterLib.Monster memory _player1 = monsterById(_player1Id);
         MonsterLib.Monster memory _player2 = monsterById(_player2Id);
         uint8 exp = _monsterBattle.battleWithPlayer(_player1.statc, _player2.statc, _player2.level);
@@ -494,10 +499,13 @@ contract MonsterToken {
     }
 
     function battleWithDefault(uint _playerId, uint _defaultId) public{
+        require(ownerOf(_playerId) == msg.sender, "only owner can start a fight");
         MonsterLib.Monster memory _player = monsterById(_playerId);
         uint8 exp = _monsterBattle.battleWithDefaultMonster(_player.statc, _defaultId);
         _updateExp(_playerId, exp);
     }
+
+
 
 
 

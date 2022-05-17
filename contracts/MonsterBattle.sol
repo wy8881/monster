@@ -21,6 +21,7 @@ contract MonsterBattle{
     DefaultMonster[] private _defaultMonsters;
 
     constructor() {
+        _defaultMonsters.push(DefaultMonster(1,1,1,1,10));
         _defaultMonsters.push(DefaultMonster(11,5,5,5,1));
         _defaultMonsters.push(DefaultMonster(17,7,7,7,5));
         _defaultMonsters.push(DefaultMonster(25,15,15,15,10));

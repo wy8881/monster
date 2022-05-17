@@ -1,28 +1,29 @@
 {
   "contractName": "MonsterLib",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/MonsterLib.sol\":\"MonsterLib\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/MonsterLib.sol\":{\"keccak256\":\"0x0e6e6f86370f163093cb3de2f3cc8e020a8ff8de2152c2819e3629b7210bc6e1\",\"urls\":[\"bzz-raw://c022f0b4ec66b02137a343389997aad0f1f7b5e80cd500e710793fcba00c1152\",\"dweb:/ipfs/QmTnCw6iv9HYw8RqEAzDUCE6e37iNG6DN2dBaWeEEkZvGP\"]}},\"version\":1}",
-  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212202daf087b9e0c3074e89a87171000b45bc22f1812441d3748e28a1a7021166b2e64736f6c63430008090033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212202daf087b9e0c3074e89a87171000b45bc22f1812441d3748e28a1a7021166b2e64736f6c63430008090033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/MonsterLib.sol\":\"MonsterLib\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/MonsterLib.sol\":{\"keccak256\":\"0xcaf1c74be776ec7b613bae39f0c43eb165dcf5dd738ecf018e8a8b4829cda176\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://6822c47b66c34023cb1e5c5bb25665bf0066bd7209175882fa6388efe6834e0f\",\"dweb:/ipfs/QmRsK3b1C47jj8NZ219HsycDDUMiZVi9QhAq2VvVQ3GPi9\"]}},\"version\":1}",
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220d2c20ac58d72b0c2202aecc61bd3866748c356f5df7e837509a47ef31dd6b0d064736f6c63430008090033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220d2c20ac58d72b0c2202aecc61bd3866748c356f5df7e837509a47ef31dd6b0d064736f6c63430008090033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "27:1924:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "27:1924:3:-:0;;;;;;;;",
-  "source": "pragma solidity ^0.8.9;\r\n\r\nlibrary MonsterLib{\r\n    struct Monster{\r\n        uint256 tokenId;\r\n        uint256 mumId;\r\n        uint256 dadId;\r\n        Statistics statc;\r\n        IndividualValue iv;\r\n        uint8 level;\r\n        uint8 expNeedToNext;\r\n        Race race;\r\n        bool isLocked;\r\n\r\n    }\r\n\r\n    struct Statistics{\r\n        uint8 HP;\r\n        uint8 strength;\r\n        uint8 defensive;\r\n        uint8 speed;\r\n    }\r\n\r\n    struct IndividualValue{\r\n        uint8 HP;\r\n        uint8 strength;\r\n        uint8 defensive;\r\n        uint8 speed;\r\n    }\r\n\r\n\r\n    enum Race {DRAGON, GHOST, GARGOYLE}\r\n\r\n    function _calculateStatc (IndividualValue memory iv, uint8 level) internal pure returns (Statistics memory ){\r\n        Statistics memory statc;\r\n        statc.HP = _calculateFormula(iv.HP,level) + 5 + level;\r\n        statc.speed = _calculateFormula(iv.speed,level);\r\n        statc.defensive = _calculateFormula(iv.defensive,level) ;\r\n        statc.strength = _calculateFormula(iv.strength,level) ;\r\n        return statc;\r\n    }\r\n\r\n    function _calculateFormula (uint8 input, uint8 level) private pure returns (uint8){\r\n        return  (input * level)/10 + 5;\r\n    }\r\n\r\n    function _checkMonsterValid (Monster memory monster) internal pure returns(bool){\r\n        require(monster.tokenId > 0\r\n                && monster.statc.HP >0\r\n                && monster.statc.strength >0\r\n                && monster.statc.defensive > 0\r\n                && monster.statc.speed > 0\r\n                && monster.iv.HP  <= 31\r\n                && monster.iv.strength <= 31\r\n                && monster.iv.defensive <= 31\r\n                && monster.iv.speed <= 31\r\n                && monster.level <= 31\r\n                && monster.expNeedToNext != 0);\r\n        return true; \r\n    \r\n    }\r\n    \r\n    function _random() internal view returns(uint){\r\n        return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, address(0))));\r\n    }\r\n\r\n}",
+  "sourceMap": "68:1924:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "68:1924:3:-:0;;;;;;;;",
+  "source": "//SPDX-License-Identifier: UNLICENSED\r\n\r\npragma solidity ^0.8.9;\r\n\r\nlibrary MonsterLib{\r\n    struct Monster{\r\n        uint256 tokenId;\r\n        uint256 mumId;\r\n        uint256 dadId;\r\n        Statistics statc;\r\n        IndividualValue iv;\r\n        uint8 level;\r\n        uint8 expNeedToNext;\r\n        Race race;\r\n        bool isLocked;\r\n\r\n    }\r\n\r\n    struct Statistics{\r\n        uint8 HP;\r\n        uint8 strength;\r\n        uint8 defensive;\r\n        uint8 speed;\r\n    }\r\n\r\n    struct IndividualValue{\r\n        uint8 HP;\r\n        uint8 strength;\r\n        uint8 defensive;\r\n        uint8 speed;\r\n    }\r\n\r\n\r\n    enum Race {DRAGON, GHOST, GARGOYLE}\r\n\r\n    function _calculateStatc (IndividualValue memory iv, uint8 level) internal pure returns (Statistics memory ){\r\n        Statistics memory statc;\r\n        statc.HP = _calculateFormula(iv.HP,level) + 5 + level;\r\n        statc.speed = _calculateFormula(iv.speed,level);\r\n        statc.defensive = _calculateFormula(iv.defensive,level) ;\r\n        statc.strength = _calculateFormula(iv.strength,level) ;\r\n        return statc;\r\n    }\r\n\r\n    function _calculateFormula (uint8 input, uint8 level) private pure returns (uint8){\r\n        return  (input * level)/10 + 5;\r\n    }\r\n\r\n    function _checkMonsterValid (Monster memory monster) internal pure returns(bool){\r\n        require(monster.tokenId > 0\r\n                && monster.statc.HP >0\r\n                && monster.statc.strength >0\r\n                && monster.statc.defensive > 0\r\n                && monster.statc.speed > 0\r\n                && monster.iv.HP  <= 31\r\n                && monster.iv.strength <= 31\r\n                && monster.iv.defensive <= 31\r\n                && monster.iv.speed <= 31\r\n                && monster.level <= 10\r\n                && monster.expNeedToNext != 0);\r\n        return true; \r\n    \r\n    }\r\n    \r\n    function _random() internal view returns(uint){\r\n        return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp, address(0))));\r\n    }\r\n\r\n}",
   "sourcePath": "D:\\GitHub\\monster\\contracts\\MonsterLib.sol",
   "ast": {
     "absolutePath": "project:/contracts/MonsterLib.sol",
     "exportedSymbols": {
       "MonsterLib": [
-        876
+        880
       ]
     },
-    "id": 877,
+    "id": 881,
+    "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 651,
+        "id": 655,
         "literals": [
           "solidity",
           "^",
@@ -30,7 +31,7 @@
           ".9"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:3"
+        "src": "41:23:3"
       },
       {
         "abstract": false,
@@ -39,81 +40,27 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 876,
+        "id": 880,
         "linearizedBaseContracts": [
-          876
+          880
         ],
         "name": "MonsterLib",
-        "nameLocation": "35:10:3",
+        "nameLocation": "76:10:3",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "MonsterLib.Monster",
-            "id": 673,
+            "id": 677,
             "members": [
-              {
-                "constant": false,
-                "id": 653,
-                "mutability": "mutable",
-                "name": "tokenId",
-                "nameLocation": "85:7:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "77:15:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 652,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "77:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 655,
-                "mutability": "mutable",
-                "name": "mumId",
-                "nameLocation": "111:5:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "103:13:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 654,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "103:7:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
               {
                 "constant": false,
                 "id": 657,
                 "mutability": "mutable",
-                "name": "dadId",
-                "nameLocation": "135:5:3",
+                "name": "tokenId",
+                "nameLocation": "126:7:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "127:13:3",
+                "scope": 677,
+                "src": "118:15:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -124,7 +71,7 @@
                   "id": 656,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "127:7:3",
+                  "src": "118:7:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -134,95 +81,88 @@
               },
               {
                 "constant": false,
-                "id": 660,
+                "id": 659,
                 "mutability": "mutable",
-                "name": "statc",
-                "nameLocation": "162:5:3",
+                "name": "mumId",
+                "nameLocation": "152:5:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "151:16:3",
+                "scope": 677,
+                "src": "144:13:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Statistics_$682_storage_ptr",
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 658,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "144:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 661,
+                "mutability": "mutable",
+                "name": "dadId",
+                "nameLocation": "176:5:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 677,
+                "src": "168:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 660,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "168:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 664,
+                "mutability": "mutable",
+                "name": "statc",
+                "nameLocation": "203:5:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 677,
+                "src": "192:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Statistics_$686_storage_ptr",
                   "typeString": "struct MonsterLib.Statistics"
                 },
                 "typeName": {
-                  "id": 659,
+                  "id": 663,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 658,
+                    "id": 662,
                     "name": "Statistics",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 682,
-                    "src": "151:10:3"
+                    "referencedDeclaration": 686,
+                    "src": "192:10:3"
                   },
-                  "referencedDeclaration": 682,
-                  "src": "151:10:3",
+                  "referencedDeclaration": 686,
+                  "src": "192:10:3",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Statistics_$682_storage_ptr",
+                    "typeIdentifier": "t_struct$_Statistics_$686_storage_ptr",
                     "typeString": "struct MonsterLib.Statistics"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 663,
-                "mutability": "mutable",
-                "name": "iv",
-                "nameLocation": "194:2:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "178:18:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_IndividualValue_$691_storage_ptr",
-                  "typeString": "struct MonsterLib.IndividualValue"
-                },
-                "typeName": {
-                  "id": 662,
-                  "nodeType": "UserDefinedTypeName",
-                  "pathNode": {
-                    "id": 661,
-                    "name": "IndividualValue",
-                    "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 691,
-                    "src": "178:15:3"
-                  },
-                  "referencedDeclaration": 691,
-                  "src": "178:15:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IndividualValue_$691_storage_ptr",
-                    "typeString": "struct MonsterLib.IndividualValue"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 665,
-                "mutability": "mutable",
-                "name": "level",
-                "nameLocation": "213:5:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "207:11:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 664,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "207:5:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
                   }
                 },
                 "visibility": "internal"
@@ -231,11 +171,45 @@
                 "constant": false,
                 "id": 667,
                 "mutability": "mutable",
-                "name": "expNeedToNext",
-                "nameLocation": "235:13:3",
+                "name": "iv",
+                "nameLocation": "235:2:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "229:19:3",
+                "scope": 677,
+                "src": "219:18:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_IndividualValue_$695_storage_ptr",
+                  "typeString": "struct MonsterLib.IndividualValue"
+                },
+                "typeName": {
+                  "id": 666,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 665,
+                    "name": "IndividualValue",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 695,
+                    "src": "219:15:3"
+                  },
+                  "referencedDeclaration": 695,
+                  "src": "219:15:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IndividualValue_$695_storage_ptr",
+                    "typeString": "struct MonsterLib.IndividualValue"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 669,
+                "mutability": "mutable",
+                "name": "level",
+                "nameLocation": "254:5:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 677,
+                "src": "248:11:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -243,10 +217,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 666,
+                  "id": 668,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "229:5:3",
+                  "src": "248:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -256,33 +230,60 @@
               },
               {
                 "constant": false,
-                "id": 670,
+                "id": 671,
                 "mutability": "mutable",
-                "name": "race",
-                "nameLocation": "264:4:3",
+                "name": "expNeedToNext",
+                "nameLocation": "276:13:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "259:9:3",
+                "scope": 677,
+                "src": "270:19:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_Race_$695",
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 670,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "270:5:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 674,
+                "mutability": "mutable",
+                "name": "race",
+                "nameLocation": "305:4:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 677,
+                "src": "300:9:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_Race_$699",
                   "typeString": "enum MonsterLib.Race"
                 },
                 "typeName": {
-                  "id": 669,
+                  "id": 673,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 668,
+                    "id": 672,
                     "name": "Race",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 695,
-                    "src": "259:4:3"
+                    "referencedDeclaration": 699,
+                    "src": "300:4:3"
                   },
-                  "referencedDeclaration": 695,
-                  "src": "259:4:3",
+                  "referencedDeclaration": 699,
+                  "src": "300:4:3",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Race_$695",
+                    "typeIdentifier": "t_enum$_Race_$699",
                     "typeString": "enum MonsterLib.Race"
                   }
                 },
@@ -290,13 +291,13 @@
               },
               {
                 "constant": false,
-                "id": 672,
+                "id": 676,
                 "mutability": "mutable",
                 "name": "isLocked",
-                "nameLocation": "284:8:3",
+                "nameLocation": "325:8:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 673,
-                "src": "279:13:3",
+                "scope": 677,
+                "src": "320:13:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -304,10 +305,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 671,
+                  "id": 675,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "279:4:3",
+                  "src": "320:4:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -317,79 +318,25 @@
               }
             ],
             "name": "Monster",
-            "nameLocation": "59:7:3",
+            "nameLocation": "100:7:3",
             "nodeType": "StructDefinition",
-            "scope": 876,
-            "src": "52:250:3",
+            "scope": 880,
+            "src": "93:250:3",
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.Statistics",
-            "id": 682,
+            "id": 686,
             "members": [
-              {
-                "constant": false,
-                "id": 675,
-                "mutability": "mutable",
-                "name": "HP",
-                "nameLocation": "344:2:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 682,
-                "src": "338:8:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 674,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "338:5:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 677,
-                "mutability": "mutable",
-                "name": "strength",
-                "nameLocation": "363:8:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 682,
-                "src": "357:14:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 676,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "357:5:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
               {
                 "constant": false,
                 "id": 679,
                 "mutability": "mutable",
-                "name": "defensive",
-                "nameLocation": "388:9:3",
+                "name": "HP",
+                "nameLocation": "385:2:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 682,
-                "src": "382:15:3",
+                "scope": 686,
+                "src": "379:8:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -400,7 +347,7 @@
                   "id": 678,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "382:5:3",
+                  "src": "379:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -412,11 +359,11 @@
                 "constant": false,
                 "id": 681,
                 "mutability": "mutable",
-                "name": "speed",
-                "nameLocation": "414:5:3",
+                "name": "strength",
+                "nameLocation": "404:8:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 682,
-                "src": "408:11:3",
+                "scope": 686,
+                "src": "398:14:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -427,7 +374,61 @@
                   "id": 680,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "408:5:3",
+                  "src": "398:5:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 683,
+                "mutability": "mutable",
+                "name": "defensive",
+                "nameLocation": "429:9:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 686,
+                "src": "423:15:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 682,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "423:5:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 685,
+                "mutability": "mutable",
+                "name": "speed",
+                "nameLocation": "455:5:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 686,
+                "src": "449:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 684,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "449:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -437,79 +438,25 @@
               }
             ],
             "name": "Statistics",
-            "nameLocation": "317:10:3",
+            "nameLocation": "358:10:3",
             "nodeType": "StructDefinition",
-            "scope": 876,
-            "src": "310:117:3",
+            "scope": 880,
+            "src": "351:117:3",
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.IndividualValue",
-            "id": 691,
+            "id": 695,
             "members": [
-              {
-                "constant": false,
-                "id": 684,
-                "mutability": "mutable",
-                "name": "HP",
-                "nameLocation": "474:2:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 691,
-                "src": "468:8:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 683,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "468:5:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 686,
-                "mutability": "mutable",
-                "name": "strength",
-                "nameLocation": "493:8:3",
-                "nodeType": "VariableDeclaration",
-                "scope": 691,
-                "src": "487:14:3",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 685,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "487:5:3",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
               {
                 "constant": false,
                 "id": 688,
                 "mutability": "mutable",
-                "name": "defensive",
-                "nameLocation": "518:9:3",
+                "name": "HP",
+                "nameLocation": "515:2:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 691,
-                "src": "512:15:3",
+                "scope": 695,
+                "src": "509:8:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -520,7 +467,7 @@
                   "id": 687,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "512:5:3",
+                  "src": "509:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -532,11 +479,11 @@
                 "constant": false,
                 "id": 690,
                 "mutability": "mutable",
-                "name": "speed",
-                "nameLocation": "544:5:3",
+                "name": "strength",
+                "nameLocation": "534:8:3",
                 "nodeType": "VariableDeclaration",
-                "scope": 691,
-                "src": "538:11:3",
+                "scope": 695,
+                "src": "528:14:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -547,7 +494,61 @@
                   "id": 689,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "538:5:3",
+                  "src": "528:5:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 692,
+                "mutability": "mutable",
+                "name": "defensive",
+                "nameLocation": "559:9:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 695,
+                "src": "553:15:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 691,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:5:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 694,
+                "mutability": "mutable",
+                "name": "speed",
+                "nameLocation": "585:5:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 695,
+                "src": "579:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 693,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "579:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -557,122 +558,122 @@
               }
             ],
             "name": "IndividualValue",
-            "nameLocation": "442:15:3",
+            "nameLocation": "483:15:3",
             "nodeType": "StructDefinition",
-            "scope": 876,
-            "src": "435:122:3",
+            "scope": 880,
+            "src": "476:122:3",
             "visibility": "public"
           },
           {
             "canonicalName": "MonsterLib.Race",
-            "id": 695,
+            "id": 699,
             "members": [
               {
-                "id": 692,
+                "id": 696,
                 "name": "DRAGON",
-                "nameLocation": "578:6:3",
+                "nameLocation": "619:6:3",
                 "nodeType": "EnumValue",
-                "src": "578:6:3"
+                "src": "619:6:3"
               },
               {
-                "id": 693,
+                "id": 697,
                 "name": "GHOST",
-                "nameLocation": "586:5:3",
+                "nameLocation": "627:5:3",
                 "nodeType": "EnumValue",
-                "src": "586:5:3"
+                "src": "627:5:3"
               },
               {
-                "id": 694,
+                "id": 698,
                 "name": "GARGOYLE",
-                "nameLocation": "593:8:3",
+                "nameLocation": "634:8:3",
                 "nodeType": "EnumValue",
-                "src": "593:8:3"
+                "src": "634:8:3"
               }
             ],
             "name": "Race",
-            "nameLocation": "572:4:3",
+            "nameLocation": "613:4:3",
             "nodeType": "EnumDefinition",
-            "src": "567:35:3"
+            "src": "608:35:3"
           },
           {
             "body": {
-              "id": 756,
+              "id": 760,
               "nodeType": "Block",
-              "src": "718:319:3",
+              "src": "759:319:3",
               "statements": [
                 {
                   "assignments": [
-                    708
+                    712
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 708,
+                      "id": 712,
                       "mutability": "mutable",
                       "name": "statc",
-                      "nameLocation": "747:5:3",
+                      "nameLocation": "788:5:3",
                       "nodeType": "VariableDeclaration",
-                      "scope": 756,
-                      "src": "729:23:3",
+                      "scope": 760,
+                      "src": "770:23:3",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                        "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                         "typeString": "struct MonsterLib.Statistics"
                       },
                       "typeName": {
-                        "id": 707,
+                        "id": 711,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 706,
+                          "id": 710,
                           "name": "Statistics",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 682,
-                          "src": "729:10:3"
+                          "referencedDeclaration": 686,
+                          "src": "770:10:3"
                         },
-                        "referencedDeclaration": 682,
-                        "src": "729:10:3",
+                        "referencedDeclaration": 686,
+                        "src": "770:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$682_storage_ptr",
+                          "typeIdentifier": "t_struct$_Statistics_$686_storage_ptr",
                           "typeString": "struct MonsterLib.Statistics"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 709,
+                  "id": 713,
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "729:23:3"
+                  "src": "770:23:3"
                 },
                 {
                   "expression": {
-                    "id": 722,
+                    "id": 726,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 710,
+                        "id": 714,
                         "name": "statc",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
-                        "src": "763:5:3",
+                        "referencedDeclaration": 712,
+                        "src": "804:5:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                          "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                           "typeString": "struct MonsterLib.Statistics memory"
                         }
                       },
-                      "id": 712,
+                      "id": 716,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "HP",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 675,
-                      "src": "763:8:3",
+                      "referencedDeclaration": 679,
+                      "src": "804:8:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -685,7 +686,7 @@
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       },
-                      "id": 721,
+                      "id": 725,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -695,7 +696,7 @@
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
                         },
-                        "id": 719,
+                        "id": 723,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -704,38 +705,38 @@
                           "arguments": [
                             {
                               "expression": {
-                                "id": 714,
+                                "id": 718,
                                 "name": "iv",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 698,
-                                "src": "792:2:3",
+                                "referencedDeclaration": 702,
+                                "src": "833:2:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                                  "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                                   "typeString": "struct MonsterLib.IndividualValue memory"
                                 }
                               },
-                              "id": 715,
+                              "id": 719,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "HP",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 684,
-                              "src": "792:5:3",
+                              "referencedDeclaration": 688,
+                              "src": "833:5:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
                               }
                             },
                             {
-                              "id": 716,
+                              "id": 720,
                               "name": "level",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 700,
-                              "src": "798:5:3",
+                              "referencedDeclaration": 704,
+                              "src": "839:5:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -753,18 +754,18 @@
                                 "typeString": "uint8"
                               }
                             ],
-                            "id": 713,
+                            "id": 717,
                             "name": "_calculateFormula",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 776,
-                            "src": "774:17:3",
+                            "referencedDeclaration": 780,
+                            "src": "815:17:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                               "typeString": "function (uint8,uint8) pure returns (uint8)"
                             }
                           },
-                          "id": 717,
+                          "id": 721,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -772,7 +773,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "774:30:3",
+                          "src": "815:30:3",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
@@ -783,21 +784,21 @@
                         "operator": "+",
                         "rightExpression": {
                           "hexValue": "35",
-                          "id": 718,
+                          "id": 722,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "807:1:3",
+                          "src": "848:1:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_5_by_1",
                             "typeString": "int_const 5"
                           },
                           "value": "5"
                         },
-                        "src": "774:34:3",
+                        "src": "815:34:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -806,62 +807,62 @@
                       "nodeType": "BinaryOperation",
                       "operator": "+",
                       "rightExpression": {
-                        "id": 720,
+                        "id": 724,
                         "name": "level",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 700,
-                        "src": "811:5:3",
+                        "referencedDeclaration": 704,
+                        "src": "852:5:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
                         }
                       },
-                      "src": "774:42:3",
+                      "src": "815:42:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       }
                     },
-                    "src": "763:53:3",
+                    "src": "804:53:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     }
                   },
-                  "id": 723,
+                  "id": 727,
                   "nodeType": "ExpressionStatement",
-                  "src": "763:53:3"
+                  "src": "804:53:3"
                 },
                 {
                   "expression": {
-                    "id": 732,
+                    "id": 736,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 724,
+                        "id": 728,
                         "name": "statc",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
-                        "src": "827:5:3",
+                        "referencedDeclaration": 712,
+                        "src": "868:5:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                          "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                           "typeString": "struct MonsterLib.Statistics memory"
                         }
                       },
-                      "id": 726,
+                      "id": 730,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "speed",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 681,
-                      "src": "827:11:3",
+                      "referencedDeclaration": 685,
+                      "src": "868:11:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -873,38 +874,38 @@
                       "arguments": [
                         {
                           "expression": {
-                            "id": 728,
+                            "id": 732,
                             "name": "iv",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 698,
-                            "src": "859:2:3",
+                            "referencedDeclaration": 702,
+                            "src": "900:2:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                              "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                               "typeString": "struct MonsterLib.IndividualValue memory"
                             }
                           },
-                          "id": 729,
+                          "id": 733,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "speed",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 690,
-                          "src": "859:8:3",
+                          "referencedDeclaration": 694,
+                          "src": "900:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-                          "id": 730,
+                          "id": 734,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 700,
-                          "src": "868:5:3",
+                          "referencedDeclaration": 704,
+                          "src": "909:5:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -922,18 +923,18 @@
                             "typeString": "uint8"
                           }
                         ],
-                        "id": 727,
+                        "id": 731,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 776,
-                        "src": "841:17:3",
+                        "referencedDeclaration": 780,
+                        "src": "882:17:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-                      "id": 731,
+                      "id": 735,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -941,52 +942,52 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "841:33:3",
+                      "src": "882:33:3",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       }
                     },
-                    "src": "827:47:3",
+                    "src": "868:47:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     }
                   },
-                  "id": 733,
+                  "id": 737,
                   "nodeType": "ExpressionStatement",
-                  "src": "827:47:3"
+                  "src": "868:47:3"
                 },
                 {
                   "expression": {
-                    "id": 742,
+                    "id": 746,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 734,
+                        "id": 738,
                         "name": "statc",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
-                        "src": "885:5:3",
+                        "referencedDeclaration": 712,
+                        "src": "926:5:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                          "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                           "typeString": "struct MonsterLib.Statistics memory"
                         }
                       },
-                      "id": 736,
+                      "id": 740,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "defensive",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 679,
-                      "src": "885:15:3",
+                      "referencedDeclaration": 683,
+                      "src": "926:15:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -998,38 +999,38 @@
                       "arguments": [
                         {
                           "expression": {
-                            "id": 738,
+                            "id": 742,
                             "name": "iv",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 698,
-                            "src": "921:2:3",
+                            "referencedDeclaration": 702,
+                            "src": "962:2:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                              "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                               "typeString": "struct MonsterLib.IndividualValue memory"
                             }
                           },
-                          "id": 739,
+                          "id": 743,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "defensive",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 688,
-                          "src": "921:12:3",
+                          "referencedDeclaration": 692,
+                          "src": "962:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-                          "id": 740,
+                          "id": 744,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 700,
-                          "src": "934:5:3",
+                          "referencedDeclaration": 704,
+                          "src": "975:5:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -1047,18 +1048,18 @@
                             "typeString": "uint8"
                           }
                         ],
-                        "id": 737,
+                        "id": 741,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 776,
-                        "src": "903:17:3",
+                        "referencedDeclaration": 780,
+                        "src": "944:17:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-                      "id": 741,
+                      "id": 745,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1066,52 +1067,52 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "903:37:3",
+                      "src": "944:37:3",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       }
                     },
-                    "src": "885:55:3",
+                    "src": "926:55:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     }
                   },
-                  "id": 743,
+                  "id": 747,
                   "nodeType": "ExpressionStatement",
-                  "src": "885:55:3"
+                  "src": "926:55:3"
                 },
                 {
                   "expression": {
-                    "id": 752,
+                    "id": 756,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 744,
+                        "id": 748,
                         "name": "statc",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
-                        "src": "952:5:3",
+                        "referencedDeclaration": 712,
+                        "src": "993:5:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                          "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                           "typeString": "struct MonsterLib.Statistics memory"
                         }
                       },
-                      "id": 746,
+                      "id": 750,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "strength",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 677,
-                      "src": "952:14:3",
+                      "referencedDeclaration": 681,
+                      "src": "993:14:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1123,38 +1124,38 @@
                       "arguments": [
                         {
                           "expression": {
-                            "id": 748,
+                            "id": 752,
                             "name": "iv",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 698,
-                            "src": "987:2:3",
+                            "referencedDeclaration": 702,
+                            "src": "1028:2:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                              "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                               "typeString": "struct MonsterLib.IndividualValue memory"
                             }
                           },
-                          "id": 749,
+                          "id": 753,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "strength",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 686,
-                          "src": "987:11:3",
+                          "referencedDeclaration": 690,
+                          "src": "1028:11:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           }
                         },
                         {
-                          "id": 750,
+                          "id": 754,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 700,
-                          "src": "999:5:3",
+                          "referencedDeclaration": 704,
+                          "src": "1040:5:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -1172,18 +1173,18 @@
                             "typeString": "uint8"
                           }
                         ],
-                        "id": 747,
+                        "id": 751,
                         "name": "_calculateFormula",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 776,
-                        "src": "969:17:3",
+                        "referencedDeclaration": 780,
+                        "src": "1010:17:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint8_$_t_uint8_$returns$_t_uint8_$",
                           "typeString": "function (uint8,uint8) pure returns (uint8)"
                         }
                       },
-                      "id": 751,
+                      "id": 755,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1191,83 +1192,83 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "969:36:3",
+                      "src": "1010:36:3",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       }
                     },
-                    "src": "952:53:3",
+                    "src": "993:53:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     }
                   },
-                  "id": 753,
+                  "id": 757,
                   "nodeType": "ExpressionStatement",
-                  "src": "952:53:3"
+                  "src": "993:53:3"
                 },
                 {
                   "expression": {
-                    "id": 754,
+                    "id": 758,
                     "name": "statc",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 708,
-                    "src": "1024:5:3",
+                    "referencedDeclaration": 712,
+                    "src": "1065:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                      "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                       "typeString": "struct MonsterLib.Statistics memory"
                     }
                   },
-                  "functionReturnParameters": 705,
-                  "id": 755,
+                  "functionReturnParameters": 709,
+                  "id": 759,
                   "nodeType": "Return",
-                  "src": "1017:12:3"
+                  "src": "1058:12:3"
                 }
               ]
             },
-            "id": 757,
+            "id": 761,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_calculateStatc",
-            "nameLocation": "619:15:3",
+            "nameLocation": "660:15:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 701,
+              "id": 705,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 698,
+                  "id": 702,
                   "mutability": "mutable",
                   "name": "iv",
-                  "nameLocation": "659:2:3",
+                  "nameLocation": "700:2:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 757,
-                  "src": "636:25:3",
+                  "scope": 761,
+                  "src": "677:25:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                    "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                     "typeString": "struct MonsterLib.IndividualValue"
                   },
                   "typeName": {
-                    "id": 697,
+                    "id": 701,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 696,
+                      "id": 700,
                       "name": "IndividualValue",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 691,
-                      "src": "636:15:3"
+                      "referencedDeclaration": 695,
+                      "src": "677:15:3"
                     },
-                    "referencedDeclaration": 691,
-                    "src": "636:15:3",
+                    "referencedDeclaration": 695,
+                    "src": "677:15:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IndividualValue_$691_storage_ptr",
+                      "typeIdentifier": "t_struct$_IndividualValue_$695_storage_ptr",
                       "typeString": "struct MonsterLib.IndividualValue"
                     }
                   },
@@ -1275,13 +1276,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 700,
+                  "id": 704,
                   "mutability": "mutable",
                   "name": "level",
-                  "nameLocation": "669:5:3",
+                  "nameLocation": "710:5:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 757,
-                  "src": "663:11:3",
+                  "scope": 761,
+                  "src": "704:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1289,10 +1290,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 699,
+                    "id": 703,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "663:5:3",
+                    "src": "704:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1301,60 +1302,60 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "635:40:3"
+              "src": "676:40:3"
             },
             "returnParameters": {
-              "id": 705,
+              "id": 709,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 704,
+                  "id": 708,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 757,
-                  "src": "699:17:3",
+                  "scope": 761,
+                  "src": "740:17:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                    "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                     "typeString": "struct MonsterLib.Statistics"
                   },
                   "typeName": {
-                    "id": 703,
+                    "id": 707,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 702,
+                      "id": 706,
                       "name": "Statistics",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 682,
-                      "src": "699:10:3"
+                      "referencedDeclaration": 686,
+                      "src": "740:10:3"
                     },
-                    "referencedDeclaration": 682,
-                    "src": "699:10:3",
+                    "referencedDeclaration": 686,
+                    "src": "740:10:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Statistics_$682_storage_ptr",
+                      "typeIdentifier": "t_struct$_Statistics_$686_storage_ptr",
                       "typeString": "struct MonsterLib.Statistics"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "698:20:3"
+              "src": "739:20:3"
             },
-            "scope": 876,
-            "src": "610:427:3",
+            "scope": 880,
+            "src": "651:427:3",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 775,
+              "id": 779,
               "nodeType": "Block",
-              "src": "1127:49:3",
+              "src": "1168:49:3",
               "statements": [
                 {
                   "expression": {
@@ -1362,7 +1363,7 @@
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     },
-                    "id": 773,
+                    "id": 777,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1372,7 +1373,7 @@
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
                       },
-                      "id": 771,
+                      "id": 775,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1384,18 +1385,18 @@
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
                             },
-                            "id": 768,
+                            "id": 772,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
-                              "id": 766,
+                              "id": 770,
                               "name": "input",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 759,
-                              "src": "1147:5:3",
+                              "referencedDeclaration": 763,
+                              "src": "1188:5:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -1404,32 +1405,32 @@
                             "nodeType": "BinaryOperation",
                             "operator": "*",
                             "rightExpression": {
-                              "id": 767,
+                              "id": 771,
                               "name": "level",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 761,
-                              "src": "1155:5:3",
+                              "referencedDeclaration": 765,
+                              "src": "1196:5:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
                               }
                             },
-                            "src": "1147:13:3",
+                            "src": "1188:13:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
                             }
                           }
                         ],
-                        "id": 769,
+                        "id": 773,
                         "isConstant": false,
                         "isInlineArray": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "TupleExpression",
-                        "src": "1146:15:3",
+                        "src": "1187:15:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -1439,21 +1440,21 @@
                       "operator": "/",
                       "rightExpression": {
                         "hexValue": "3130",
-                        "id": 770,
+                        "id": 774,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1162:2:3",
+                        "src": "1203:2:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_rational_10_by_1",
                           "typeString": "int_const 10"
                         },
                         "value": "10"
                       },
-                      "src": "1146:18:3",
+                      "src": "1187:18:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -1463,53 +1464,53 @@
                     "operator": "+",
                     "rightExpression": {
                       "hexValue": "35",
-                      "id": 772,
+                      "id": 776,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1167:1:3",
+                      "src": "1208:1:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_5_by_1",
                         "typeString": "int_const 5"
                       },
                       "value": "5"
                     },
-                    "src": "1146:22:3",
+                    "src": "1187:22:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     }
                   },
-                  "functionReturnParameters": 765,
-                  "id": 774,
+                  "functionReturnParameters": 769,
+                  "id": 778,
                   "nodeType": "Return",
-                  "src": "1138:30:3"
+                  "src": "1179:30:3"
                 }
               ]
             },
-            "id": 776,
+            "id": 780,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_calculateFormula",
-            "nameLocation": "1054:17:3",
+            "nameLocation": "1095:17:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 762,
+              "id": 766,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 759,
+                  "id": 763,
                   "mutability": "mutable",
                   "name": "input",
-                  "nameLocation": "1079:5:3",
+                  "nameLocation": "1120:5:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 776,
-                  "src": "1073:11:3",
+                  "scope": 780,
+                  "src": "1114:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1517,10 +1518,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 758,
+                    "id": 762,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1073:5:3",
+                    "src": "1114:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1530,13 +1531,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 761,
+                  "id": 765,
                   "mutability": "mutable",
                   "name": "level",
-                  "nameLocation": "1092:5:3",
+                  "nameLocation": "1133:5:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 776,
-                  "src": "1086:11:3",
+                  "scope": 780,
+                  "src": "1127:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1544,10 +1545,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 760,
+                    "id": 764,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1086:5:3",
+                    "src": "1127:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1556,21 +1557,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1072:26:3"
+              "src": "1113:26:3"
             },
             "returnParameters": {
-              "id": 765,
+              "id": 769,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 764,
+                  "id": 768,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 776,
-                  "src": "1121:5:3",
+                  "scope": 780,
+                  "src": "1162:5:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1578,10 +1579,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 763,
+                    "id": 767,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1121:5:3",
+                    "src": "1162:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1590,19 +1591,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1120:7:3"
+              "src": "1161:7:3"
             },
-            "scope": 876,
-            "src": "1045:131:3",
+            "scope": 880,
+            "src": "1086:131:3",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "private"
           },
           {
             "body": {
-              "id": 851,
+              "id": 855,
               "nodeType": "Block",
-              "src": "1264:518:3",
+              "src": "1305:518:3",
               "statements": [
                 {
                   "expression": {
@@ -1612,7 +1613,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 846,
+                        "id": 850,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1622,7 +1623,7 @@
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
-                          "id": 841,
+                          "id": 845,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1632,7 +1633,7 @@
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
-                            "id": 836,
+                            "id": 840,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1642,7 +1643,7 @@
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
                               },
-                              "id": 830,
+                              "id": 834,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1652,7 +1653,7 @@
                                   "typeIdentifier": "t_bool",
                                   "typeString": "bool"
                                 },
-                                "id": 824,
+                                "id": 828,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1662,7 +1663,7 @@
                                     "typeIdentifier": "t_bool",
                                     "typeString": "bool"
                                   },
-                                  "id": 818,
+                                  "id": 822,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -1672,7 +1673,7 @@
                                       "typeIdentifier": "t_bool",
                                       "typeString": "bool"
                                     },
-                                    "id": 812,
+                                    "id": 816,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": false,
@@ -1682,7 +1683,7 @@
                                         "typeIdentifier": "t_bool",
                                         "typeString": "bool"
                                       },
-                                      "id": 806,
+                                      "id": 810,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1692,7 +1693,7 @@
                                           "typeIdentifier": "t_bool",
                                           "typeString": "bool"
                                         },
-                                        "id": 800,
+                                        "id": 804,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -1702,7 +1703,7 @@
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
                                           },
-                                          "id": 794,
+                                          "id": 798,
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": false,
@@ -1712,33 +1713,33 @@
                                               "typeIdentifier": "t_uint256",
                                               "typeString": "uint256"
                                             },
-                                            "id": 788,
+                                            "id": 792,
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "leftExpression": {
                                               "expression": {
-                                                "id": 785,
+                                                "id": 789,
                                                 "name": "monster",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 779,
-                                                "src": "1283:7:3",
+                                                "referencedDeclaration": 783,
+                                                "src": "1324:7:3",
                                                 "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                                  "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                                   "typeString": "struct MonsterLib.Monster memory"
                                                 }
                                               },
-                                              "id": 786,
+                                              "id": 790,
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "tokenId",
                                               "nodeType": "MemberAccess",
-                                              "referencedDeclaration": 653,
-                                              "src": "1283:15:3",
+                                              "referencedDeclaration": 657,
+                                              "src": "1324:15:3",
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_uint256",
                                                 "typeString": "uint256"
@@ -1748,21 +1749,21 @@
                                             "operator": ">",
                                             "rightExpression": {
                                               "hexValue": "30",
-                                              "id": 787,
+                                              "id": 791,
                                               "isConstant": false,
                                               "isLValue": false,
                                               "isPure": true,
                                               "kind": "number",
                                               "lValueRequested": false,
                                               "nodeType": "Literal",
-                                              "src": "1301:1:3",
+                                              "src": "1342:1:3",
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_rational_0_by_1",
                                                 "typeString": "int_const 0"
                                               },
                                               "value": "0"
                                             },
-                                            "src": "1283:19:3",
+                                            "src": "1324:19:3",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_bool",
                                               "typeString": "bool"
@@ -1775,7 +1776,7 @@
                                               "typeIdentifier": "t_uint8",
                                               "typeString": "uint8"
                                             },
-                                            "id": 793,
+                                            "id": 797,
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": false,
@@ -1783,40 +1784,40 @@
                                             "leftExpression": {
                                               "expression": {
                                                 "expression": {
-                                                  "id": 789,
+                                                  "id": 793,
                                                   "name": "monster",
                                                   "nodeType": "Identifier",
                                                   "overloadedDeclarations": [],
-                                                  "referencedDeclaration": 779,
-                                                  "src": "1323:7:3",
+                                                  "referencedDeclaration": 783,
+                                                  "src": "1364:7:3",
                                                   "typeDescriptions": {
-                                                    "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                                    "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                                     "typeString": "struct MonsterLib.Monster memory"
                                                   }
                                                 },
-                                                "id": 790,
+                                                "id": 794,
                                                 "isConstant": false,
                                                 "isLValue": true,
                                                 "isPure": false,
                                                 "lValueRequested": false,
                                                 "memberName": "statc",
                                                 "nodeType": "MemberAccess",
-                                                "referencedDeclaration": 660,
-                                                "src": "1323:13:3",
+                                                "referencedDeclaration": 664,
+                                                "src": "1364:13:3",
                                                 "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                                                  "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                                                   "typeString": "struct MonsterLib.Statistics memory"
                                                 }
                                               },
-                                              "id": 791,
+                                              "id": 795,
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "HP",
                                               "nodeType": "MemberAccess",
-                                              "referencedDeclaration": 675,
-                                              "src": "1323:16:3",
+                                              "referencedDeclaration": 679,
+                                              "src": "1364:16:3",
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_uint8",
                                                 "typeString": "uint8"
@@ -1826,27 +1827,27 @@
                                             "operator": ">",
                                             "rightExpression": {
                                               "hexValue": "30",
-                                              "id": 792,
+                                              "id": 796,
                                               "isConstant": false,
                                               "isLValue": false,
                                               "isPure": true,
                                               "kind": "number",
                                               "lValueRequested": false,
                                               "nodeType": "Literal",
-                                              "src": "1341:1:3",
+                                              "src": "1382:1:3",
                                               "typeDescriptions": {
                                                 "typeIdentifier": "t_rational_0_by_1",
                                                 "typeString": "int_const 0"
                                               },
                                               "value": "0"
                                             },
-                                            "src": "1323:19:3",
+                                            "src": "1364:19:3",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_bool",
                                               "typeString": "bool"
                                             }
                                           },
-                                          "src": "1283:59:3",
+                                          "src": "1324:59:3",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
@@ -1859,7 +1860,7 @@
                                             "typeIdentifier": "t_uint8",
                                             "typeString": "uint8"
                                           },
-                                          "id": 799,
+                                          "id": 803,
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": false,
@@ -1867,40 +1868,40 @@
                                           "leftExpression": {
                                             "expression": {
                                               "expression": {
-                                                "id": 795,
+                                                "id": 799,
                                                 "name": "monster",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 779,
-                                                "src": "1363:7:3",
+                                                "referencedDeclaration": 783,
+                                                "src": "1404:7:3",
                                                 "typeDescriptions": {
-                                                  "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                                  "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                                   "typeString": "struct MonsterLib.Monster memory"
                                                 }
                                               },
-                                              "id": 796,
+                                              "id": 800,
                                               "isConstant": false,
                                               "isLValue": true,
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "memberName": "statc",
                                               "nodeType": "MemberAccess",
-                                              "referencedDeclaration": 660,
-                                              "src": "1363:13:3",
+                                              "referencedDeclaration": 664,
+                                              "src": "1404:13:3",
                                               "typeDescriptions": {
-                                                "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                                                "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                                                 "typeString": "struct MonsterLib.Statistics memory"
                                               }
                                             },
-                                            "id": 797,
+                                            "id": 801,
                                             "isConstant": false,
                                             "isLValue": true,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "memberName": "strength",
                                             "nodeType": "MemberAccess",
-                                            "referencedDeclaration": 677,
-                                            "src": "1363:22:3",
+                                            "referencedDeclaration": 681,
+                                            "src": "1404:22:3",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_uint8",
                                               "typeString": "uint8"
@@ -1910,27 +1911,27 @@
                                           "operator": ">",
                                           "rightExpression": {
                                             "hexValue": "30",
-                                            "id": 798,
+                                            "id": 802,
                                             "isConstant": false,
                                             "isLValue": false,
                                             "isPure": true,
                                             "kind": "number",
                                             "lValueRequested": false,
                                             "nodeType": "Literal",
-                                            "src": "1387:1:3",
+                                            "src": "1428:1:3",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_rational_0_by_1",
                                               "typeString": "int_const 0"
                                             },
                                             "value": "0"
                                           },
-                                          "src": "1363:25:3",
+                                          "src": "1404:25:3",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
                                           }
                                         },
-                                        "src": "1283:105:3",
+                                        "src": "1324:105:3",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_bool",
                                           "typeString": "bool"
@@ -1943,7 +1944,7 @@
                                           "typeIdentifier": "t_uint8",
                                           "typeString": "uint8"
                                         },
-                                        "id": 805,
+                                        "id": 809,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -1951,40 +1952,40 @@
                                         "leftExpression": {
                                           "expression": {
                                             "expression": {
-                                              "id": 801,
+                                              "id": 805,
                                               "name": "monster",
                                               "nodeType": "Identifier",
                                               "overloadedDeclarations": [],
-                                              "referencedDeclaration": 779,
-                                              "src": "1409:7:3",
+                                              "referencedDeclaration": 783,
+                                              "src": "1450:7:3",
                                               "typeDescriptions": {
-                                                "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                                "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                                 "typeString": "struct MonsterLib.Monster memory"
                                               }
                                             },
-                                            "id": 802,
+                                            "id": 806,
                                             "isConstant": false,
                                             "isLValue": true,
                                             "isPure": false,
                                             "lValueRequested": false,
                                             "memberName": "statc",
                                             "nodeType": "MemberAccess",
-                                            "referencedDeclaration": 660,
-                                            "src": "1409:13:3",
+                                            "referencedDeclaration": 664,
+                                            "src": "1450:13:3",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                                              "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                                               "typeString": "struct MonsterLib.Statistics memory"
                                             }
                                           },
-                                          "id": 803,
+                                          "id": 807,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "defensive",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 679,
-                                          "src": "1409:23:3",
+                                          "referencedDeclaration": 683,
+                                          "src": "1450:23:3",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_uint8",
                                             "typeString": "uint8"
@@ -1994,27 +1995,27 @@
                                         "operator": ">",
                                         "rightExpression": {
                                           "hexValue": "30",
-                                          "id": 804,
+                                          "id": 808,
                                           "isConstant": false,
                                           "isLValue": false,
                                           "isPure": true,
                                           "kind": "number",
                                           "lValueRequested": false,
                                           "nodeType": "Literal",
-                                          "src": "1435:1:3",
+                                          "src": "1476:1:3",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_rational_0_by_1",
                                             "typeString": "int_const 0"
                                           },
                                           "value": "0"
                                         },
-                                        "src": "1409:27:3",
+                                        "src": "1450:27:3",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_bool",
                                           "typeString": "bool"
                                         }
                                       },
-                                      "src": "1283:153:3",
+                                      "src": "1324:153:3",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_bool",
                                         "typeString": "bool"
@@ -2027,7 +2028,7 @@
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
                                       },
-                                      "id": 811,
+                                      "id": 815,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -2035,40 +2036,40 @@
                                       "leftExpression": {
                                         "expression": {
                                           "expression": {
-                                            "id": 807,
+                                            "id": 811,
                                             "name": "monster",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 779,
-                                            "src": "1457:7:3",
+                                            "referencedDeclaration": 783,
+                                            "src": "1498:7:3",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                              "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                               "typeString": "struct MonsterLib.Monster memory"
                                             }
                                           },
-                                          "id": 808,
+                                          "id": 812,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "statc",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 660,
-                                          "src": "1457:13:3",
+                                          "referencedDeclaration": 664,
+                                          "src": "1498:13:3",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Statistics_$682_memory_ptr",
+                                            "typeIdentifier": "t_struct$_Statistics_$686_memory_ptr",
                                             "typeString": "struct MonsterLib.Statistics memory"
                                           }
                                         },
-                                        "id": 809,
+                                        "id": 813,
                                         "isConstant": false,
                                         "isLValue": true,
                                         "isPure": false,
                                         "lValueRequested": false,
                                         "memberName": "speed",
                                         "nodeType": "MemberAccess",
-                                        "referencedDeclaration": 681,
-                                        "src": "1457:19:3",
+                                        "referencedDeclaration": 685,
+                                        "src": "1498:19:3",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint8",
                                           "typeString": "uint8"
@@ -2078,27 +2079,27 @@
                                       "operator": ">",
                                       "rightExpression": {
                                         "hexValue": "30",
-                                        "id": 810,
+                                        "id": 814,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
                                         "kind": "number",
                                         "lValueRequested": false,
                                         "nodeType": "Literal",
-                                        "src": "1479:1:3",
+                                        "src": "1520:1:3",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_rational_0_by_1",
                                           "typeString": "int_const 0"
                                         },
                                         "value": "0"
                                       },
-                                      "src": "1457:23:3",
+                                      "src": "1498:23:3",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_bool",
                                         "typeString": "bool"
                                       }
                                     },
-                                    "src": "1283:197:3",
+                                    "src": "1324:197:3",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_bool",
                                       "typeString": "bool"
@@ -2111,7 +2112,7 @@
                                       "typeIdentifier": "t_uint8",
                                       "typeString": "uint8"
                                     },
-                                    "id": 817,
+                                    "id": 821,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": false,
@@ -2119,40 +2120,40 @@
                                     "leftExpression": {
                                       "expression": {
                                         "expression": {
-                                          "id": 813,
+                                          "id": 817,
                                           "name": "monster",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 779,
-                                          "src": "1501:7:3",
+                                          "referencedDeclaration": 783,
+                                          "src": "1542:7:3",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                            "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                             "typeString": "struct MonsterLib.Monster memory"
                                           }
                                         },
-                                        "id": 814,
+                                        "id": 818,
                                         "isConstant": false,
                                         "isLValue": true,
                                         "isPure": false,
                                         "lValueRequested": false,
                                         "memberName": "iv",
                                         "nodeType": "MemberAccess",
-                                        "referencedDeclaration": 663,
-                                        "src": "1501:10:3",
+                                        "referencedDeclaration": 667,
+                                        "src": "1542:10:3",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                                          "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                                           "typeString": "struct MonsterLib.IndividualValue memory"
                                         }
                                       },
-                                      "id": 815,
+                                      "id": 819,
                                       "isConstant": false,
                                       "isLValue": true,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "memberName": "HP",
                                       "nodeType": "MemberAccess",
-                                      "referencedDeclaration": 684,
-                                      "src": "1501:13:3",
+                                      "referencedDeclaration": 688,
+                                      "src": "1542:13:3",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -2162,27 +2163,27 @@
                                     "operator": "<=",
                                     "rightExpression": {
                                       "hexValue": "3331",
-                                      "id": 816,
+                                      "id": 820,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": true,
                                       "kind": "number",
                                       "lValueRequested": false,
                                       "nodeType": "Literal",
-                                      "src": "1519:2:3",
+                                      "src": "1560:2:3",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_rational_31_by_1",
                                         "typeString": "int_const 31"
                                       },
                                       "value": "31"
                                     },
-                                    "src": "1501:20:3",
+                                    "src": "1542:20:3",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_bool",
                                       "typeString": "bool"
                                     }
                                   },
-                                  "src": "1283:238:3",
+                                  "src": "1324:238:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_bool",
                                     "typeString": "bool"
@@ -2195,7 +2196,7 @@
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
                                   },
-                                  "id": 823,
+                                  "id": 827,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -2203,40 +2204,40 @@
                                   "leftExpression": {
                                     "expression": {
                                       "expression": {
-                                        "id": 819,
+                                        "id": 823,
                                         "name": "monster",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 779,
-                                        "src": "1542:7:3",
+                                        "referencedDeclaration": 783,
+                                        "src": "1583:7:3",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                          "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                           "typeString": "struct MonsterLib.Monster memory"
                                         }
                                       },
-                                      "id": 820,
+                                      "id": 824,
                                       "isConstant": false,
                                       "isLValue": true,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "memberName": "iv",
                                       "nodeType": "MemberAccess",
-                                      "referencedDeclaration": 663,
-                                      "src": "1542:10:3",
+                                      "referencedDeclaration": 667,
+                                      "src": "1583:10:3",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                                        "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                                         "typeString": "struct MonsterLib.IndividualValue memory"
                                       }
                                     },
-                                    "id": 821,
+                                    "id": 825,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "strength",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 686,
-                                    "src": "1542:19:3",
+                                    "referencedDeclaration": 690,
+                                    "src": "1583:19:3",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint8",
                                       "typeString": "uint8"
@@ -2246,27 +2247,27 @@
                                   "operator": "<=",
                                   "rightExpression": {
                                     "hexValue": "3331",
-                                    "id": 822,
+                                    "id": 826,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
                                     "kind": "number",
                                     "lValueRequested": false,
                                     "nodeType": "Literal",
-                                    "src": "1565:2:3",
+                                    "src": "1606:2:3",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_rational_31_by_1",
                                       "typeString": "int_const 31"
                                     },
                                     "value": "31"
                                   },
-                                  "src": "1542:25:3",
+                                  "src": "1583:25:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_bool",
                                     "typeString": "bool"
                                   }
                                 },
-                                "src": "1283:284:3",
+                                "src": "1324:284:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bool",
                                   "typeString": "bool"
@@ -2279,7 +2280,7 @@
                                   "typeIdentifier": "t_uint8",
                                   "typeString": "uint8"
                                 },
-                                "id": 829,
+                                "id": 833,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -2287,40 +2288,40 @@
                                 "leftExpression": {
                                   "expression": {
                                     "expression": {
-                                      "id": 825,
+                                      "id": 829,
                                       "name": "monster",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 779,
-                                      "src": "1588:7:3",
+                                      "referencedDeclaration": 783,
+                                      "src": "1629:7:3",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                        "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                         "typeString": "struct MonsterLib.Monster memory"
                                       }
                                     },
-                                    "id": 826,
+                                    "id": 830,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "iv",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 663,
-                                    "src": "1588:10:3",
+                                    "referencedDeclaration": 667,
+                                    "src": "1629:10:3",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                                      "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                                       "typeString": "struct MonsterLib.IndividualValue memory"
                                     }
                                   },
-                                  "id": 827,
+                                  "id": 831,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "defensive",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 688,
-                                  "src": "1588:20:3",
+                                  "referencedDeclaration": 692,
+                                  "src": "1629:20:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
@@ -2330,27 +2331,27 @@
                                 "operator": "<=",
                                 "rightExpression": {
                                   "hexValue": "3331",
-                                  "id": 828,
+                                  "id": 832,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "kind": "number",
                                   "lValueRequested": false,
                                   "nodeType": "Literal",
-                                  "src": "1612:2:3",
+                                  "src": "1653:2:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_rational_31_by_1",
                                     "typeString": "int_const 31"
                                   },
                                   "value": "31"
                                 },
-                                "src": "1588:26:3",
+                                "src": "1629:26:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bool",
                                   "typeString": "bool"
                                 }
                               },
-                              "src": "1283:331:3",
+                              "src": "1324:331:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
@@ -2363,7 +2364,7 @@
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
                               },
-                              "id": 835,
+                              "id": 839,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -2371,40 +2372,40 @@
                               "leftExpression": {
                                 "expression": {
                                   "expression": {
-                                    "id": 831,
+                                    "id": 835,
                                     "name": "monster",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 779,
-                                    "src": "1635:7:3",
+                                    "referencedDeclaration": 783,
+                                    "src": "1676:7:3",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                      "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                       "typeString": "struct MonsterLib.Monster memory"
                                     }
                                   },
-                                  "id": 832,
+                                  "id": 836,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "iv",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 663,
-                                  "src": "1635:10:3",
+                                  "referencedDeclaration": 667,
+                                  "src": "1676:10:3",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_IndividualValue_$691_memory_ptr",
+                                    "typeIdentifier": "t_struct$_IndividualValue_$695_memory_ptr",
                                     "typeString": "struct MonsterLib.IndividualValue memory"
                                   }
                                 },
-                                "id": 833,
+                                "id": 837,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "speed",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 690,
-                                "src": "1635:16:3",
+                                "referencedDeclaration": 694,
+                                "src": "1676:16:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint8",
                                   "typeString": "uint8"
@@ -2414,27 +2415,27 @@
                               "operator": "<=",
                               "rightExpression": {
                                 "hexValue": "3331",
-                                "id": 834,
+                                "id": 838,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1655:2:3",
+                                "src": "1696:2:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_31_by_1",
                                   "typeString": "int_const 31"
                                 },
                                 "value": "31"
                               },
-                              "src": "1635:22:3",
+                              "src": "1676:22:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
                               }
                             },
-                            "src": "1283:374:3",
+                            "src": "1324:374:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -2447,33 +2448,33 @@
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
                             },
-                            "id": 840,
+                            "id": 844,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "leftExpression": {
                               "expression": {
-                                "id": 837,
+                                "id": 841,
                                 "name": "monster",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 779,
-                                "src": "1678:7:3",
+                                "referencedDeclaration": 783,
+                                "src": "1719:7:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                  "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                   "typeString": "struct MonsterLib.Monster memory"
                                 }
                               },
-                              "id": 838,
+                              "id": 842,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "level",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 665,
-                              "src": "1678:13:3",
+                              "referencedDeclaration": 669,
+                              "src": "1719:13:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
                                 "typeString": "uint8"
@@ -2482,28 +2483,28 @@
                             "nodeType": "BinaryOperation",
                             "operator": "<=",
                             "rightExpression": {
-                              "hexValue": "3331",
-                              "id": 839,
+                              "hexValue": "3130",
+                              "id": 843,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1695:2:3",
+                              "src": "1736:2:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_rational_31_by_1",
-                                "typeString": "int_const 31"
+                                "typeIdentifier": "t_rational_10_by_1",
+                                "typeString": "int_const 10"
                               },
-                              "value": "31"
+                              "value": "10"
                             },
-                            "src": "1678:19:3",
+                            "src": "1719:19:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             }
                           },
-                          "src": "1283:414:3",
+                          "src": "1324:414:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -2516,33 +2517,33 @@
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
                           },
-                          "id": 845,
+                          "id": 849,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "expression": {
-                              "id": 842,
+                              "id": 846,
                               "name": "monster",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 779,
-                              "src": "1718:7:3",
+                              "referencedDeclaration": 783,
+                              "src": "1759:7:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                                "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                                 "typeString": "struct MonsterLib.Monster memory"
                               }
                             },
-                            "id": 843,
+                            "id": 847,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "expNeedToNext",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 667,
-                            "src": "1718:21:3",
+                            "referencedDeclaration": 671,
+                            "src": "1759:21:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint8",
                               "typeString": "uint8"
@@ -2552,27 +2553,27 @@
                           "operator": "!=",
                           "rightExpression": {
                             "hexValue": "30",
-                            "id": 844,
+                            "id": 848,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1743:1:3",
+                            "src": "1784:1:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
                               "typeString": "int_const 0"
                             },
                             "value": "0"
                           },
-                          "src": "1718:26:3",
+                          "src": "1759:26:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "src": "1283:461:3",
+                        "src": "1324:461:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2586,7 +2587,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 784,
+                      "id": 788,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2594,13 +2595,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "1275:7:3",
+                      "src": "1316:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 847,
+                    "id": 851,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2608,102 +2609,102 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1275:470:3",
+                    "src": "1316:470:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 848,
+                  "id": 852,
                   "nodeType": "ExpressionStatement",
-                  "src": "1275:470:3"
+                  "src": "1316:470:3"
                 },
                 {
                   "expression": {
                     "hexValue": "74727565",
-                    "id": 849,
+                    "id": 853,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "1763:4:3",
+                    "src": "1804:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 783,
-                  "id": 850,
+                  "functionReturnParameters": 787,
+                  "id": 854,
                   "nodeType": "Return",
-                  "src": "1756:11:3"
+                  "src": "1797:11:3"
                 }
               ]
             },
-            "id": 852,
+            "id": 856,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_checkMonsterValid",
-            "nameLocation": "1193:18:3",
+            "nameLocation": "1234:18:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 780,
+              "id": 784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 779,
+                  "id": 783,
                   "mutability": "mutable",
                   "name": "monster",
-                  "nameLocation": "1228:7:3",
+                  "nameLocation": "1269:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 852,
-                  "src": "1213:22:3",
+                  "scope": 856,
+                  "src": "1254:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Monster_$673_memory_ptr",
+                    "typeIdentifier": "t_struct$_Monster_$677_memory_ptr",
                     "typeString": "struct MonsterLib.Monster"
                   },
                   "typeName": {
-                    "id": 778,
+                    "id": 782,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 777,
+                      "id": 781,
                       "name": "Monster",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 673,
-                      "src": "1213:7:3"
+                      "referencedDeclaration": 677,
+                      "src": "1254:7:3"
                     },
-                    "referencedDeclaration": 673,
-                    "src": "1213:7:3",
+                    "referencedDeclaration": 677,
+                    "src": "1254:7:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Monster_$673_storage_ptr",
+                      "typeIdentifier": "t_struct$_Monster_$677_storage_ptr",
                       "typeString": "struct MonsterLib.Monster"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1212:24:3"
+              "src": "1253:24:3"
             },
             "returnParameters": {
-              "id": 783,
+              "id": 787,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 782,
+                  "id": 786,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 852,
-                  "src": "1259:4:3",
+                  "scope": 856,
+                  "src": "1300:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2711,10 +2712,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 781,
+                    "id": 785,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1259:4:3",
+                    "src": "1300:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2723,19 +2724,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1258:6:3"
+              "src": "1299:6:3"
             },
-            "scope": 876,
-            "src": "1184:598:3",
+            "scope": 880,
+            "src": "1225:598:3",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 874,
+              "id": 878,
               "nodeType": "Block",
-              "src": "1840:106:3",
+              "src": "1881:106:3",
               "statements": [
                 {
                   "expression": {
@@ -2746,25 +2747,25 @@
                             "arguments": [
                               {
                                 "expression": {
-                                  "id": 862,
+                                  "id": 866,
                                   "name": "block",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 4294967292,
-                                  "src": "1890:5:3",
+                                  "src": "1931:5:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_block",
                                     "typeString": "block"
                                   }
                                 },
-                                "id": 863,
+                                "id": 867,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "difficulty",
                                 "nodeType": "MemberAccess",
-                                "src": "1890:16:3",
+                                "src": "1931:16:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -2772,25 +2773,25 @@
                               },
                               {
                                 "expression": {
-                                  "id": 864,
+                                  "id": 868,
                                   "name": "block",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 4294967292,
-                                  "src": "1908:5:3",
+                                  "src": "1949:5:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_block",
                                     "typeString": "block"
                                   }
                                 },
-                                "id": 865,
+                                "id": 869,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "timestamp",
                                 "nodeType": "MemberAccess",
-                                "src": "1908:15:3",
+                                "src": "1949:15:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -2800,14 +2801,14 @@
                                 "arguments": [
                                   {
                                     "hexValue": "30",
-                                    "id": 868,
+                                    "id": 872,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
                                     "kind": "number",
                                     "lValueRequested": false,
                                     "nodeType": "Literal",
-                                    "src": "1933:1:3",
+                                    "src": "1974:1:3",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_rational_0_by_1",
                                       "typeString": "int_const 0"
@@ -2822,26 +2823,26 @@
                                       "typeString": "int_const 0"
                                     }
                                   ],
-                                  "id": 867,
+                                  "id": 871,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "lValueRequested": false,
                                   "nodeType": "ElementaryTypeNameExpression",
-                                  "src": "1925:7:3",
+                                  "src": "1966:7:3",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_type$_t_address_$",
                                     "typeString": "type(address)"
                                   },
                                   "typeName": {
-                                    "id": 866,
+                                    "id": 870,
                                     "name": "address",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "1925:7:3",
+                                    "src": "1966:7:3",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 869,
+                                "id": 873,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -2849,7 +2850,7 @@
                                 "lValueRequested": false,
                                 "names": [],
                                 "nodeType": "FunctionCall",
-                                "src": "1925:10:3",
+                                "src": "1966:10:3",
                                 "tryCall": false,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -2873,31 +2874,31 @@
                                 }
                               ],
                               "expression": {
-                                "id": 860,
+                                "id": 864,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 4294967295,
-                                "src": "1873:3:3",
+                                "src": "1914:3:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_abi",
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 861,
+                              "id": 865,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "memberName": "encodePacked",
                               "nodeType": "MemberAccess",
-                              "src": "1873:16:3",
+                              "src": "1914:16:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 870,
+                            "id": 874,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -2905,7 +2906,7 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1873:63:3",
+                            "src": "1914:63:3",
                             "tryCall": false,
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_memory_ptr",
@@ -2920,18 +2921,18 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 859,
+                          "id": 863,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967288,
-                          "src": "1863:9:3",
+                          "src": "1904:9:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 871,
+                        "id": 875,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2939,7 +2940,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1863:74:3",
+                        "src": "1904:74:3",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2954,26 +2955,26 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 858,
+                      "id": 862,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
                       "nodeType": "ElementaryTypeNameExpression",
-                      "src": "1858:4:3",
+                      "src": "1899:4:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_uint256_$",
                         "typeString": "type(uint256)"
                       },
                       "typeName": {
-                        "id": 857,
+                        "id": 861,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1858:4:3",
+                        "src": "1899:4:3",
                         "typeDescriptions": {}
                       }
                     },
-                    "id": 872,
+                    "id": 876,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2981,46 +2982,46 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1858:80:3",
+                    "src": "1899:80:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 856,
-                  "id": 873,
+                  "functionReturnParameters": 860,
+                  "id": 877,
                   "nodeType": "Return",
-                  "src": "1851:87:3"
+                  "src": "1892:87:3"
                 }
               ]
             },
-            "id": 875,
+            "id": 879,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_random",
-            "nameLocation": "1803:7:3",
+            "nameLocation": "1844:7:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 853,
+              "id": 857,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1810:2:3"
+              "src": "1851:2:3"
             },
             "returnParameters": {
-              "id": 856,
+              "id": 860,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 855,
+                  "id": 859,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 875,
-                  "src": "1835:4:3",
+                  "scope": 879,
+                  "src": "1876:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3028,10 +3029,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 854,
+                    "id": 858,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1835:4:3",
+                    "src": "1876:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3040,21 +3041,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1834:6:3"
+              "src": "1875:6:3"
             },
-            "scope": 876,
-            "src": "1794:152:3",
+            "scope": 880,
+            "src": "1835:152:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 877,
-        "src": "27:1924:3",
+        "scope": 881,
+        "src": "68:1924:3",
         "usedErrors": []
       }
     ],
-    "src": "0:1951:3"
+    "src": "41:1951:3"
   },
   "compiler": {
     "name": "solc",
@@ -3062,7 +3063,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-15T06:24:34.937Z",
+  "updatedAt": "2022-05-16T23:41:54.089Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
