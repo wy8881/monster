@@ -98,7 +98,7 @@ contract MonsterToken {
 
 
     function depositOf(address owner) public view returns (uint256){
-        require(owner == tx.origin);
+        require(owner == tx.origin,"only owner can see the deposit");
         require(owner != address(0), "deposit query for the zero address");
         return _deposit[owner];
     }
@@ -503,6 +503,14 @@ contract MonsterToken {
         MonsterLib.Monster memory _player = monsterById(_playerId);
         uint8 exp = _monsterBattle.battleWithDefaultMonster(_player.statc, _defaultId);
         _updateExp(_playerId, exp);
+    }
+
+    function withdraw() public {
+        if(_deposit[msg.sender] > 0){
+            uint amount = _deposit[msg.sender];
+            _deposit[msg.sender] = 0;
+            payable (msg.sender).transfer(amount);
+        }
     }
 
 
