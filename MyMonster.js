@@ -322,7 +322,7 @@ class MyMonster extends Component{
             </Row>
             <Row style={{marginBottom:'10px', marginTop:'10px'}} md={4}>
               <Col > 
-                Want to breed a new one? (this cost 10 eth)
+                Want to breed a new one? (this cost 2 eth)
               </Col>
               {this.state.monsters.length < 2
               
