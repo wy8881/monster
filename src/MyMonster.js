@@ -22,7 +22,9 @@ class MyMonster extends Component{
       amount:0,
       productId:0,
       price:0,
-      ownedMonsterLoading:true
+      ownedMonsterLoading:true,
+      parentChosen: 0,
+      parents:[null, null]
     }
   }
   async UNSAFE_componentWillMount(){
@@ -102,6 +104,24 @@ class MyMonster extends Component{
         if(this.getRPCErrorMessage(err) === "revert should have enough money"){
           window.alert( "Sorry, you dont have enough money for this. Please deposit money")
         }else window.alert("unexpected mistake")
+      }   
+    }
+  }
+
+  async getBreed(mumID, dadID){
+    try{
+      await this.state.monstertoken.methods.breed(mumID, dadID).send({from:this.state.account})
+      window.alert('You have get a new monster! Refresh to check')
+      window.location.reload()
+      
+    } catch(err) {
+      if (err) {
+        if(this.getRPCErrorMessage(err) === "revert should have enough money"){
+          window.alert( "Sorry, you dont have enough money for this. Please deposit money")
+        }else if(this.getRPCErrorMessage(err) === "TypeError: Cannot read properties of null (reading 'length')"){
+          window.alert( "Parents must be in the same races")
+        }
+        else window.alert(err + "lolololol")
       }   
     }
   }
@@ -194,13 +214,21 @@ class MyMonster extends Component{
     this.getInitial(event.target.value)
   }
 
-  handleChoosedProduct = (event) =>{
-    this.setState({productId:event.target.value})
-    this.handleShowForSell()
-  }
-
-  handleSetProduct = () =>{
-    this.setProduct(this.state.productId, this.state.price)
+  handleBreed = (event) =>{
+    let Dad = 0
+    let Mom = 1
+    if (this.state.parents[Dad] != null || this.state.parents[Mom] != null) {
+      if (this.state.parents[Dad] == this.state.parents[Mom]) {
+        alert('You have chosen same dad and mom!')
+        this.setState({parents : [null, null]})
+        this.setState({parentChosen: 0})
+      } else {
+        this.getBreed(this.state.parents[Dad], this.state.parents[Mom])
+      }
+    } else {
+      this.state.parents[this.state.parentChosen] = event.target.value
+      this.state.parentChosen += 1
+    } 
   }
 
   handleWithdraw = () =>{
@@ -290,6 +318,34 @@ class MyMonster extends Component{
               <Col md = {1}>  
                 <Button variant="outline-primary" value = "gargoyle" onClick={this.handleCreate}>Gargoyle</Button>
               </Col>
+            </Row>
+            <Row style={{marginBottom:'10px', marginTop:'10px'}} md={4}>
+              <Col > 
+                Want to breed a new one? (this cost 10 eth)
+              </Col>
+              {this.state.monsters.length < 2
+              
+                ?<div className = "d-flex justify-content-center">
+                  <p>You do not have enough monsters.</p>
+                </div>
+                
+                :<div>{this.state.monsters.map((content) =>(
+                
+                <a key = {content.Id} className="list-group-item list-group-item-action flex-column align-self-center">
+                    <div className="d-flex w-200 justify-content-between">
+                      <img src = {content.img} width="100" height="100"/>
+                    </div>
+                      <div className = "d-flex justify-content-between">
+                        <p>id: {content.Id}</p>
+                        
+                      </div>
+                      <div className = "d-flex justify-content-center">
+                        <Button variant='outline-primary' value = {content.Id} onClick = {this.handleBreed}>Choose</Button>
+                      </div>
+                  </a>
+              )
+                )}</div>
+              }
             </Row>
             <Row style={{marginBottom:'10px', marginTop:'10px'}} md={4}> 
               <Col> 
