@@ -155,6 +155,18 @@ class MyMonster extends Component{
     }
   }
 
+  async deleteProduct(id){
+    try{
+      await this.state.monstermarket.methods.deleteProduct(id).send({from:this.state.account})
+      window.alert('Now this product is not on sale')
+      window.location.reload()
+    }catch(err){
+      if(err){
+        window.alert("unexpected mistake")
+      }
+    }
+  }
+
   async withdraw(){
     try{
       await this.state.monstertoken.methods.withdraw().send({from:this.state.account})
@@ -323,6 +335,10 @@ class MyMonster extends Component{
     }
     
   }
+
+  handleDeleteProduct = (event) =>{
+    this.deleteProduct(event.target.value)
+  }
   
   handleBattleWithPlayer = (event) =>{
     this.battleWithPlayer(this.state.player1Id,event.target.value)
@@ -380,7 +396,7 @@ class MyMonster extends Component{
                           {
                             content.islock
                             ?<div className = "d-flex justify-content-center">
-                              <Button variant='outline-primary' value = {content.Id}>Get back from market</Button>
+                              <Button variant='outline-primary' value = {content.Id} onClick = {this.handleDeleteProduct}>Get back from market</Button>
                             </div>
                             :
                           <div className = "d-flex justify-content-between">
