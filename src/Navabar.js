@@ -23,9 +23,6 @@ class Navabar extends Component{
           <li>
             <Link to = "/market">Market</Link>
           </li>
-          <li>
-            <Link to = "/battle">Battle</Link>
-          </li>
         </ul>
         
       </nav>

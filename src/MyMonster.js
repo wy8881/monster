@@ -7,6 +7,7 @@ import {Container,Row, Col, Button, Modal , Form, ListGroup} from 'react-bootstr
 const dragonPicture = new URL("../public/images/race/dragon.png", import.meta.url)
 const ghostPicture = new URL("../public/images/race/ghost.png", import.meta.url)
 const gargoylePicture = new URL("../public/images/race/gargoyle.png", import.meta.url)
+const defaultPicture = new URL("../public/images/race/evil-bat.png", import.meta.url)
 
 class MyMonster extends Component{    
   constructor(props){
@@ -22,7 +23,15 @@ class MyMonster extends Component{
       amount:0,
       productId:0,
       price:0,
-      ownedMonsterLoading:true
+      ownedMonsterLoading:true,
+      componentLoading:true,
+      showForComponent:false,
+      showForBattleChoice:false,
+      player1Id:0,
+      showForComponent:false,
+      showForDefault:false,
+      component:[],
+      defaultMonster:[{Id:1,level:1,HP:10,strength:4,defensive:4,speed:4,img:defaultPicture},{Id:2,level:5,HP:16,strength:6,defensive:6,speed:6,img:defaultPicture},{Id:2,level:10,HP:24,strength:14,defensive:14,speed:14,img:defaultPicture}]
     }
   }
   async UNSAFE_componentWillMount(){
@@ -33,7 +42,6 @@ class MyMonster extends Component{
   async loadWeb3(){
     if(window.ethereum){
       window.web3 = new Web3(window.ethereum)
-      const account = await window.ethereum.request({ method: 'eth_requestAccounts' });
     }
     else if (window.web3){
       window.web3 = new Web3(window.web3.currentProvider)
@@ -55,7 +63,6 @@ class MyMonster extends Component{
       this.setState({monstertoken})
       const deposit = await monstertoken.methods.depositOf(this.state.account).call({from: this.state.account})
       const ownedMonsters = await monstertoken.methods.getOwnedMonster().call({from:this.state.account})
-      // this.setState({tokenAccount:ownedMonsters.length})
       this.setState({balance:window.web3.utils.fromWei(deposit,'ether')})
       var monsters = new Array(ownedMonsters.length)
       for(var i=1; i <= ownedMonsters.length; i++ ){
@@ -69,7 +76,7 @@ class MyMonster extends Component{
                       ,defensive:ownedMonsters[i-1][3][2]
                       ,speed:ownedMonsters[i-1][3][3]
                       ,level:ownedMonsters[i-1][5]
-                      ,exp:ownedMonsters[i-1][6]
+                      ,exp:ownedMonsters[i-1][5]*10 -ownedMonsters[i-1][6]
                       ,img:image
                       ,islock:ownedMonsters[i-1][8]}
           monsters[i-1] = monster
@@ -83,7 +90,6 @@ class MyMonster extends Component{
     }
     if(marketNetwork){
       const monstermarket = new web3.eth.Contract(MonsterMarket.abi,marketNetwork.address)
-      console.log(monstermarket)
       this.setState({monstermarket})
     }else{
       window.alert('MonsterMarket contract not deployed to be deteced')
@@ -138,7 +144,8 @@ class MyMonster extends Component{
 
   async setProduct(id, price){
     try{
-      await this.state.monstermarket.methods.setProduct(id, price).send({from:this.state.account})
+      var eth_price = window.web3.utils.toWei(price,'ether');
+      await this.state.monstermarket.methods.setProduct(id, eth_price).send({from:this.state.account})
       window.alert('This monster has been set as product successfully! Refresh to check')
       window.location.reload()
     }catch(err){
@@ -155,7 +162,79 @@ class MyMonster extends Component{
       window.location.reload()
     }catch(err){
       if(err){
-        console.log(err)
+        window.alert("unexpected mistake")
+      }
+    }
+  }
+
+  async getComponent(){
+    try{
+      var components = await this.state.monstertoken.methods.pickCompetitionRandomly().call({from:this.state.account})
+      var componentArray = new Array(components.length)
+      for(var i=1; i <= components.length; i++ ){
+        var image = this.setImg(components[i-1][2])
+        var component = {
+                      Id:components[i-1][0]
+                      ,level:components[i-1][1]
+                      ,HP:components[i-1][3][0]
+                      ,strenght:components[i-1][3][1]
+                      ,defensive:components[i-1][3][2]
+                      ,speed:components[i-1][3][3]
+                      ,img: image
+                    }
+          componentArray[i-1] = component
+      }
+      componentArray.sort((a,b) => a.Id - b.Id)
+      this.setState({component:componentArray})
+      this.setState({componentLoading:false})
+    }catch(err){
+      if(err){
+        window.alert('Unexpected mistake')
+        this.setState({showForComponent:false})
+      }
+    }
+  }
+
+  async battleWithPlayer(player1Id, player2Id){
+    try{
+      
+      this.state.monstertoken.events.allEvents()
+      .on('data',(event)=>{
+        if(event.returnValues[0] == player1Id && event.returnValues[1]){
+          window.alert("you win!")
+          window.location.reload()
+        }else if(event.returnValues[0] == player1Id){
+          window.alert("you lose!")
+          window.location.reload()
+        }
+        
+      })
+      await this.state.monstertoken.methods.battleWithPlayer(player1Id,player2Id).send({from:this.state.account})
+    }catch(err){
+      if(err){
+        window.alert('Unexpected mistake!')
+      }
+    }
+  }
+
+  async battleWithDefault(player1Id, defaultId){
+    try{      
+      this.state.monstertoken.events.allEvents()
+      .on('data',(event)=>{
+        if(event.returnValues[0] == player1Id && event.returnValues[1]){
+          window.alert("you win!")
+          window.location.reload()
+        }else if(event.returnValues[0] == player1Id){
+          window.alert("you lose!")
+          window.location.reload()
+        }
+      })
+      .on('error',console.error)
+      await this.state.monstertoken.methods.battleWithDefault(player1Id,defaultId).send({from:this.state.account})
+
+    }catch(err){
+      if(err){
+        window.alert(err)
       }
     }
   }
@@ -174,6 +253,31 @@ class MyMonster extends Component{
 
   handleCloseForSell = () =>{
     this.setState({showForSell:false})
+  }
+
+  handleCloseForBattleChoose = () =>{
+    this.setState({showForBattleChoice:false})
+  }
+
+  handleShowForComponent = () =>{
+    this.getComponent()
+    this.setState({showForBattleChoice:false})
+    this.setState({showForComponent:true})
+  }
+
+  handleCloseForComponent = () =>{
+    this.setState({component:[]})
+    this.setState({componentLoading:true})
+    this.setState({showForComponent:false})
+  }
+
+  handleShowForDefault = () =>{
+    this.setState({showForBattleChoice: false})
+    this.setState({showForDefault:true})
+  }
+
+  handleCloseForDefault= () =>{
+    this.setState({showForDefault:false})
   }
 
   handleETHChange = (event) =>{
@@ -199,6 +303,11 @@ class MyMonster extends Component{
     this.handleShowForSell()
   }
 
+  handlePlayer1Change = (event) =>{
+    this.setState({player1Id:event.target.value})
+    this.setState({showForBattleChoice:true})
+  }
+
   handleSetProduct = () =>{
     this.setProduct(this.state.productId, this.state.price)
   }
@@ -213,6 +322,14 @@ class MyMonster extends Component{
       this.deleteMonster(event.target.value)
     }
     
+  }
+  
+  handleBattleWithPlayer = (event) =>{
+    this.battleWithPlayer(this.state.player1Id,event.target.value)
+  }
+
+  handleBattleWithDefault = (event) =>{
+    this.battleWithDefault(this.state.player1Id,event.target.value)
   }
 
   getRPCErrorMessage(err){
@@ -239,39 +356,42 @@ class MyMonster extends Component{
                 ?<p>Loading the list of your owned monsters...</p>
                 : 
                 <div style={{marginTop:"20px",marginBottom:'10px'}} className = "d-flex flex-wrap">
-                {this.state.monsters.map((content) =>(
-                  <a key = {content.Id} className="list-group-item list-group-item-action flex-column align-self-center">
-                      <div className="d-flex w-200 justify-content-between">
-                        <img src = {content.img} width="100" height="100"/>
-                        <small>level {content.level}</small>
-                      </div>
-                        <div className = "d-flex justify-content-between">
-                          <p>id: {content.Id}</p>
-                          <p>mum id: {content.mumId}</p>
-                          <p>dad id: {content.dadId}</p>
-                          
+                  {this.state.monsters.map((content) =>(
+                    <a key = {content.Id} className="list-group-item list-group-item-action flex-column align-self-center">
+                        <div className="d-flex w-200 justify-content-between">
+                          <img src = {content.img} width="100" height="100"/>
+                          <small>level {content.level}</small>
                         </div>
-                        <div className = "d-flex justify-content-between">
-                        <p>HP: {content.HP}</p>
-                          <p>strength: {content.strength}</p>
-                          <p>defensive: {content.defensive}</p>
-                          <p>speed: {content.speed}</p>
-                        </div>
-                        {
-                          content.islock
-                          ?<div className = "d-flex justify-content-center">
-                            <Button variant='outline-primary' value = {content.Id}>Get back from market</Button>
-                          </div>
-                          :
-                        <div className = "d-flex justify-content-between">
-                            <Button variant='outline-primary' value = {content.Id} onClick = {this.handleChoosedProduct}>Sell</Button>
-                            <Button variant='outline-primary' value = {content.Id}>Battle with</Button>
-                            <Button variant='outline-primary' value = {content.Id} onClick={this.handleDelete}>Delete</Button>
+                          <div className = "d-flex justify-content-between">
+                            <p>id: {content.Id}</p>
+                            <p>mum id: {content.mumId}</p>
+                            <p>dad id: {content.dadId}</p>
                             
-                        </div>
-                      }
-                    </a>
-                ))}
+                          </div>
+                          <div className = "d-flex justify-content-between">
+                          <p>HP: {content.HP}</p>
+                            <p>strength: {content.strength}</p>
+                            <p>defensive: {content.defensive}</p>
+                            <p>speed: {content.speed}</p>
+                          </div>
+                          <div>
+                            <p>Exp:{content.exp}/{content.level}0</p>
+                          </div>
+                          {
+                            content.islock
+                            ?<div className = "d-flex justify-content-center">
+                              <Button variant='outline-primary' value = {content.Id}>Get back from market</Button>
+                            </div>
+                            :
+                          <div className = "d-flex justify-content-between">
+                              <Button variant='outline-primary' value = {content.Id} onClick = {this.handleChoosedProduct}>Sell</Button>
+                              <Button variant='outline-primary' value = {content.Id} onClick = {this.handlePlayer1Change}>Battle with</Button>
+                              <Button variant='outline-primary' value = {content.Id} onClick={this.handleDelete}>Delete</Button>
+                              
+                          </div>
+                        }
+                      </a>
+                  ))}
                   <p>you owned {this.state.tokenAccount} monster</p>
                 </div>
               }
@@ -351,6 +471,94 @@ class MyMonster extends Component{
                     Send
                 </Button>
               </Modal.Footer>
+            </Modal>
+
+            <Modal show = {this.state.showForBattleChoice} onHide = {this.handleCloseForBattleChoose}>
+              <Modal.Body>
+                <div className = "d-flex w-200 justify-content-between">
+                  <Button onClick = {this.handleShowForComponent}>Battle with Player</Button>
+                  <Button onClick = {this.handleShowForDefault}>Battle with Default Monster</Button>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleCloseForBattleChoose}>
+                    Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+
+            <Modal show = {this.state.showForComponent} onHide = {this.handleCloseForComponent}>
+              <Modal.Body>
+                <div>
+                  {
+                    this.state.componentLoading
+                    ? <p>Loading...</p>
+                    :<>
+                    {
+                    this.state.component.length == 0
+                    ? <p>No available component, your monsters cannot be your component</p>
+                    :
+                    <div style={{marginTop:"20px",marginBottom:'10px'}} className = "d-flex flex-wrap">
+                      {this.state.component.map((content) =>(
+                        <a key = {content.Id} className="list-group-item list-group-item-action flex-column align-self-center">
+                            <div className="d-flex w-200 justify-content-between">
+                              <img src = {content.img} width="100" height="100"/>
+                              <small>level {content.level}</small>
+                            </div>
+                              <div className = "d-flex justify-content-between">
+                                <p>id: {content.Id}</p>
+                                
+                              </div>
+                              <div className = "d-flex justify-content-between">
+                                <p>HP: {content.HP}</p>
+                                <p>strength: {content.strength}</p>
+                                <p>defensive: {content.defensive}</p>
+                                <p>speed: {content.speed}</p>
+                              </div>
+                              <div className = "d-flex justify-content-center">
+                                <Button value = {content.Id} variant="outline-primary" onClick={this.handleBattleWithPlayer}>Choose</Button>
+                              </div>
+                          </a>
+                      ))}
+                    </div> 
+                    }
+                  </>
+                  }
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleCloseForComponent}>
+                    Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+
+            <Modal show = {this.state.showForDefault} onHide = {this.handleCloseForDefault}>
+              <Modal.Body>
+                <div style={{marginTop:"20px",marginBottom:'10px'}} className = "d-flex flex-wrap">
+                  {this.state.defaultMonster.map((content) =>(
+                    <a key = {content.Id} className="list-group-item list-group-item-action flex-column align-self-center">
+                        <div className="d-flex w-200 justify-content-between">
+                          <img src = {content.img} width="100" height="100"/>
+                          <small>level {content.level}</small>
+                        </div>
+                          <div className = "d-flex justify-content-between">
+                            <p>id: {content.Id}</p>
+                            
+                          </div>
+                          <div className = "d-flex justify-content-between">
+                            <p>HP: {content.HP}</p>
+                            <p>strength: {content.strength}</p>
+                            <p>defensive: {content.defensive}</p>
+                            <p>speed: {content.speed}</p>
+                          </div>
+                          <div className = "d-flex justify-content-center">
+                            <Button value = {content.Id} variant="outline-primary" onClick={this.handleBattleWithDefault}>Choose</Button>
+                          </div>
+                      </a>
+                  ))}
+                </div>
+              </Modal.Body>
             </Modal>
           </Container>
         }  

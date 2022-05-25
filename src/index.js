@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter , Routes, Route} from 'react-router-dom'
 import App from './App';
 import Market from './Market';
-import Battle from './Battle';
 import MyMonster from './MyMonster';
 
 
@@ -18,7 +17,6 @@ export default function Index() {
             <Route index element={<App />} />
             <Route path = "mymonster" element = {<MyMonster/>}/>
             <Route path="market" element={<Market />} />
-            <Route path = "battle" element = {<Battle/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

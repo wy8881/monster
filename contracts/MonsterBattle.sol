@@ -22,9 +22,9 @@ contract MonsterBattle{
 
     constructor() {
         _defaultMonsters.push(DefaultMonster(1,1,1,1,10));
-        _defaultMonsters.push(DefaultMonster(11,5,5,5,1));
-        _defaultMonsters.push(DefaultMonster(17,7,7,7,5));
-        _defaultMonsters.push(DefaultMonster(25,15,15,15,10));
+        _defaultMonsters.push(DefaultMonster(10,4,4,4,1));
+        _defaultMonsters.push(DefaultMonster(16,6,6,6,5));
+        _defaultMonsters.push(DefaultMonster(24,14,14,14,10));
     }
 
     function battleWithPlayer(MonsterLib.Statistics memory _player1, MonsterLib.Statistics  memory _player2, uint8 _componentLevel) public  returns(uint8 exp){

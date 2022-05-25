@@ -17,13 +17,13 @@ contract MonsterToken {
     using Address for address;
     using Strings for uint256;
 
-    event LevelUp(MonsterLib.Statistics, MonsterLib.Statistics);
     event TransferMoney(address, address, uint);
     event LockMonster(uint, bool);
     event MonsterInMarket(uint);
     event DifferentRace(MonsterLib.Race, MonsterLib.Race);
     event Transfer(address, address, uint256);
     event ReadyToCreate(address);
+    event Win(uint,bool);
 
     struct Competitor{
         uint256 tokenId;
@@ -74,6 +74,8 @@ contract MonsterToken {
 
     uint256 private createFee;
 
+    bool HasBattle;
+
     MonsterLib.IndividualValue initialIV = MonsterLib.IndividualValue(5,5,5,5);
 
     constructor(address _monsterFactoryAddress, address _monsterBattleAddress) {
@@ -82,7 +84,7 @@ contract MonsterToken {
         isPushing = false;
         _setContract(_monsterFactoryAddress, _monsterBattleAddress);
         createFee = 2 ether;
-
+        HasBattle = false;
     }
 
     function _setContract(address _monsterFactoryAddress, address _monsterBattleAddress) internal {
@@ -332,9 +334,8 @@ contract MonsterToken {
             if(monster.level < 10){
                 monster.level += 1;
                 monster.expNeedToNext = monster.level * 10 - (exp -  monster.expNeedToNext);
-                MonsterLib.Statistics memory _oldStatc = monster.statc;
                 MonsterLib.Statistics memory _newStatc = MonsterLib._calculateStatc(monster.iv, monster.level);
-                emit LevelUp(_oldStatc, _newStatc);
+                monster.statc = _newStatc;
             }
         }
 
@@ -489,20 +490,27 @@ contract MonsterToken {
 
     }
 
-    function battleWithPlayer(uint _player1Id, uint _player2Id) public {
+    function battleWithPlayer(uint _player1Id, uint _player2Id) public{
         require(ownerOf(_player1Id) == msg.sender, "only owner can start a fight");
         require(ownerOf(_player1Id) != ownerOf(_player2Id), "two players should have different owners");
         MonsterLib.Monster memory _player1 = monsterById(_player1Id);
         MonsterLib.Monster memory _player2 = monsterById(_player2Id);
         uint8 exp = _monsterBattle.battleWithPlayer(_player1.statc, _player2.statc, _player2.level);
         _updateExp(_player1Id, exp);
+        if(exp>0) emit Win(_player1Id,true);
+        else emit Win(_player1Id,false);
     }
 
     function battleWithDefault(uint _playerId, uint _defaultId) public{
         require(ownerOf(_playerId) == msg.sender, "only owner can start a fight");
-        MonsterLib.Monster memory _player = monsterById(_playerId);
-        uint8 exp = _monsterBattle.battleWithDefaultMonster(_player.statc, _defaultId);
-        _updateExp(_playerId, exp);
+        uint256 _tokenIndex = _allTokensIndex[_playerId];
+
+        MonsterLib.Monster memory monster = _allMonsters[_tokenIndex];
+        uint8 exp = _monsterBattle.battleWithDefaultMonster(monster.statc, _defaultId);
+        _updateExp(_playerId, exp);    
+        if(exp>0) emit Win(_playerId,true);
+        else emit Win(_playerId,false);      
+
     }
 
     function withdraw() public {
