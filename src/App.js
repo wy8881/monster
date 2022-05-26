@@ -47,7 +47,7 @@ class App extends Component {
           Hello,{this.state.account}
         </Row>
           <div style={{display: 'flex', justifyContent: 'center', height:'100vh', marginTop:'300px',fontSize:'60px'}}>
-            Welcome to Monster Game
+            Welcome to Monster Master
           </div>
        
       </Container>
