@@ -31,7 +31,10 @@ class MyMonster extends Component{
       showForComponent:false,
       showForDefault:false,
       component:[],
-      defaultMonster:[{Id:1,level:1,HP:10,strength:4,defensive:4,speed:4,img:defaultPicture},{Id:2,level:5,HP:16,strength:6,defensive:6,speed:6,img:defaultPicture},{Id:2,level:10,HP:24,strength:14,defensive:14,speed:14,img:defaultPicture}]
+      defaultMonster:[{Id:1,level:1,HP:10,strength:4,defensive:4,speed:4,img:defaultPicture},{Id:2,level:5,HP:16,strength:6,defensive:6,speed:6,img:defaultPicture},{Id:2,level:10,HP:24,strength:14,defensive:14,speed:14,img:defaultPicture}],
+      breedings:[],
+      dadId:0,
+      mumId:0
     }
   }
   async UNSAFE_componentWillMount(){
@@ -65,6 +68,7 @@ class MyMonster extends Component{
       const ownedMonsters = await monstertoken.methods.getOwnedMonster().call({from:this.state.account})
       this.setState({balance:window.web3.utils.fromWei(deposit,'ether')})
       var monsters = new Array(ownedMonsters.length)
+      var breedings = []
       for(var i=1; i <= ownedMonsters.length; i++ ){
         var image = this.setImg(ownedMonsters[i-1][7])
         var monster = {
@@ -79,9 +83,23 @@ class MyMonster extends Component{
                       ,exp:ownedMonsters[i-1][5]*10 -ownedMonsters[i-1][6]
                       ,img:image
                       ,islock:ownedMonsters[i-1][8]}
+        if(!ownedMonsters[i-1][8]){
+          var race = this.setRace(ownedMonsters[i-1][7])
+          var breeding = {
+                      Id:ownedMonsters[i-1][0]
+                      ,HP:ownedMonsters[i-1][4][0]
+                      ,strength:ownedMonsters[i-1][4][1]
+                      ,defensive:ownedMonsters[i-1][4][2]
+                      ,speed:ownedMonsters[i-1][4][3]
+                      ,race:race}
+          breedings.push(breeding)
+        }
+        
           monsters[i-1] = monster
       }
       monsters.sort((a,b) => a.Id - b.Id)
+      breedings.sort((a,b) => a.race.length - b.race.length)
+      this.setState({breedings:breedings})
       this.setState({monsters:monsters})
       this.setState({tokenAccount:monsters.length})
       this.setState({ownedMonsterLoading:false})
@@ -127,6 +145,14 @@ class MyMonster extends Component{
       case '0': return dragonPicture;
       case '1': return ghostPicture;
       case '2': return gargoylePicture;
+    }
+  }
+
+  setRace = (race) =>{
+    switch(race){
+      case '0': return 'Dragon';
+      case '1': return 'Ghost';
+      case '2': return 'Gargoyle';
     }
   }
 
@@ -189,7 +215,7 @@ class MyMonster extends Component{
                       Id:components[i-1][0]
                       ,level:components[i-1][1]
                       ,HP:components[i-1][3][0]
-                      ,strenght:components[i-1][3][1]
+                      ,strength:components[i-1][3][1]
                       ,defensive:components[i-1][3][2]
                       ,speed:components[i-1][3][3]
                       ,img: image
@@ -247,6 +273,25 @@ class MyMonster extends Component{
     }catch(err){
       if(err){
         window.alert(err)
+      }
+    }
+  }
+
+  async getBreed(mumID, dadID){
+    try{
+      await this.state.monstertoken.methods.breed(mumID, dadID).send({from:this.state.account})
+      window.alert('You have get a new monster! Refresh to check')
+      window.location.reload()
+      
+    } catch(err) {
+      if (err) {
+        if(this.getRPCErrorMessage(err) === "revert should have enough money"){
+          window.alert( "Sorry, you dont have enough money for this. Please deposit money")
+
+        }else if(this.getRPCErrorMessage(err) === "revert should have the same race"){
+          window.alert( "Parents must be in the same races")
+        }
+        else window.alert(err)
       }
     }
   }
@@ -348,6 +393,28 @@ class MyMonster extends Component{
     this.battleWithDefault(this.state.player1Id,event.target.value)
   }
 
+  handleDadChange = (event) =>{
+    this.setState({dadId:event.target.value})
+    
+  }
+
+  handleMumChange = (event) =>{
+    this.setState({mumId:event.target.value})
+  }
+
+  handleSendBreeding = () =>{
+    if(this.state.dadId != 0 && this.state.mumId != 0){
+      if (this.state.dadId == this.state.mumId) {
+        window.alert('You have chosen same dad and mom!')
+        window.location.reload()
+    }else{
+      this.getBreed(this.state.dadId, this.state.mumId)
+    }
+  }else{
+    window.alert("You should choose two parents")
+  }
+}
+
   getRPCErrorMessage(err){
     var middle =  err.stack.substring(178, err.message.length - 2)
     var index = middle.indexOf('\\')
@@ -427,7 +494,78 @@ class MyMonster extends Component{
                 <Button variant="outline-primary" value = "gargoyle" onClick={this.handleCreate}>Gargoyle</Button>
               </Col>
             </Row>
-            <Row style={{marginBottom:'10px', marginTop:'10px'}} md={4}> 
+            <Row style={{marginBottom:'10px', marginTop:'10px'}} md={4}>
+              <p>Want to breed a new one? (this cost 2 eth)</p>
+            </Row>
+            {
+                this.state.breedings.length < 2
+                ?<Row  style={{marginBottom:'10px', marginTop:'10px'}}><p>You should have at least 2 monsters for breeding</p></Row>
+                :
+                <>
+                <Row>
+                  <p>Notice</p>
+
+                </Row>
+                <Row>
+                  <li>
+                    You should choose two parent with the same race
+                  </li>
+                  <li>
+                    The attribute HP, Strength, Defensive and Speed are inidividual value instead of actual ability point. Individual value can affect their actual ability when they level up. 
+
+                  </li>
+                  <li>
+                    When breeding, the child will inherit 3 inidividual values from their parents, and get the value of the last randomly. Individual value cannot be changed after they born.
+                  </li>
+                </Row>
+                <Container>
+                  
+
+                  <Row style={{marginBottom:'10px', marginTop:'10px'}}>
+                    <Form.Select onChange = {this.handleDadChange}  >
+                      <option value = {0}>Choose Dad</option>
+                      {this.state.breedings.map((content) =>{
+                        return(
+                          <option key = {content.Id} value = {content.Id}>
+                            Id:{content.Id}||
+                            Race:{content.race}||
+                            HP:{content.HP}||
+                            Strength:{content.strength}||
+                            Defensive:{content.defensive}||
+                            Speed:{content.speed}
+                          </option>
+                        )
+                      })}
+                    </Form.Select>
+
+
+                  </Row>
+                  <Row>
+                    <Form.Select  onChange = {this.handleMumChange}  >
+                      <option value = {0}>Choose Mum</option>
+                      {this.state.breedings.map((content) =>{
+                        return(
+                          <option key = {content.Id} value = {content.Id}>
+                            Id:{content.Id}||
+                            Race:{content.race}||
+                            HP:{content.HP}||
+                            Strength:{content.strength}||
+                            Defensive:{content.defensive}||
+                            Speed:{content.speed}
+                          </option>
+                        )
+                      })}
+                    </Form.Select>
+                  </Row>                  
+                  <div className = "d-flex justify-content-center">
+                    <Button variant='outline-primary' onClick = {this.handleSendBreeding}>Submit</Button>
+                  </div>
+                </Container>
+                </>
+              }
+            
+
+            <Row style={{marginBottom:'10px', marginTop:'60px'}} md={4}> 
               <Col> 
                 balance: {this.state.balance} ETH
               </Col>
